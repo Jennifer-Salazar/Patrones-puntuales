@@ -187,5 +187,12 @@ Data Metro Medellin. Url: https://datosabiertosmetrodemedellin.opendata.arcgis.c
 <hr>
 
 
+```{r}
+# Lectura del shape de la región de interés:
+region <- st_read("Area-Metropolitana.shp")
+plot(region)
+```
+
+
 
 
