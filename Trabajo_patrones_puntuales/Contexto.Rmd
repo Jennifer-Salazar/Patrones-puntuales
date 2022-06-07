@@ -1,35 +1,77 @@
 ---
 title: "Contextualización base de datos de patrones puntuales"
 author: "Jennifer Salazar"
-date: "4/6/2022"
-output: html_document
+date: ""
+output:
+  rmdformats::robobook
 ---
 
 ```{r setup, include=FALSE}
-knitr::opts_chunk$set(echo = TRUE)
+knitr::opts_chunk$set(echo = TRUE, message=FALSE, warning=FALSE)
+```
+
+
+```{r}
+# Medatados
+library(readxl)
+library(kableExtra)
+library(spatstat)
+library(rgeos)
+library(sf)
+library(rgdal)
 ```
 
 
 ## Contextualización de los datos
 
+Conjunto de datos extraido de **Datos Abiertos - Metro de Medellín**: https://datosabiertos-metrodemedellin.opendata.arcgis.com/datasets/da53473c05de48e6af9e2ea6c95e7e06_0/about
+
+Datos asociados a la subárea de la estadística espacial llamada patrones puntuales, que contiene información relacionada con la ubicación de los establecimientos que prestan el servicio de recarga de la tarjeta Cívica utilizada para acceder a los distintos modos de transporte del SITVA (Sistema Integrado de Transporte del Valle de Aburrá).
+
+Se centra en los sitios por fuera de las estaciones, distribuidos en todo el Valle de Aburrá que componen la oferta que el Metro de Medellín pone a disposición de sus viajeros para que cada vez tengan más alternativas y comodidad a la hora de recargar la tarjeta Cívica.
+
+La Metodología del levantamiento de los datos es mediante la digitalización a partir de imagen Satelital.
+
+El sistema de referencia espacial es WGS 1984 Web Mercator (auxiliary sphere).
+
+
+**¿Qué es la tarjeta cívica?**
+
+En 2007 la Empresa de Transporte Masivo del Valle de Aburrá Limitada comenzó la implementación de Cívica para el recaudo e ingreso al Sistema METRO, por sus beneficios económicos, operativos y ambientales frente al tiquete de papel.
+
+
+Esta Tarjeta Inteligente Sin Contacto (TISC), permite almacenar dinero para pagar tus desplazamientos en el METRO, los Cables, los Buses de las Líneas 1 y 2, las rutas Alimentadores de las cuencas 3, 6 y 7, y en el tranvía de Ayacucho.  Actualmente se trabaja para que poder utilizarla en las rutas integradas al Sistema.
+
 
 ## Variable de estudio
+
+Localizaciones de los puntos de recarga de la tarjeta cívica del metro.
 
 
 ## Contextualización de las variables
 
+* Metadatos
+
+```{r}
+Metadato <- read_excel("Metadato.xlsx")
+kable(Metadato)  %>%
+  kable_paper("hover", full_width = F)
+```
+
+
 
 ## Pregunta de investigación
 
+¿Cuales son los puntos/zonas/localizaciones más probables o menos probables para tener un establecimiento que realice recargas de la tarjeta cívica de manera que sean estratégicos como las localizaciones existentes para la empresa Metro?
 
 ### Visualización del conjunto de datos
 
 ```{r}
-civica <- read.csv("Puntos_de_Recarga_C%C3%ADvica.csv", 
+civica <- read.csv("Puntos_de_Recarga.csv", 
                      header = T, sep=",", 
                      dec = ".")
 
-library(kableExtra)
+
 kable(head(civica)) %>%
   kable_paper("hover", full_width = F)
 ```
@@ -51,25 +93,98 @@ civica_loc <- leaflet(data=civica) %>%
 civica_loc
 ```
 
-* Shape file
+<br>
+
+### Conjunto de datos en formato Shape file
+
 
 
 ```{r}
-library(rgeos)
-library(sf)
 ## read in the data
 shape_civica <- st_read("Puntos_de_Recarga_C%C3%ADvica.shp")
-
-
-plot(shape_civica)
 ```
 
 
 
+* Gráfico de colores de las localizaciones de puntos de recarga discrimado por variables
+
+```{r}
+plot(shape_civica)
+
+# Clase de objeto shape
+class(shape_civica)
 
 
+```
 
 
+<br>
+
+### Conversión de longitud-latitud a UTM (metros)
+
+```{r, warning=FALSE, message=FALSE}
+
+# Latitud - Longitud
+data_long_lat <- as.matrix(data.frame(x=shape_civica$longitud,
+                              y=shape_civica$latitud))
+head(data_long_lat)
+
+# Datos en metros (UTM)
+data_UTM <- project(data_long_lat ,"+proj=utm +zone=18N +ellps=WGS84")
+head(data_UTM)
+
+```
+
+<br>
+
+### Creación del objeto ppp de las localizaciones de los puntos de recarga de la tarjeta cívica
+
+
+```{r}
+# win <- as(as(borde, 'Spatial'), 'owin')
+# win
+
+xrange <- c(min(data_UTM[,1]), max(data_UTM[,1]))
+yrange <- c(min(data_UTM[,2]), max(data_UTM[,2]))
+
+ppp.locations <- ppp(x = data_UTM[,1],
+                     y = data_UTM[,2],
+                     xrange, yrange)
+
+```
+
+
+### Intensidad
+
+La intensidad es la densidad promedio de puntos o en otras palabras, el número esperado de puntos por unidad de área. La intensidad puede ser constante (uniforme) o puede variar de un lugar a otro (no uniforme o inhomogéneo).
+
+Un enfoque para evaluar la intensidad es dividir el área de estudio en cuadrantes y contar el número de puntos que caen en cada cuadrante. Si los puntos tienen una intensidad uniforme y son completamente aleatorios, entonces los recuentos de cuadrantes deben ser números aleatorios de Poisson con media constante. Podemos probar esa hipótesis usando el estadístico de prueba de bondad de ajuste $χ^2$
+
+```{r}
+qc.loc <- quadratcount(ppp.locations, nx=5, ny=5)
+plot(ppp.locations, pch=3, cex=0.6)
+plot(qc.loc, add=T, textargs = list(col='red'))
+```
+
+
+### Test de homógeneidad o intensidad constante.
+
+```{r}
+quadrat.test(qc.loc)
+```
+
+El valor p muy bajo indica que la intensidad no es constante. 
+
+
+<br>
+
+### Referencias:
+
+* Puntos de recaraga tarjeta Cívica. Fuente: Open
+Data Metro Medellin. Url: https://datosabiertosmetrodemedellin.opendata.arcgis.com/
+
+
+<hr>
 
 
 
