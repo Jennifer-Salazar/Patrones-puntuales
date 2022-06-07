@@ -1,0 +1,8 @@
+"0","library(leaflet)"
+"0","civica_loc <- leaflet(data=civica) %>% "
+"0","  "
+"0","  addTiles() %>%  "
+"0","  "
+"0","  addCircleMarkers(lat=~latitud,lng=~longitud,color=""green"",radius=2)"
+"0",""
+"0","civica_loc"

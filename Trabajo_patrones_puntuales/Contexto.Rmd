@@ -1,0 +1,76 @@
+---
+title: "Contextualización base de datos de patrones puntuales"
+author: "Jennifer Salazar"
+date: "4/6/2022"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+
+## Contextualización de los datos
+
+
+## Variable de estudio
+
+
+## Contextualización de las variables
+
+
+## Pregunta de investigación
+
+
+### Visualización del conjunto de datos
+
+```{r}
+civica <- read.csv("Puntos_de_Recarga_C%C3%ADvica.csv", 
+                     header = T, sep=",", 
+                     dec = ".")
+
+library(kableExtra)
+kable(head(civica)) %>%
+  kable_paper("hover", full_width = F)
+```
+
+
+
+
+### Gráfica de los datos
+
+
+```{r}
+library(leaflet)
+civica_loc <- leaflet(data=civica) %>% 
+  
+  addTiles() %>%  
+  
+  addCircleMarkers(lat=~latitud,lng=~longitud,color="green",radius=2)
+
+civica_loc
+```
+
+* Shape file
+
+
+```{r}
+library(rgeos)
+library(sf)
+## read in the data
+shape_civica <- st_read("Puntos_de_Recarga_C%C3%ADvica.shp")
+
+
+plot(shape_civica)
+```
+
+
+
+
+
+
+
+
+
+
+

@@ -1,0 +1,7 @@
+"0","civica <- read.csv(""Puntos_de_Recarga_C%C3%ADvica.csv"", "
+"0","                     header = T, sep="","", "
+"0","                     dec = ""."")"
+"0",""
+"0","library(kableExtra)"
+"0","kable(head(civica)) %>%"
+"0","  kable_paper(""hover"", full_width = F)"

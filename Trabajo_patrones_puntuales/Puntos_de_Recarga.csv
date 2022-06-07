@@ -1,0 +1,1279 @@
+﻿objectid,id_punto,nombreestablecimiento,direccion,municipio,barrio,estado,longitud,latitud
+1,1,4 Esquinas,CL 21 81 04,Bello,Paris,En servicio,-75.58523658,6.3149193
+2,2,5 Esquinas,CL 54 53 55,Bello,Bello,En servicio,-75.56146885,6.33773422
+3,3,Alkala,DG 44 33B 49,Bello,Bello,En servicio,-75.53870309,6.33231093
+4,4,Bar Santander,CR 50 50 A 27,Bello,Bello,En servicio,-75.55869445,6.33488208
+5,5,Bar Santander (2),CR 50 50 A 27,Bello,Bello,En servicio,-75.55869445,6.33488208
+6,6,Barrio Obrero,CL 31 53 04,Bello,Bello,En servicio,-75.55943105,6.31974256
+7,7,Billares,CR 83 101 DD 19,Bello,Paris,En servicio,-75.58234987,6.30364856
+8,8,Bingo La 51,CR 51 50 56,Bello,Bello,En servicio,-75.55943822,6.33435049
+9,9,Buena Esquina,CR 52 55 37,Bello,Bello,En servicio,-75.56124711,6.33890127
+10,10,Cabañas La 58,CR 58 27 A 34,Bello,Bello,En servicio,-75.56364428,6.31658093
+11,11,Cabañitas,CR 58 D 26 12,Bello,Bello,En servicio,-75.56686747,6.31523608
+12,12,Camacol,AV 47B 65 120,Bello,Bello,En servicio,-75.55440983,6.34751836
+13,13,Caretero Qap,TRANSVERSAL 56A 54 19,Bello,Bello,En servicio,-75.56107191,6.34153415
+14,14,Carnelly,CR 49 49 61,Bello,Bello,En servicio,-75.55781243,6.33419845
+15,15,Clinica Antioquia,CR 48 47 25,Bello,Bello,En servicio,-75.55649404,6.33343256
+16,16,Club Obrero,CL 35 52 27,Bello,Bello,En servicio,-75.55919159,6.32233716
+17,17,Congolo Hv,CR 50 58 43,Bello,Bello,En servicio,-75.55926651,6.34054575
+18,18,Congolo Puente Qap,CR 47 58 28,Bello,Bello,En servicio,-75.55682103,6.34083302
+19,19,Cumbre Rey,CR 63 56 13,Bello,Bello,En servicio,-75.56770141,6.33982822
+20,20,De Uno Paisajes,CR 65 68 31 INT 105,Bello,Bello,En servicio,-75.567586,6.348749
+21,21,Droguería La 50,CR 50 55 04,Bello,Bello,En servicio,-75.55893656,6.33839627
+22,22,Drogueria Manchester,CL 45 48 23,Bello,Bello,En servicio,-75.55553,6.3311
+23,23,Drogueria Servimedic,CL 53 64 27,Bello,Bello,En servicio,-75.56980941,6.33780837
+24,24,Ducado,CR 58 CL 66 4,Bello,Bello,En servicio,-75.56245003,6.34697404
+25,25,Eca Bellanita,CL 63 59 38,Bello,Bello,En servicio,-75.56401506,6.34456302
+26,26,El Cairo,CR 50 63 15,Bello,Bello,En servicio,-75.55944527,6.3423781
+27,27,El Carmen,CL 58 62 44,Bello,Bello,En servicio,-75.56648872,6.34186542
+28,28,El Chino,CL 51 51 34,Bello,Bello,En servicio,-75.55980644,6.33511598
+29,29,El Copo De Nieve S.A.S,DG 57 34 65,Bello,Bello,En servicio,-75.54282,6.34161
+30,30,El Perez,CR 55 49 49,Bello,Bello,En servicio,-75.56238923,6.33358572
+31,31,El Vergel,CL 62 63 B 15,Bello,Bello,En servicio,-75.56798447,6.34511842
+32,32,Espititu Santo,CL 49 A 56 84,Bello,Bello,En servicio,-75.55911,6.339602
+33,33,Fernando Velez,CL 53 62 B 70,Bello,Bello,En servicio,-75.56792621,6.33783355
+34,34,Florida 1,CL 31 55 06,Bello,Bello,En servicio,-75.56046583,6.31958688
+35,35,Fotocopias Mirian,CR 59 40 A 44,Bello,Bello,En servicio,-75.56667,6.3307
+36,36,Fruver Niquia,DG 55 AVENIDA 37 20,Bello,Bello,En servicio,-75.544025,6.340119
+37,37,Gana Santa Ines,CL 47 45 83,Bello,Bello,En servicio,-75.55450045,6.33399185
+38,38,Gana Santa Ines (2),CL 47 45 83         ,Bello,Bello,En servicio,-75.55450045,6.33399185
+39,39,Gana Servicios Barrio Obrero,CL 35 51 35,Bello,Bello,En servicio,-75.55866676,6.32214073
+40,40,Gana Servicios Bellanita,TRANSVERSAL 56A 57 17,Bello,Bello,En servicio,-75.56310245,6.34323252
+41,41,Gana Servicios Bello,CL 51 51 11,Bello,Bello,En servicio,-75.55969218,6.33498549
+42,42,Gana Servicios C.C Puerta Del Norte I I,DG 55 AUT NORTE LOCAL 1 154,Bello,Bello,En servicio,-75.54238293,6.33927264
+43,43,Gana Servicios Machado,DG 44 32 21,Bello,Bello,En servicio,-75.5373131,6.33378328
+44,44,Gana Servicios Niquia,AV 43 58 55,Bello,Bello,En servicio,-75.550237,6.3413373
+45,45,Gana Servicios Paris,CR 72 20 D 85,Bello,Paris,En servicio,-75.57875313,6.3109422
+46,46,Granero El Atardecer,CL 29 A 51 A 05,Bello,Bello,En servicio,-75.55862626,6.31804688
+47,47,Hato Viejo,CR 63 A A 54 37,Bello,Bello,En servicio,-75.56881364,6.33843191
+48,48,Heladería Bello,CR 49 50 58,Bello,Bello,En servicio,-75.55785379,6.3349056
+49,49,Iglesia Terranova,DG 55 AV 33 48,Bello,Bello,En servicio,-75.54148571,6.34079997
+50,50,Kiosko Gilma,CR 76 20 F 04,Bello,Paris,En servicio,-75.58150721,6.31295083
+51,51,La Camila,DG 42 DC 36 41,Bello,Bello,En servicio,-75.539409,6.327771
+52,52,La Isla,CR 50 57 23,Bello,Bello,En servicio,-75.55922332,6.33980951
+53,53,La Liko Bar,CL 72 A 91 B 20,Bello,Bello,En servicio,-75.5519,6.339963
+54,54,Las Alarias,CL 56 B 67 B 17,Bello,Bello,En servicio,-75.57252887,6.34163308
+55,55,Licores Salo,CL 74 57 B 54,Bello,Bello,En servicio,-75.55993,6.35099
+56,56,Local La Salida,CL 104 B 84D 85,Bello,Paris,En servicio,-75.583218,6.307024
+57,57,Los Bucaros,CR 58 B 40 C 24,Bello,Bello,En servicio,-75.56629398,6.3274552
+58,58,Lucerito,CL 58 57 107,Bello,Bello,En servicio,-75.56420836,6.34055666
+59,59,Machado El Rey,CL 44 83 A 06,Bello,Bello,En servicio,-75.53372426,6.3353881
+60,60,Mega Apuestas,AV 44 56 07,Bello,Bello,En servicio,-75.55178423,6.33993112
+61,61,Mega Bellavista,CL 70 64 36,Bello,Bello,En servicio,-75.56716587,6.34961471
+62,62,Mega Cumbre,CR 63 57A 09,Bello,Bello,En servicio,-75.56732764,6.34124063
+63,63,Mejoras Teranova,DG 55 AV 35 18,Bello,Bello,En servicio,-75.54338604,6.34028656
+64,64,Mirador,CL 101 D 83 11,Bello,Paris,En servicio,-75.58213968,6.30280665
+65,65,Mirador,CR 50 66 99,Bello,Bello,En servicio,-75.55898426,6.34683689
+66,66,Modulo Prado,CR 44 52 56,Bello,Bello,En servicio,-75.55324501,6.33706414
+67,67,Nazareth,CL 51 58 40,Bello,Bello,En servicio,-75.56491507,6.33441396
+68,68,Niquia La 45,AV 45 54 40,Bello,Bello,En servicio,-75.55337086,6.33901096
+69,69,Niquia La 55,DG 55 N 42 26 LOCAL 4228,Bello,Bello,En servicio,-75.5484974,6.33896747
+70,70,Niquia Metro,DG 50 A 37 01 LOCAL 101,Bello,Ciudad Niquia,En servicio,-75.544505,6.33773
+71,71,Niquia Parte Alta 2,AVENIDA 42 NRO 62 61 LOCAL 104,Bello,Bello,En servicio,-75.54938,6.34356
+72,72,Nueva Plaza,CR 46 51 13 ,Bello,Bello,En servicio,-75.555166,6.336031
+73,73,Nuevo Obra 2000,CL 56 54 46,Bello,Bello,En servicio,-75.56179293,6.33911186
+74,74,Nuevo San Felix,KM 22 VIA A SAN PEDRO DE LOS MILAGROS,Bello,Sabanalarga,En servicio,-75.607831,6.34448
+75,75,Of. Principal,CL 50 A 50 27,Bello,Bello,En servicio,-75.5588342,6.33467525
+76,76,Of. Principal Maya,CL 51 50 09,Bello,Bello,En servicio,-75.55874844,6.33510542
+77,77,Of. Principal Qap,AV 50 A 51 52,Bello,Bello,En servicio,-75.55883682,6.33554539
+78,78,P.V Alianza Florida,CL 31 56 126,Bello,Bello,En servicio,-75.56170022,6.31945915
+79,79,P.V Carlos Uribe,CL 31 57 106,Bello,Bello,En servicio,-75.56292975,6.31919541
+80,80,Panaderia Naria Palitos,CL 27 B 58 61 ,Bello,Bello,En servicio,-75.56362,6.31701
+81,81,Papeleria Danna,CL 72 A 57 14,Bello,Bello,En servicio,-75.56024,6.35058
+82,82,Paris 2,CR 76 20 E 27,Bello,Paris,En servicio,-75.58183043,6.31234222
+83,83,Paris La 72,CR 72 20 F 31,Bello,Paris,En servicio,-75.57839116,6.31208561
+84,84,Peña Verde,CL 57 67 B 79 INT 117,Bello,Bello,En servicio,-75.57311961,6.34209838
+85,85,Picachito,CR 84 D 107 12,Bello,Paris,En servicio,-75.582541,6.309091
+86,86,Plaza 1,CL 51 45 09,Bello,Bello,En servicio,-75.55423516,6.33567675
+87,87,Prado Del Rey,CRA 47 53 33,Bello,Bello,En servicio,-75.55649146,6.33730984
+88,88,Prendería Rey,CR 48 50 39,Bello,Bello,En servicio,-75.55710906,6.33504221
+89,89,Puente Cabañitas,CR 58 22 A 09,Bello,Bello,En servicio,-75.56362899,6.31228274
+90,90,Quitasol,DG 65 41 22,Bello,Bello,En servicio,-75.54837482,6.34566779
+91,91,Rey Obra 2000,CL 58 56A 214,Bello,Bello,En servicio,-75.55940734,6.34044284
+92,92,Rosalpi Qap,CR 57B 53 86,Bello,Bello,En servicio,-75.56551014,6.33846012
+93,93,Sala  De Internet,DG 68 47 20,Bello,Bello,En servicio,-75.55378541,6.34914925
+94,94,Salsamentaria Zoila,CR 52 50 4,Bello,Bello,En servicio,-75.56,6.33404
+95,95,San Gabriel,CR 63 B 71 13,Bello,Bello,En servicio,-75.56702029,6.35017541
+96,96,Santana Megapuestas,CR 53 A 49 46,Bello,Bello,En servicio,-75.56126372,6.33333402
+97,97,Santanita,CR 56 C 47 04 LOCAL 3,Bello,Bello,En servicio,-75.564878,6.331929
+98,98,Tecnolgia Magenta,DG 65 A 41 A 73,Bello,Bello,En servicio,-75.54891,6.34617
+99,99,Tienda Donde Santi Y Lina,AVENIDA 42 63 77,Bello,Bello,En servicio,-75.54919,6.34449
+100,100,Tienda Jorgares,DG 69 A 40 C 07,Bello,Bello,En servicio,-75.548269,6.349436
+101,101,Tienda La Señorial,CR 65A 77 38,Bello,Bello,En servicio,-75.56924485,6.35397517
+102,102,Tienda Naturista Sana Natural,AV 35 DG 55 65,Bello,Bello,En servicio,-75.544943,6.337527
+103,103,Trapiche,CR 68 59 A E 42,Bello,Bello,En servicio,-75.57197427,6.34436169
+104,104,Tres Esquinas,CR 80 106 A 20,Bello,Paris,En servicio,-75.57664752,6.3077677
+105,105,Universidad Cooperativa,CL 52 51 55,Bello,Bello,En servicio,-75.55997991,6.33570819
+106,106,Valadares,CL 59 A 66 27,Bello,Bello,En servicio,-75.5700949,6.34342111
+107,107,Varedades Maru,CL 57 66 B B 39,Bello,Bello,En servicio,-75.571241,6.342183
+108,108,Variedades Alba,CR 44 26 71 INT118,Bello,Bello,En servicio,-75.55191,6.31498
+109,109,Variedades Cafe Albert,CL 35 42 B 41,Bello,Bello,En servicio,-75.54848,6.32118
+110,110,Variedades Global Red Servicios,CRA 58 73 38,Bello,Bello,En servicio,-75.561603,6.351309
+111,111,Variedades Jc Y D,AV 20 57 A 36 ,Bello,Bello,En servicio,-75.5322,6.34577
+112,112,Variedades Moni,CL 21 69 58,Bello,Paris,En servicio,-75.5764588,6.31226909
+113,113,Variedades Yeimi,CL 33 43 31 INT 106,Bello,Bello,En servicio,-75.5489,6.32004
+114,114,Villas De Comfenalco,CR 66 62 07,Bello,Bello,En servicio,-75.56952771,6.34549535
+115,115,Yaima Uñas Esculturales,AV 35 DG 55 65,Bello,Bello,En servicio,-75.56165,6.34531
+116,116,Candilejas Bello Horizonte,CL 77 B B 85 B 34,Medellín,El Diamante,En servicio,-75.59037035,6.28215946
+117,117,De Uno Robledo,Cl 65 87 07 INT 102,Medellín,Robledo,En servicio,-75.59721,6.276451
+118,118,El Hospital,CL 63 130 78,Medellín,San Cristobal Vereda La Loma,En servicio,-75.63551432,6.27776107
+119,119,El Hospital (2),CL 63 130 78         ,Medellín,San Cristobal Vereda La Loma,En servicio,-75.63551432,6.27776107
+120,120,El Llano,RURAL EL LLANO,Medellín,San Cristobal Vereda La Loma,En servicio,-75.64940643,6.2944748
+121,121,Euro Florida,CL 71 65 102,Medellín,El Diamante,En servicio,-75.57732,6.27061
+122,122,Ferrolsa Sas,CL 63 33 C 08,Medellín,San Cristobal Vereda La Loma,En servicio,-75.63781,6.27885
+123,123,Gana Servicios Diamante,CL 79 DG 85 23,Medellín,El Diamante,En servicio,-75.58656867,6.28370221
+124,124,Gana Servicios Diamante,CR 85A 79 108,Medellín,El Diamante,En servicio,-75.58652767,6.2843562
+125,125,Gana Servicios La Campiña,CL 64 A 94 B 3,Medellín,Robledo,En servicio,-75.60487468,6.28100947
+126,126,Granero Civition,CL 77 CC 91 22,Medellín,El Diamante,Desactivado,-75.59293,6.28559
+127,127,Helados Y Mas,CL 66 103 B 15,Medellín,San Cristobal Vereda La Loma,En servicio,-75.639625,6.281845
+128,128,Hospital Pablo Tobon Uribe,CL 78B 69 240 LOCAL 18,Medellín,El Diamante,En servicio,-75.57928,6.27596
+129,129,La Diamantina,CR 86 79 B 40,Medellín,El Diamante,En servicio,-75.58634063,6.28559136
+130,130,La Finquita,CR 72 C 80 A 20,Medellín,El Diamante,En servicio,-75.57883613,6.28099192
+131,131,La Y San Cristobal,CL 63 127 140,Medellín,San Cristobal Vereda La Loma,En servicio,-75.63417486,6.27827842
+132,132,Las Margaritas,CL 62 B 106 B 91,Medellín,San Cristobal Vereda La Loma,En servicio,-75.6302501,6.27865321
+133,133,Lopez De Mesa,CR 74 80 B 18,Medellín,El Diamante,En servicio,-75.58022732,6.28201649
+134,134,Lopez Gana,CR 75 80 C 10,Medellín,El Diamante,En servicio,-75.58156656,6.28303964
+135,135,Los Molina,CR 80 80 51,Medellín,El Diamante,En servicio,-75.58415029,6.28315166
+136,136,Nuevo Aures,CR 94 A 78 A 44,Medellín,El Diamante,En servicio,-75.594755,6.289697
+137,137,Oro,CL 77 D 86 73,Medellín,El Diamante,En servicio,-75.58993284,6.28351742
+138,138,Papeleria El Sol,CR 126 61 A 22,Medellín,San Cristobal Vereda La Loma,En servicio,-75.63219,6.27263
+139,139,Papeleria Samuel,CL 92 B 72 B 47,Medellín,El Diamante,En servicio,-75.57729,6.28766
+140,140,Pilarica,CR 69 73 121,Medellín,El Diamante,En servicio,-75.57912514,6.27462971
+141,141,Pv Oficina Principal Gana San Cristobal,CL 62 130 18,Medellín,San Cristobal Vereda La Loma,En servicio,-75.63537133,6.27685987
+142,142,Qap Diamante,CR 86 80 A 07,Medellín,El Diamante,En servicio,-75.58588498,6.28633237
+143,143,Robledo Palenque,CL 68 86 15,Medellín,Robledo,En servicio,-75.594575,6.27821
+144,144,Sala De Internet Copiaures,CL 77 EE 91 B 28,Medellín,El Diamante,Desactivado,-75.59325,6.28692
+145,145,Sibertel,CL 64AC 106 101C IN 9903,Medellín,San Cristobal Vereda La Loma,En servicio,-75.62440824,6.28226313
+146,146,Supermercado Travesias,CL 68 136C 49,Medellín,San Cristobal Vereda La Loma,En servicio,-75.641615,6.285682
+147,147,Tecnicel Juli.Jb,CR 94 78 A 09,Medellín,El Diamante,En servicio,-75.59439,6.28919
+148,148,Tecnicell Ja,CR 85 B 77 C 29,Medellín,El Diamante,En servicio,-75.58924,6.28163
+149,149,Tienda Granero Johan,CR 124 61 C 14 INT 9803 URB AVELLANAS,Medellín,San Cristobal Vereda La Loma,En servicio,-75.630175,6.278064
+150,150,Tienda Porras,CR 92 78 A 96,Medellín,El Diamante,En servicio,-75.59278,6.28832
+151,151,Variedades Aures.Net,CL 80 94 92 INT 101,Medellín,El Diamante,En servicio,-75.59313,6.2918
+152,152,Variedades Cañaberal,CL 65 AA 105 77 INT 9810,Medellín,Robledo,En servicio,-75.609562,6.288271
+153,153,Variedades Dulce Mania,CR 122 48 D 57,Medellín,San Cristobal Vereda La Loma,En servicio,-75.628283,6.269162
+154,154,Aaa Barrio Nuevo,CR 60 22 30,Medellín,Santander,En servicio,-75.56985132,6.31183735
+155,155,Aeropuerto Olaya Herrera,Cra 65 13 157 LOCAL AE3,Medellín,Trinidad,En servicio,-75.58677,6.21949
+156,156,Barrio Nuevo La Trampa,CR 60 22 A 16,Medellín,Santander,En servicio,-75.56994669,6.312318
+157,157,Belalcazar 2,CR 64 A 103 4,Medellín,Girardot,En servicio,-75.56553,6.29637
+158,158,Boutique Esencia Y Belleza,CR 68 A  93 124,Medellín,Castilla,En servicio,-75.57323,6.28844
+159,159,Boyaca Las Brisas,CR 64 D 116 A 28,Medellín,Girardot,En servicio,-75.56256418,6.31026775
+160,160,Brisas,CR 67 109 31,Medellín,Girardot,En servicio,-75.56667,6.30550359
+161,161,Cafe Internet Mundo Virtual,CR 63 104 96,Medellín,Girardot,En servicio,-75.55938,6.30023
+162,162,Candilejas 2,CL 98 74 09,Medellín,Castilla,En servicio,-75.57672,6.29573
+163,163,Carniceria Carolina,CR 78 90 84,Medellín,Kennedy,En servicio,-75.5831582,6.28802603
+164,164,Casa De Leticia Cano,CR 79 91 B 30,Medellín,Kennedy,En servicio,-75.58360013,6.28936727
+165,165,Castilla La 72,CR 72 97 05,Medellín,Castilla,En servicio,-75.57447893,6.29335591
+166,166,Castilla La 93,CR 70 93 133,Medellín,Castilla,En servicio,-75.57446337,6.28886065
+167,167,Cofinet,CR 66 110 20,Medellín,Girardot,En servicio,-75.56545414,6.30579477
+168,168,Consumo Pedregal,CR 74 104 04,Medellín,Girardot,En servicio,-75.57229761,6.30179641
+169,169,Crearcoop,CR 74 103C 08,Medellín,Girardot,En servicio,-75.57266323,6.30064624
+170,170,Doce Octubre Qap,CR 80 98 D 13,Medellín,Kennedy,En servicio,-75.58044417,6.29818413
+171,171,Drogeria Maxidescuentos,CL 92 CC 67 08,Medellín,Castilla,En servicio,-75.57360736,6.28545578
+172,172,Drogueria Duque,K 74 B 98 38,Medellín,Castilla,En servicio,-75.57747,6.29593
+173,173,El Caldas,CRA 17 10 12,Girardota,Girardota,En servicio,-75.44933,6.37649
+174,174,Esquina La 71,CL 92E 70A 25,Medellín,Castilla,En servicio,-75.5753039,6.28812711
+175,175,Farmacia Drogueria Real,CR 80 97 B  07,Medellín,Kennedy,En servicio,-75.6027406,6.2418132
+176,176,Florencia,CR 74 114 12,Medellín,Santander,En servicio,-75.56938348,6.30968476
+177,177,Fruta Fria,CR 84 B 94 C 35,Medellín,Kennedy,En servicio,-75.58635,6.29603
+178,178,Gaitan La 84,CL 91 C 84 7,Medellín,Kennedy,En servicio,-75.5856076,6.28968654
+179,179,Gana Brisas,CR 67 B 116 08,Medellín,Girardot,En servicio,-75.56499022,6.31003799
+180,180,Gana Florencia,CR 74 110 A 37,Medellín,Santander,En servicio,-75.57010923,6.30804206
+181,181,Gana La 104,CL 104 72 01,Medellín,Girardot,En servicio,-75.57143533,6.30090707
+182,182,Gana La 96,CL 96 68 52,Medellín,Castilla,En servicio,-75.57238631,6.29125249
+183,183,Gana Pedregal,CR 76 103 08,Medellín,Santander,En servicio,-75.57505168,6.30134595
+184,184,Gana Play Plus,CL 96 67 24,Medellín,Castilla,En servicio,-75.57157,6.29094
+185,185,Gana Punto Nuevo,CR 70 97 121,Medellín,Castilla,En servicio,-75.57278028,6.29390102
+186,186,Gana Servicios 12 De Octubre,CR 78 101 B B 14,Medellín,Doce De Octubre Nº 1,En servicio,-75.5781864,6.30202035
+187,187,Gana Servicios Castilla,CR 68 96 60,Medellín,Castilla,En servicio,-75.57185982,6.29166011
+188,188,Gana Servicios Central Ganadera,CR 64 C 104 02 LOC 2 A,Medellín,Belalcazar,En servicio,-75.56396732,6.30111434
+189,189,Gana Servicios Girardot,CL 104 64D 90,Medellín,Girardot,En servicio,-75.56602616,6.30166077
+190,190,Gana Servicios Kenedy,CR 79 92 11,Medellín,Kennedy,En servicio,-75.58349013,6.28999645
+191,191,Gaviotas.Net,CL 98 85 A 01,Medellín,Doce De Octubre Nº 1,En servicio,-75.58509,6.29962
+192,192,Girardot,CR 65 103 G 10,Medellín,Girardot,En servicio,-75.56630489,6.3007584
+193,193,Granero Titos,CR 65 115 08,Medellín,Girardot,En servicio,-75.5638286,6.30968267
+194,194,Guarderia,CR 67 92 D D 18,Medellín,Castilla,En servicio,-75.57351129,6.28601864
+195,195,La 101,Cl 101 74 18,Medellín,Castilla,En servicio,-75.57559818,6.29862618
+196,196,La 66,CR 66 96 136,Medellín,Castilla,En servicio,-75.57035781,6.29160032
+197,197,La 80 12 De Octubre,CR 80 N 101 A 12,Medellín,Doce De Octubre Nº 1,En servicio,-75.57961704,6.30056281
+198,198,La 94,CL 94 77 12,Medellín,Kennedy,En servicio,-75.58198038,6.29169034
+199,199,La Dinamarca,CR 67 90 19,Medellín,Castilla,En servicio,-75.57356819,6.28380123
+200,200,La Raza,CR 80 95 a 80,Medellín,Kennedy,En servicio,-75.58218075,6.29396143
+201,201,La Tienda De Pipo,CL 98 73 30,Medellín,Castilla,En servicio,-75.57545981,6.29515625
+202,202,La Torre,CR 82 98 D 06,Medellín,Kennedy,En servicio,-75.58095175,6.2988525
+203,203,Lopez La 91,CL 91 A 71 A 23,Medellín,Castilla,En servicio,-75.5771738,6.2845443
+204,204,Maracana,CL 96 74B 10,Medellín,Castilla,En servicio,-75.57848461,6.2932705
+205,205,Mi Barcito,CL 92 75 24,Medellín,Kennedy,En servicio,-75.58059369,6.28889794
+206,206,Micelanea Marisol,CR 63 CL 25 43,Medellín,Santander,En servicio,-75.57373,6.31302
+207,207,Mickey Mouse,CL 90 76 03,Medellín,Kennedy,En servicio,-75.58222372,6.28708622
+208,208,Mil Variedades Castilla,Cra 68 N 92 F 09 ,Medellín,Castilla,En servicio,-75.571863,6.291886
+209,209,Miramar,CL 9579A 08,Medellín,Kennedy,En servicio,-75.5829,6.2932
+210,210,Modulo San Judas,CR 68 97 132,Medellín,Castilla,En servicio,-75.57125436,6.29341282
+211,211,Nueva Florencia,CL 113 68 A 97,Medellín,Santander,En servicio,-75.56769108,6.30878725
+212,212,Nuevo San Judas,CR 68 98 99,Medellín,Castilla,En servicio,-75.57104507,6.2944967
+213,213,Oficina Carlos Uribe,CL 91 A 69 15,Medellín,Castilla,En servicio,-75.57516378,6.28352435
+214,214,Panaderia Dayana,CR 68 93 09,Medellín,Castilla,En servicio,-75.57339268,6.28751375
+215,215,Partic 12 De Oct,CR 78 98 D 21 ,Medellín,Doce De Octubre Nº 1,En servicio,-75.57905639,6.29743124
+216,216,Pedregal Qap,CR 74 105 A 9,Medellín,Santander,En servicio,-75.57123471,6.30321971
+217,217,Picachito,CR 85 A 98 05,Medellín,Kennedy,En servicio,-75.58505086,6.29950667
+218,218,Pista Zea,CL 91A 67 A 80,Medellín,Castilla,En servicio,-75.57367443,6.28335783
+219,219,Ppal Qap,CR 68 96 114,Medellín,Castilla,En servicio,-75.57173268,6.29204099
+220,220,Punto De Venta Tejelo,CR 67 108 11,Medellín,Girardot,En servicio,-75.56667122,6.30549264
+221,221,Punto Rojo,Cl 95 73 41,Medellín,Castilla,En servicio,-75.57678994,6.29120771
+222,222,Santander La Frontera,CR 76 C 108 A 76,Medellín,Santander,En servicio,-75.57253963,6.30796417
+223,223,Santandercito,CL 112 76 42,Medellín,Santander,En servicio,-75.5721,6.309
+224,224,Terminal Barrio Nuevo,CR 62 N 21 B 10,Medellín,Santander,En servicio,-75.57171,6.31154
+225,225,Tienda La Ventana De Cositas,CR 68 80 66,Medellín,Caribe,En servicio,-75.57651,6.27805
+226,226,Tienda Minimercado El Descanso,CR 86 B 98 B 09,Medellín,Doce De Octubre Nº 1,En servicio,-75.58563,6.30034
+227,227,Toscana,CR 64 A 111F 06,Medellín,Girardot,En servicio,-75.55908686,6.3054934
+228,228,Union Castilla,CR 67 94 119,Medellín,Castilla,En servicio,-75.572141,6.288547
+229,229,Variedades Beatriz,CL 104 A 76 32,Medellín,Girardot,En servicio,-75.57459,6.3032
+230,230,Variedades Ramval,CL 96 B 81 24,Medellín,Kennedy,En servicio,-75.582466,6.295434
+231,231,Variedades Taly,CR 76 94 22,Medellín,Kennedy,En servicio,-75.58092836,6.2915306
+232,232,Zea La 92,CL 92 C C 65 B 53,Medellín,Castilla,En servicio,-75.57182215,6.2855443
+233,233,Accesorios Luna Y Papeleria,CL 31B 87D 6,Medellín,Belen,En servicio,-75.61035,6.23274
+234,234,Aeroparque,CR 70 15 33,Medellín,Las Playas,En servicio,-75.59245282,6.22107382
+235,235,Aguacatala-210 (2),CR 49 12 SUR 0 (128)        ,Medellín,Guayabal,En servicio,-75.5819059,6.19329346
+236,236,Antioquia,CL 20 59 39,Medellín,Trinidad,En servicio,-75.583035,6.22269
+237,237,Apuestas Nutabe,CR 73 42 37,Medellín,Laureles,En servicio,-75.59255762,6.24839116
+238,238,Arkadia,CRA 70 1 141 BURBUJA K3 01,Medellín,Las Playas,En servicio,-75.59411,6.21147
+239,239,Av Nutivara,TRANSVERSAL 39 B 70 83,Medellín,Laureles,En servicio,-75.59134892,6.24055314
+240,240,Av.Bolivariana,CL 34 66 A 17,Medellín,Laureles,En servicio,-75.58706734,6.23980243
+241,241,B. Antioquia,CL 25 59 47,Medellín,Trinidad,En servicio,-75.58296666,6.2265547
+242,242,Babalu,CL 30 74 01,Medellín,Belen,En servicio,-75.59462738,6.23133147
+243,243,Belen La 71,CR 71 30 63,Medellín,Belen,En servicio,-75.59222428,6.23186744
+244,244,Belén Los Alpes,CL 29B 84 49,Medellín,Belen,En servicio,-75.60775606,6.23051685
+245,245,Belen Rincon 2,CRA 79 2 138,Medellín,El Rincon,En servicio,-75.6025235,6.21246141
+246,246,Belén Vicuña,CL 30 82B 32,Medellín,Belen,En servicio,-75.60475712,6.23103565
+247,247,Brillante,CL 30 82C 34,Medellín,Belen,En servicio,-75.6052633,6.23103433
+248,248,Brillante (2),CL 30 82C 34,Medellín,Belen,En servicio,-75.6052633,6.23103433
+249,249,Calle Caliente,CR 72 42 40,Medellín,Laureles,En servicio,-75.59117872,6.24976801
+250,250,Centro Comercial El Rodeo,CL 6 SUR 52 50,Medellín,Guayabal,En servicio,-75.58749439,6.20449852
+251,251,Centro Comercial Tayrona,CR 65 42B 60,Medellín,Laureles,En servicio,-75.58356808,6.24718777
+252,252,Consumo,CR 81 26 12,Medellín,Belen,En servicio,-75.60192847,6.22778903
+253,253,Consumo Belen La Palma,CR 81 25 35,Medellín,Belen,En servicio,-75.60237456,6.22735872
+254,254,Consumo Laureles,CL 33 A 72 107,Medellín,Laureles,En servicio,-75.59642088,6.23939443
+255,255,Cootrasmede,CL 25 65B 58,Medellín,Trinidad,En servicio,-75.58485553,6.22659317
+256,256,Cristo Rey Qap,CR 50 E 2 SUR 59,Medellín,Guayabal,En servicio,-75.58240222,6.20471469
+257,257,Cruz Blanca,CR 72 44 A 05,Medellín,Laureles,Desactivado,-75.591132,6.250533
+258,258,De Uno Laureles,CR 74 42 01 LOCAL 2,Medellín,Laureles,En servicio,-75.59319,6.248574
+259,259,"Distr,Licorera Y Cigarreria Vino Y Tinto",CL 42 C 82 106,Medellín,Laureles,En servicio,-75.59981096,6.24263126
+260,260,El Estanquillon,CR 84 45 AA 33,Medellín,Belen,En servicio,-75.60779348,6.23249572
+261,261,El Nispero,CR 79 1 SUR 15,Medellín,El Rincon,En servicio,-75.60155815,6.20993328
+262,262,El Rey Altavista,CL 20A 82B 44,Medellín,Belen,En servicio,-75.6045693,6.22575987
+263,263,Euro Ciudad Del Parque,CR 81 A 4 G 40,Medellín,El Rincon,En servicio,-75.605161,6.215868
+264,264,Euro Laureles,TRANSVERSAL 39 B CIRCULAR 4 52,Medellín,Laureles,En servicio,-75.594096,6.244043
+265,265,F 2,CR 76 20 42,Medellín,Las Playas,En servicio,-75.59731529,6.22452153
+266,266,Fatima,CR 65B 32A 52,Medellín,Belen,En servicio,-75.5839492,6.23587286
+267,267,Fatima,CR 65 B 32 A 52,Medellín,Belen,En servicio,-75.58604729,6.23872813
+268,268,Fonda Josby,VEREDA MANZANILLO,Medellín,El Rincon,En servicio,-75.60539,6.203118
+269,269,Freestyle Exodo,CL 118 64 BB 62 ,Medellín,Laureles,En servicio,-75.58414102,6.23942491
+270,270,Frijol Verde,CR 76 32 35,Medellín,Belen,En servicio,-75.59645599,6.23404267
+271,271,Galerias De San Diego,CL 33 42 B 33,Medellín,San Diego,En servicio,-75.56853447,6.23371987
+272,272,Gana Belen Parque,CR 76 30A 32,Medellín,Belen,En servicio,-75.59627469,6.2322787
+273,273,Gana Servicios Barrio Antioquia,CR 65 25 25,Medellín,Trinidad,En servicio,-75.58363837,6.22678181
+274,274,Gana Servicios Belen Playas,CR 70 19 49,Medellín,Las Playas,En servicio,-75.59209952,6.22294937
+275,275,Gana Servicios Belen Rincon,CR 78B 3 68,Medellín,El Rincon,En servicio,-75.60203609,6.21362952
+276,276,Gana Servicios Belen Violetas,CL 31 88 34,Medellín,Belen,En servicio,-75.61276757,6.23299196
+277,277,Gana Servicios Guayabal,CR 52 2 SUR 06,Medellín,Guayabal,En servicio,-75.58618781,6.20659524
+278,278,Gana Servicios Laureles,CR 70 CIR 2 05,Medellín,Laureles,En servicio,-75.58939409,6.24541565
+279,279,Gana Servicios Laureles (2),CR 70 CIR 2 05,Medellín,Laureles,En servicio,-75.58939409,6.24541565
+280,280,Gana Servicios Terminal Del Sur,CR 65 8 B 91 INT 148,Medellín,Trinidad,En servicio,-75.58512393,6.21582249
+281,281,Ganaservicios Cc Los Molinos,CL 30 A 82 A 26 LOCAL 3129,Medellín,La Candelaria,En servicio,-75.60453,6.23242
+282,282,Gildardo Monterey,CR 48 10 45 LOC 157,Medellín,Trinidad,En servicio,-75.584269,6.216203
+283,283,Internet Civer Sabor,CL 18 110 A 50,Medellín,Belen,En servicio,-75.620282,6.223346
+284,284,La 25,CR 73 24 63,Medellín,Las Playas,En servicio,-75.59435261,6.22634403
+285,285,La 33,CL 33 78 174,Medellín,Laureles,En servicio,-75.59933249,6.23890326
+286,286,La 65,CR 65 24 15,Medellín,Trinidad,En servicio,-75.58391565,6.22572881
+287,287,La 70 Qap,CR 70 CIR 2 05,Medellín,Laureles,En servicio,-75.58874889,6.24924916
+288,288,La 70 Qap (2),CR 70 43 04         ,Medellín,Laureles,En servicio,-75.58874889,6.24924916
+289,289,La 74,CL 44 74 01,Medellín,Laureles,En servicio,-75.59404574,6.24973354
+290,290,La 74 (2),CL 44 74 01,Medellín,Laureles,En servicio,-75.59404574,6.24973354
+291,291,La Cancha,CL 23 65B 92,Medellín,Trinidad,En servicio,-75.58487,6.22437
+292,292,La Mota,DG 75 B 2 A 143 INT 101,Medellín,El Rincon,En servicio,-75.59661306,6.21350776
+293,293,La Mota (2),DG 75 B 2 A 143 INT 101,Medellín,El Rincon,En servicio,-75.59661306,6.21350776
+294,294,La Nubia,CL 21 80 A A 107,Medellín,Belen,En servicio,-75.60241343,6.22648262
+295,295,La Ochenta,CL 30 80 130,Medellín,Belen,En servicio,-75.60126546,6.23112928
+296,296,La Palma,CL 28 80A 32,Medellín,Belen,En servicio,-75.60185891,6.22759664
+297,297,La Ruta,CR 78B 2A 23,Medellín,El Rincon,En servicio,-75.60188077,6.21284518
+298,298,Las Delicias,CL 27 75 92,Medellín,Belen,En servicio,-75.59617689,6.22876092
+299,299,Las Palmas,CL 14 70 71,Medellín,Las Playas,En servicio,-75.59320036,6.22048315
+300,300,Laureles Parque,CR 70 43 06,Medellín,Laureles,En servicio,-75.59240743,6.24690792
+301,301,Ley 70,CL 44 70 35,Medellín,Laureles,En servicio,-75.5892081,6.24918141
+302,302,Liceo,CL 30A 78 50,Medellín,Belen,En servicio,-75.59851375,6.23213805
+303,303,Los Almendros,CR 76 32F 7,Medellín,Laureles,En servicio,-75.5966849,6.2384539
+304,304,Los Rosales (Iglesia De Rosales),CR 70 31 87,Medellín,Belen,En servicio,-75.59167821,6.23418686
+305,305,Luker,CR 52 16 07,Medellín,Trinidad,En servicio,-75.58057202,6.21918668
+306,306,Mall La Gran Via,DG 75B 61 05 LOCAL 102,Medellín,El Rincon,En servicio,-75.59768808,6.21480532
+307,307,Manhatan,CR 73 20 16,Medellín,Las Playas,En servicio,-75.59495231,6.22377864
+308,308,Marmoleria,CL 25 54 47,Medellín,Trinidad,En servicio,-75.58035753,6.2264461
+309,309,Mercados Multimerca,CR 78B 3B 3,Medellín,El Rincon,En servicio,-75.6021486,6.21456089
+310,310,Mercoop S.A.S,CR 5 75 B 25,Medellín,El Rincon,En servicio,-75.597971,6.215269
+311,311,Metro Estacion Metro,CR 70 45E 95,Medellín,Laureles,En servicio,-75.58848034,6.25101904
+312,312,Moll De La 77,CR 77 28 38,Medellín,Belen,En servicio,-75.59700261,6.22938338
+313,313,Monterrey Gs,CR 48 10 45 LOCAL 1237,Medellín,La Candelaria,En servicio,-75.57542,6.22618
+314,314,Nuevo Aguacatala,CR 48 12 SUR 00 LOCAL 106,Medellín,El Poblado,En servicio,-75.57974708,6.19376024
+315,315,Nuevo Michigan,CL 9 83AA 12 INT 101,Medellín,Belen,En servicio,-75.60637931,6.21999347
+316,316,Oficina Belen Parque Ley,CR 76 29 20,Medellín,Belen,En servicio,-75.59616121,6.23090932
+317,317,Oficina Belen San Bernardo,CL 25 75 80,Medellín,Belen,En servicio,-75.59655413,6.22722598
+318,318,Oficina La 80,CR 80 20A 177,Medellín,Belen,En servicio,-75.60069118,6.22584599
+319,319,Oficina Parque Belen 1,CL 30A 76 69,Medellín,Belen,En servicio,-75.59697414,6.23203151
+320,320,On Link Net,CL 9 A A 75 A 04,Medellín,Las Playas,En servicio,-75.59834428,6.2191695
+321,321,Palasanz,CL 30 A 71 46,Medellín,Belen,En servicio,-75.59254612,6.23231539
+322,322,Papeleria,CR 87 A 18 A 24,Medellín,Belen,En servicio,-75.609688,6.222364
+323,323,Piamonte,CR 66 16 B 7,Medellín,Trinidad,En servicio,-75.58750757,6.22153061
+324,324,Pinki Carlos Uribe,CL 30A 76 57,Medellín,Belen,En servicio,-75.59694309,6.23203228
+325,325,Playon,CL 12 50 20,Medellín,La Frontera,En servicio,-75.551713,6.306255
+326,326,Plaza De Sabores,CL 2 SUR 65 126,Medellín,Belen Playas,En servicio,-75.5889141,6.2078802
+327,327,Punto Clave,CL 27 46 70,Medellín,La Candelaria,En servicio,-75.574106,6.229719
+328,328,Restaurante Barrio Colombia,CR 44 N 25 76,Medellín,El Poblado,En servicio,-75.57304125,6.22676664
+329,329,Rey 30,CL 30 76A 05,Medellín,Belen,En servicio,-75.5967705,6.23125352
+330,330,Rey De La 76,CR 76 23 14,Medellín,Belen,En servicio,-75.59691863,6.22617345
+331,331,Salsamentaria Las Margaritas,CL 9 AA 75 A 24,Medellín,Las Playas,En servicio,-75.59843996,6.21921034
+332,332,Santa Fe,CL 19 52 02,Medellín,Trinidad,En servicio,-75.58009423,6.22125313
+333,333,Santa Teresita,CR 77 35 10,Medellín,Laureles,En servicio,-75.59770762,6.24291316
+334,334,Santa Teresita La 76,CR 73 40 20,Medellín,Laureles,En servicio,-75.59706355,6.24178134
+335,335,Serví Teca,CL 30A 69C 03,Medellín,Belen,En servicio,-75.59104742,6.23220638
+336,336,Superfharma,CL 42 69 107,Medellín,Laureles,En servicio,-75.5876026,6.24757063
+337,337,Supermercado El Naranjo,CR 79 2 10,Medellín,El Rincon,En servicio,-75.60231607,6.21238416
+338,338,Supertodo Mickey Mouse,CR 70 45E 95,Medellín,Laureles,En servicio,-75.59572286,6.24409997
+339,339,Sv Rio Claro,CR 79 2C 43,Medellín,El Rincon,En servicio,-75.60112186,6.20786197
+340,340,Tecnoapuestas,CR 76 22 25,Medellín,Belen,En servicio,-75.59713116,6.22588643
+341,341,Tecnologia Infinity,CL 9AA 75 18,Medellín,Las Playas,En servicio,-75.53948,6.28647
+342,342,Terminal Del Sur Loc 061,CR 65 8 B 91,Medellín,Trinidad,En servicio,-75.58514393,6.21591609
+343,343,Terminal Del Sur Loc 113,CR 65 8 B 91,Medellín,Trinidad,En servicio,-75.58522049,6.21621713
+344,344,Terminal Metroplus,CR 86 30 03,Medellín,Belen,En servicio,-75.6093235,6.23117171
+345,345,Tienda,CR 92 C 17 115,Medellín,Belen,En servicio,-75.61649749,6.22189653
+346,346,Tortas Y Tortas,CR 52 10 B SUR 27,Medellín,Guayabal,En servicio,-75.58948361,6.19887238
+347,347,Udem,CL 30 85 04,Medellín,Belen,En servicio,-75.61381,6.23384
+348,348,Unicentro,CR 66A 34 40,Medellín,Laureles,En servicio,-75.58663583,6.24013464
+349,349,Unicentro (2),CR 66A 34 40,Medellín,Laureles,En servicio,-75.58663583,6.24013464
+350,350,Variedades Andrea,CR 74 A CALLE 17 19,Medellín,Las Playas,En servicio,-75.596294,6.222633
+351,351,Videos La 70,CR 76 34 A 37,Medellín,Laureles,En servicio,-75.58924389,6.2467488
+352,352,Violet,CR 84 NRO 31 02,Medellín,Belen,En servicio,-75.60761,6.23249
+353,353,901Mall Cootrasana,CRRA 79 42 SUR 26,Itagui,Itagui,En servicio,-75.655917,6.184165
+354,354,Aguacatala 210,CR 49 12 SUR 0 (128),Medellín,Guayabal,En servicio,-75.5819059,6.19329346
+355,355,Almacen Y Confecciones Rosa,VEREDA LOS ZULETA,Itagui,Itagui,En servicio,-75.61486977,6.17654977
+356,356,Altos De La Colina,CR 53 EE 11B SUR 05,Medellín,Guayabal,En servicio,-75.59303227,6.19949528
+357,357,Ambar Perfum,CL 36 68 26,Medellín,Resto San Antonio De Prado,En servicio,-75.64967,6.18773
+358,358,Apuestas Ya 2,CL 83 50 A 30,Itagui,Itagui,En servicio,-75.592502,6.189645
+359,359,Arias Talabarteria,CL 86 51 28,Itagui,Itagui,En servicio,-75.5909,6.19237
+360,360,Aristi Moto,CR 52 68 03,Itagui,Itagui,En servicio,-75.59914466,6.18210056
+361,361,Avenida Qap,CR 52 2 SUR 34,Medellín,Guayabal,En servicio,-75.58625404,6.20642856
+362,362,Barichara,CL 52 SUR 70 06,Medellín,Resto San Antonio De Prado,En servicio,-75.65754443,6.18481627
+363,363,Biblioteca,CR 51 48 50,Itagui,Itagui,En servicio,-75.61126692,6.17195462
+364,364,Billares J J,CR 52 82 18,Itagui,Itagui,En servicio,-75.59303,6.18972
+365,365,Bloque Naranja,CL 85 48 01 LOCAL 144,Itagui,Itagui,En servicio,-75.58938,6.18959
+366,366,Burbuja Gm,CR 49 50 70 BURBUJA 110 Centro Comercial la Gran Manzana,Itagui,Itagui,En servicio,-75.60869,6.171385
+367,367,Cafe Internet Guadalupe,CR 45 A 65 27,Itagui,Itagui,En servicio,-75.5974,6.17843
+368,368,Calatrava,CL 64 No 56 27,Itagui,Itagui,En servicio,-75.60429648,6.18139879
+369,369,Calatrava Panaderia,CL 63 58 G 23,Itagui,Itagui,En servicio,-75.6086634,6.18121679
+370,370,California,CL 13A SUR 52A 55,Medellín,Guayabal,En servicio,-75.59196392,6.19536703
+371,371,Calzado Alpely  Of Mayapuestas,CL 49 49 A 37,Itagui,Itagui,En servicio,-75.61043939,6.1711504
+372,372,Camara De Comercio,CR 50 46 53,Itagui,Itagui,En servicio,-75.61232279,6.17063832
+373,373,Caminante,DG 44 29 40,Itagui,Itagui,En servicio,-75.61766864,6.1623585
+374,374,Camparola,CL 34A 44 06,Itagui,Itagui,En servicio,-75.61817696,6.16569016
+375,375,Campo Amor,CR 54 4 81,Medellín,Guayabal,En servicio,-75.58804836,6.20579611
+376,376,Campo Amor,CL 6 57 20,Medellín,Guayabal,En servicio,-75.58539707,6.21332598
+377,377,Carrefour Las Vegas,CR 48 25 SUR 136,Itagui,Itagui,En servicio,-75.590931,6.187879
+378,378,Casa Vieja,CR 52 D 76 30,Itagui,Itagui,En servicio,-75.59697202,6.1872198
+379,379,CC MAYORCA LOCAL 356,CL 51 SUR   48 57,Itagui,Itagui,En servicio,-75.60540534,6.16185605
+380,380,Cencosud Metro Itagui,CL 50 52 21,Itagui,Itagui,En servicio,-75.61179973,6.17378412
+381,381,Centro Comercial La Torre,CR 52 D 77 69,Itagui,Itagui,En servicio,-75.59585666,6.18824481
+382,382,Centro De Belleza,CL 51 A SUR CR 61 54,Medellín,Resto San Antonio De Prado,En servicio,-75.64134,6.17592
+383,383,Centro Médico,CR 50 A 36 24,Itagui,Itagui,En servicio,-75.6202654,6.16703395
+384,384,Chatanoga,CR 51 52 17,Itagui,Itagui,En servicio,-75.60845445,6.17341842
+385,385,Chimeneas,CR 52 D 84 14,Itagui,Itagui,En servicio,-75.59249054,6.19117568
+386,386,Clinica Qap,CL 44 48 78,Itagui,Itagui,En servicio,-75.61326146,6.16886383
+387,387,Color Interno Papeleria Mixta,CR 50 CL 76 21,Itagui,Itagui,En servicio,-75.59466,6.185
+388,388,Comidas Tomilu,CR 82 41 SUR  32,Medellín,San Antonio De Prado,En servicio,-75.6581803,6.18563209
+389,389,Confecciones,CR 50 75 18,Itagui,Itagui,En servicio,-75.59529032,6.18419121
+390,390,Corona Itagui,CR 50 77 01,Itagui,Itagui,En servicio,-75.59459414,6.18524328
+391,391,Cristo Rey 1,CR 51B 2 SUR 04,Medellín,Guayabal,En servicio,-75.58548674,6.20633877
+392,392,De Uno Itagui,CL 40 51 26,Itagui,Itagui,En servicio,-75.613992,6.169439
+393,393,Distribuciones Sym Estrella,CR 62 80 SUR 32,La Estrella,La Estrella,En servicio,-75.6445,6.15813
+394,394,Distribuidora Botero,CL 50 52 04,Itagui,Itagui,En servicio,-75.61038865,6.17345474
+395,395,Ditaires,CR 61 38 22 ,Itagui,Itagui,En servicio,-75.62703451,6.17286488
+396,396,Doña Maria Del Sur,CL 67 48 119,Itagui,Itagui,En servicio,-75.59882121,6.18034433
+397,397,Drogueria Farmatienda,CL 9 SUR  79 A 72 LOCAL 109,Medellín,Guayabal,En servicio,-75.6036005,6.20306
+398,398,Edison Morales Galvis,CR 67 B 56 B SUR 30,Medellín,Resto San Antonio De Prado,En servicio,-75.64875,6.17337
+399,399,El 6,CL 81 48 46 INT 103,Itagui,Itagui,En servicio,-75.59115231,6.1871053
+400,400,El Danubio,CL 42 SUR 80 08,Medellín,Resto San Antonio De Prado,En servicio,-75.6563827,6.18457265
+401,401,El Encanto,CRA 82 43SUR 19,Medellín,Resto San Antonio De Prado,En servicio,-75.65792479,6.18353883
+402,402,El Nueve,CL 83 A 48 46 INT 102 BLOQ 9,Itagui,Itagui,En servicio,-75.59048712,6.18849192
+403,403,El Rey,CL 81 SUR 60 67,La Estrella,La Estrella,En servicio,-75.64363645,6.15717088
+404,404,El Rey,CL 42 SUR 76 A 32,Medellín,Resto San Antonio De Prado,En servicio,-75.65372034,6.18407474
+405,405,Estrella De Mar,CR 55 83B SUR 41,La Estrella,La Estrella,En servicio,-75.636357,6.152287
+406,406,Euro Itagui,CR 50 49 16,Itagui,Itagui,En servicio,-75.61009396,6.17165319
+407,407,Euro Mayorista,CR 47 63 A 40 BL 25 LOCAL 13,Itagui,Itagui,En servicio,-75.589412,6.187611
+408,408,Expresiones,CR 60 77 SUR 72,La Estrella,La Estrella,En servicio,-75.642744,6.159559
+409,409,Filetes (Iglesia Guayabo),CR 52 D 68 41,Itagui,Itagui,En servicio,-75.60030564,6.18274022
+410,410,Flamingo Itagui,CL 49 50 01,Itagui,Itagui,En servicio,-75.60919407,6.17126705
+411,411,Funeraria Muñoz Y Proteccion Exequial,CL 46 48 19,Itagui,Itagui,En servicio,-75.61185,6.16913
+412,412,Gana Servicios Ditaires,CL 35 61 12,Itagui,Itagui,En servicio,-75.62827875,6.17048379
+413,413,Gana Servicios Estrella,CR 60 79 SUR 126,La Estrella,La Estrella,En servicio,-75.64298734,6.15807667
+414,414,Gana Servicios Itagui,CR 50 50 62,Itagui,Itagui,En servicio,-75.6093461,6.17193242
+415,415,Gana Servicios Itagui (2),CR 50 50 62         ,Itagui,Itagui,En servicio,-75.6093461,6.17193242
+416,416,Gana Servicios Mayorista,CL 84 A 47 70 INT 2,Itagui,Itagui,En servicio,-75.58872759,6.1881506
+417,417,Gana Servicios S. Ant De Prado,CL 42 SUR 77 57,Medellín,Resto San Antonio De Prado,En servicio,-75.65460101,6.18421074
+418,418,Gana Servicios San Pio,CL 34 50 A 05,Itagui,Itagui,En servicio,-75.62155197,6.16563802
+419,419,Gana Servicios Santa Maria,CR 52 83 02,Itagui,Itagui,En servicio,-75.59297304,6.18998472
+420,420,Ganaservicios San Gabriel,CL 36 66 B 111,Itagui,Itagui,En servicio,-75.6318,6.171905
+421,421,Gildardo 1,CL 51 49 64,Itagui,Itagui,En servicio,-75.60874939,6.17182086
+422,422,Glorieta San Jose,DG 40 37 A 11,Itagui,Itagui,En servicio,-75.61499667,6.16691302
+423,423,Granero El Prqueadero,CR 56 B 83 SUR 05,La Estrella,La Estrella,En servicio,-75.63933141,6.15386528
+424,424,Granero Luigui,CR 50 73 A 03,Itagui,Itagui,En servicio,-75.59622582,6.18332722
+425,425,Heladeria Nesdi,CR 69 54 29,Itagui,Itagui,En servicio,-75.601804,6.184452
+426,426,Horizontes,CL 42 SUR 72 06,Medellín,Resto San Antonio De Prado,En servicio,-75.65138814,6.18452925
+427,427,Induamerica,CL 36 50 A 103,Itagui,Itagui,En servicio,-75.62104614,6.16750919
+428,428,Internet Katy,CR 61 A 23 59,Itagui,Itagui,En servicio,-75.64388767,6.16503253
+429,429,Itagui Plaza,CR 52 53 11 LOC 124,Itagui,Itagui,En servicio,-75.608,6.174578
+430,430,J Y G Parque,CL 81SUR 60 19,La Estrella,La Estrella,En servicio,-75.64340075,6.15708774
+431,431,Jahega,CR 52 56 02,Itagui,Itagui,En servicio,-75.60617352,6.17521582
+432,432,Jg,CR 50 73 A 10,Itagui,Itagui,En servicio,-75.59610578,6.1832451
+433,433,Jyg Parroquia,CL 81 SUR 61 12,La Estrella,La Estrella,En servicio,-75.64402966,6.15746228
+434,434,La 27,CL 27 69 06,Itagui,Itagui,En servicio,-75.64097,6.17144
+435,435,La 45,CR 47 45 03,Itagui,Itagui,En servicio,-75.6123007,6.16792761
+436,436,La 51 B,CR 51 B 3 SUR 50,Medellín,Guayabal,En servicio,-75.585793,6.205743
+437,437,La Bomba,CR 50 A 44 45,Itagui,Itagui,En servicio,-75.61373025,6.17056979
+438,438,La Comparcita,CL 9 SUR 52B 86,Medellín,Guayabal,En servicio,-75.58995691,6.20132676
+439,439,La Finca,CL 29 B 54 B 57,Itagui,Itagui,En servicio,-75.62636327,6.1627688
+440,440,La Iglesia,CL 42 SUR 80 13,Medellín,Resto San Antonio De Prado,En servicio,-75.65638503,6.18442794
+441,441,La Quinta,CL 80 SUR 57B 04,La Estrella,La Estrella,En servicio,-75.64104011,6.1572848
+442,442,La Reja Negra,CL 30 A 56 A 09,Itagui,Itagui,En servicio,-75.626711,6.163444
+443,443,Leys Jor,CL 6 CS 83 A 41,Medellín,Guayabal,En servicio,-75.60353733,6.21821013
+444,444,Loncheria,CL 7 NRO 52 35,Medellín,Guayabal,En servicio,-75.58371,6.21273
+445,445,Los Lonchos 2,CR 78 SUR N° 43  05,Medellín,Resto San Antonio De Prado,En servicio,-75.65558,6.18355
+446,446,Magnet Intermet,CR 62 A 74 SUR 167,La Estrella,La Estrella,En servicio,-75.6444063,6.16143091
+447,447,Margarita,CR 53 34 78,Itagui,Itagui,En servicio,-75.62303101,6.16712934
+448,448,Maylu Store Ly,CR 58 77 50,Itagui,Itagui,En servicio,-75.59992,6.19041
+449,449,Mega Banco Carlos Uribe,CR 49 52 14,Itagui,Itagui,En servicio,-75.60771543,6.17173963
+450,450,Mekatos Jl,CR 63 24 A 44,Itagui,Itagui,En servicio,-75.643245,6.167317
+451,451,Mercados La Bonanza,CL 77 52 27,Itagui,Itagui,En servicio,-75.59575865,6.18607059
+452,452,Merka Chepa,CR 68 151 500,Itagui,Itagui,En servicio,-75.640153,6.171167
+453,453,Merka Paisa La Estrella,CL 81 SUR59 101 INT,La Estrella,La Estrella,En servicio,-75.642675,6.156974
+454,454,Merke Paisa San Antonio De Prado,CR 79 41 SUR 56,Medellín,Resto San Antonio De Prado,En servicio,-75.656105,6.184858
+455,455,Merquemos,CL 2 52 54,Medellín,Guayabal,En servicio,-75.58539446,6.20925393
+456,456,METRO 212,CL 51 SUR 48 01(ITA2 12),Itagui,Itagui,En servicio,-75.60836656,6.17072149
+457,457,Mirador De La Estrella,CRA 59 82 SUR 13 LOCAL 2,La Estrella,La Estrella,En servicio,-75.642732,6.155898
+458,458,Mis Bohios,CR 56D 76B SUR 55,La Estrella,La Estrella,En servicio,-75.63886013,6.16100782
+459,459,Miscelanea Sandra,CL 77 SUR 50 A 184,La Estrella,La Estrella,En servicio,-75.63353,6.14094
+460,460,Miscelanea Y Cafeteria El Tornado,CL 47 48 04,Itagui,Itagui,En servicio,-75.61102325,6.16940355
+461,461,Miscelania G Y G,CRA 51 5 SUR 26,Medellín,Guayabal,En servicio,-75.58488,6.20403
+462,462,Multiservicios Esmo,CR 55 1 13,Medellín,Guayabal,En servicio,-75.5872,6.2081
+463,463,Nueva Manuela,CR 61 77 SUR 53,La Estrella,La Estrella,En servicio,-75.643191,6.159293
+464,464,Nuevo Porvenir,CR 57 NO 83 05,Itagui,Itagui,En servicio,-75.59767,6.192631
+465,465,Nuevo San Jose,CL 35 38A 03,Itagui,Itagui,En servicio,-75.613876,6.165877
+466,466,Nuevo Simon Bolivar,CR 45 A 64 33,Itagui,Itagui,En servicio,-75.5982645,6.17757451
+467,467,Of Mega 15,CR 50 48 20,Itagui,Itagui,En servicio,-75.61096296,6.1711482
+468,468,Of.Le Apuesto San Pio,CR 50 A 33 05,Itagui,Itagui,En servicio,-75.62179407,6.16504536
+469,469,Oficina Belén La 30,CL 30 76 12,Medellín,Belen,En servicio,-75.59635785,6.23141008
+470,470,Oficina Gildardo,CL 56 59 11,Itagui,Itagui,En servicio,-75.60940933,6.1789984
+471,471,Oficina Principal Candilejas,CR 52 45 A 37,Itagui,Itagui,En servicio,-75.61337572,6.1721163
+472,472,Oficina Santa Maria Rey,CR 52 84 19,Itagui,Itagui,En servicio,-75.59277359,6.19086148
+473,473,Oro Oficina Principal,CL 50 51 12,Itagui,Itagui,En servicio,-75.61008074,6.17272656
+474,474,Pan Rico,CR 52 70 04,Itagui,Itagui,En servicio,-75.59859934,6.18245257
+475,475,Panaderia La Churris,CR 60 D CL 40 B SUR 13,Medellín,Resto San Antonio De Prado,En servicio,-75.64103,6.18466
+476,476,Papeleria Bethel,CL 83 52 A 49,Itagui,Itagui,Desactivado,-75.59382,6.19054
+477,477,Papelería Celeste,CR 65 52 B SUR 58,Medellín,Resto San Antonio De Prado,En servicio,-75.64676,6.1753
+478,478,Papeleria Jhonnattan,CR 65 27 55,Itagui,Itagui,En servicio,-75.64046,6.16957
+479,479,Papeleria Pradito,CL 36 D SUR 55 E 20,Medellín,Resto San Antonio De Prado,En servicio,-75.6407,6.18729
+480,480,Papeleria Valentina.Net,CR 54 64 16,Itagui,Itagui,En servicio,-75.60212,6.1812
+481,481,Papeleria Y Variedades Mery Mu,CL 57 SUR 67 51,Medellín,Resto San Antonio De Prado,En servicio,-75.648299,6.173025
+482,482,Parque Rey,CL 1 52 32,Medellín,Guayabal,En servicio,-75.5864316,6.20821565
+483,483,Parque San Pio,CL 33 47A 03,Itagui,Itagui,En servicio,-75.62030406,6.16482274
+484,484,Pilsen,CR 50 A 39 14,Itagui,Itagui,En servicio,-75.61787116,6.16923056
+485,485,Pollos Mario,CR 52 77 163,Itagui,Itagui,En servicio,-75.59545838,6.18631543
+486,486,Pollos Paulandia,CL 80C SUR 59 05 ,La Estrella,La Estrella,En servicio,-75.64216582,6.15758204
+487,487,Ppal Jugar Y Ganar,CR 51 53 14,Itagui,Itagui,En servicio,-75.607696,6.17361657
+488,488,Punto De Venta Limonar,CL 57 SUR 62 B 33,Medellín,Resto San Antonio De Prado,En servicio,-75.64395091,6.17293484
+489,489,Punto Virtual Comunicaciones,CR 52 80 95,Itagui,Itagui,En servicio,-75.59336,6.18919
+490,490,Q.A .P La Gloria,CR 48 43 18,Itagui,Itagui,En servicio,-75.61350037,6.16811422
+491,491,Rio Claro,CR 63 41 B SUR 18,Medellín,Resto San Antonio De Prado,En servicio,-75.65354672,6.18409128
+492,492,Salsamentaria Don Pedro,CL 40 SUR 74 A 24,Medellín,Resto San Antonio De Prado,En servicio,-75.65213346,6.18560298
+493,493,Salsamentaria Gloraba,CL 82 SUR 57B 02,La Estrella,La Estrella,En servicio,-75.64160608,6.15570185
+494,494,Salsamentaria Puerto Mango,CL 82 SUR 56 C 43,La Estrella,La Estrella,En servicio,-75.64186,6.15574
+495,495,Salsamentaria Yarana,CR 53 A B 31 A A 03,Itagui,Itagui,En servicio,-75.62565059,6.16466067
+496,496,San Francisco La 28,CL 28 68 – 26,Itagui,Itagui,En servicio,-75.63945524,6.17137634
+497,497,San Jose # 1,DG 40 34 16 LOCAL 1,Itagui,Itagui,En servicio,-75.615106,6.165525
+498,498,San Pablo,CR 58 No 79 141,Itagui,Itagui,En servicio,-75.59900169,6.19354108
+499,499,San Patelo,CR 52 72 A 36,Itagui,Itagui,En servicio,-75.5975834,6.18349792
+500,500,San Pio 2,,Itagui,Itagui,En servicio,-75.62013,6.16019
+501,501,Santa Rita,CR 69 C 37 SUR 30,Medellín,Resto San Antonio De Prado,En servicio,-75.64838606,6.18615192
+502,502,Servicios Y Mensajeria Cj,CL 10 B SUR 54 08,Medellín,Guayabal,En servicio,-75.58288,6.21552
+503,503,Simon Bolivar 2,CL 64 A 46 58,Itagui,Itagui,En servicio,-75.59847184,6.17842133
+504,504,Supermercado Boom,CR 46 83 A 59 INT 24,Itagui,Itagui,En servicio,-75.58915675,6.18719063
+505,505,Tienda De Sentimientos Mundo Prins,CL 56 58 F F 10,Itagui,Itagui,En servicio,-75.6090701,6.1791389
+506,506,Tienda Maria,CL 52 SUR 55 B 27,Medellín,Resto San Antonio De Prado,En servicio,-75.646682,6.175527
+507,507,Transito Qap,CL 50 42 02,Itagui,Itagui,En servicio,-75.60761439,6.16745861
+508,508,Transito Rey,CR 46 50 07,Itagui,Itagui,En servicio,-75.60837301,6.16882308
+509,509,Univentas,CR 42 75 83,Itagui,Itagui,En servicio,-75.59081826,6.18224827
+510,510,Variedades Julia,CR 50 C 28 84,Itagui,Itagui,En servicio,-75.62398564,6.16189534
+511,511,Variedades Kaliccia,CL 83 SUR 55 38,La Estrella,La Estrella,En servicio,-75.637271,6.152728
+512,512,Variedades Magico Tertulia,CR 48 46 53,Itagui,Itagui,En servicio,-75.61191,6.16895
+513,513,Variedades Sempiterno,CL 75 SUR 53 12,La Estrella,La Estrella,En servicio,-75.63175,6.16061
+514,514,Villa Loma,CR 67 41C SUR 26,Medellín,Resto San Antonio De Prado,En servicio,-75.64757996,6.1826284
+515,515,Wa Papeleria,CL 38 A  74 A 12,Medellín,Resto San Antonio De Prado,En servicio,-75.65271,6.18653
+516,516,Yira  -  Yira,CR 52 1 SUR 56,Medellín,Guayabal,En servicio,-75.58599228,6.20703855
+517,517,Alcala Liquors,CL 39 SUR 43A 28,Envigado,Envigado,En servicio,-75.58977243,6.16914325
+518,518,Alcala Parroquia,CL 39 A SUR 46 36,Envigado,Envigado,En servicio,-75.59318057,6.1700246
+519,519,Baratillo La Paz,CL 45 SUR 42 B 8,Envigado,Envigado,En servicio,-75.59325598,6.16374299
+520,520,Barrio Mesa 1,CL 38 SUR 37 04,Envigado,Envigado,En servicio,-75.58430976,6.16767335
+521,521,Barrio Mesa 2,CL 39 B SUR 37 13,Envigado,Envigado,En servicio,-75.58577366,6.16547008
+522,522,Billares El Parque N 1,CL 37 SUR 41 76,Envigado,Envigado,En servicio,-75.58670959,6.17009314
+523,523,Billares Imperial,CR 42 38 SUR 83,Envigado,Envigado,En servicio,-75.58778375,6.16915661
+524,524,C.Comercial Metro Sur,CL 37 SUR 46 A 54,Envigado,Envigado,En servicio,-75.59148346,6.17305861
+525,525,Cafeteria El Puntito,DG 32 D 34 C SUR 34,Envigado,Envigado,En servicio,-75.58281747,6.17135497
+526,526,Calle Larga,CL 75 SUR 46 A 26,Sabaneta,Sabaneta,En servicio,-75.6193062,6.15053237
+527,527,City Plaza,CL 36 D SUR 27 A 105 LOCAL 153,Envigado,Envigado,En servicio,-75.57342228,6.1633652
+528,528,Consumo Envigado,CR 43 32 A SUR 27,Envigado,Envigado,En servicio,-75.58577303,6.17474384
+529,529,Consumo Terracina,CR 27 35 SUR 180,Envigado,Envigado,En servicio,-75.56903068,6.16766118
+530,530,Delicias Topy,CL 46 E SUR 42 A 06,Envigado,Envigado,En servicio,-75.595019,6.16034946
+531,531,El Baratillo,CR 40 SUR 37 10,Envigado,Envigado,En servicio,-75.5855866,6.16917688
+532,532,El Cefit,CR 34 A 39 SUR 01,Envigado,Envigado,En servicio,-75.58404012,6.16538901
+533,533,El Comando,CL 41A SUR 42 02,Envigado,Envigado,En servicio,-75.5910067,6.16567766
+534,534,El Cosechero 1,CL 37 SUR 39 04,Envigado,Envigado,En servicio,-75.58496382,6.16897492
+535,535,El Gloton,CL 41 SUR 25A55,Envigado,Envigado,En servicio,-75.58431662,6.15481441
+536,536,El Mua,TRANSVERSAL 34 B SUR 31 13,Envigado,Envigado,En servicio,-75.5795532,6.17271662
+537,537,El Obrero,TRANSVERSAL 34 B SUR 32 D 63,Envigado,Envigado,En servicio,-75.58327392,6.17176685
+538,538,El Paradero,Cl 68 SUR 44 05,Sabaneta,Sabaneta,En servicio,-75.61459914,6.15205867
+539,539,El Parque,CL 37 SUR 42 74 ,Envigado,Envigado,En servicio,-75.58732813,6.17048595
+540,540,El Salado,CL 40 SUR 24E10,Envigado,Envigado,En servicio,-75.57771432,6.15082558
+541,541,El Seguro,DG 33 34 D SUR 36,Envigado,Envigado,En servicio,-75.58328554,6.17062407
+542,542,El Trapiche,Cr 45 77 SUR 20,Sabaneta,Sabaneta,En servicio,-75.62041645,6.1470734
+543,543,El Trianon,CR 40 48 B SUR 2,Envigado,Envigado,En servicio,-75.59569341,6.15811272
+544,544,Enrredadera,Cr 44 70 SUR 20,Sabaneta,Sabaneta,En servicio,-75.615574,6.15100068
+545,545,Entreamigos,Cr 46 SUR 72 08,Sabaneta,Sabaneta,En servicio,-75.61734617,6.15192064
+546,546,Envigado Parque,CL 38 SUR 42 23,Envigado,Envigado,En servicio,-75.58761129,6.16958931
+547,547,Envigado Parque (2),CL 38 SUR 42 23,Envigado,Envigado,En servicio,-75.58761129,6.16958931
+548,548,Esquina Del Guaro,CR 43 36 SUR 81,Envigado,Envigado,En servicio,-75.58750237,6.17087781
+549,549,Estacion La Estrella,CR 49 77 SUR 90,Sabaneta,Sabaneta,En servicio,-75.625895,6.152486
+550,550,Estacion Metro,CR 50 37 SUR 120 ( ENV2 10),Envigado,Envigado,En servicio,-75.59576779,6.17433378
+551,551,Estacion Metro (2),CR 50 37 SUR 120 ( ENV2 10),Envigado,Envigado,En servicio,-75.59576779,6.17433378
+552,552,Euro Mercados Frontera,CR 43 21 SUR 06,Envigado,Envigado,En servicio,-75.57932634,6.18306905
+553,553,Gana Servicios Envigado (2),Cr 43 36 SUR 06,Envigado,Envigado,En servicio,-75.58714502,6.17119824
+554,554,Gana Servicios Envigado (3),Cr 43 36 SUR 06,Envigado,Envigado,En servicio,-75.58714502,6.17119824
+555,555,Gana Servicios Envigado (4),Cr 43 36 SUR 06,Envigado,Envigado,En servicio,-75.58714502,6.17119824
+556,556,Gana Servicios Envigado Rosellon (2),CL 40 S 28 B 58         ,Envigado,Envigado,En servicio,-75.58159523,6.16080091
+557,557,Gana Servicios Sabaneta (2),CR 45 71 SUR 14,Sabaneta,Sabaneta,En servicio,-75.61625659,6.15089564
+558,558,Ganaservicios,CR 45 71 SUR 14,Sabaneta,Sabaneta,En servicio,-75.61625659,6.15089564
+559,559,Ganaservicios Envigado,Cr 43 36 SUR 06,Envigado,Envigado,En servicio,-75.58714502,6.17119824
+560,560,Ganaservicios Rosellon,CL 40 SUR 28 B 58,Envigado,Envigado,En servicio,-75.58159523,6.16080091
+561,561,Guaimaro,TRANSVERSAL 34ASUR N 32B10,Envigado,Envigado,En servicio,-75.58312266,6.16391322
+562,562,Guanteros,CL 39 SUR 41 83,Envigado,Envigado,En servicio,-75.58809359,6.16798759
+563,563,Jardines,CR 45 A CL 30 SUR 14 ,Envigado,Envigado,En servicio,-75.58660635,6.17781472
+564,564,La Florida,CL 40 F SUR 30 3,Envigado,Envigado,En servicio,-75.58471198,6.16065241
+565,565,La Isla,CL 71 SUR 44 20,Sabaneta,Sabaneta,En servicio,-75.61599054,6.15085746
+566,566,La Mina Qap,CL 40B SUR 26 49,Envigado,Envigado,En servicio,-75.58168578,6.15717937
+567,567,La Normal,CL 37 SUR 33 61,Envigado,Envigado,En servicio,-75.58211707,6.16700494
+568,568,La Paz 2,CR 42 B 45 B SUR 83,Envigado,Envigado,En servicio,-75.59345911,6.16352891
+569,569,La Pio Xii,CR 31 37 SUR 64,Envigado,Envigado,En servicio,-75.58101208,6.16573268
+570,570,La Sebastiana,DG 31 34 E SUR 35,Envigado,Envigado,En servicio,-75.57955694,6.170869
+571,571,La Universidad,CL 37 SUR 46 A 23,Envigado,Envigado,En servicio,-75.59148967,6.17289668
+572,572,La Vaquita Sabaneta,CR 43A 63 SUR 190,Sabaneta,Sabaneta,En servicio,-75.611607,6.152213
+573,573,Licorera Distribeta,CR 42 40 C SUR 79,Envigado,Envigado,En servicio,-75.588725,6.167377
+574,574,Los Naranjos,TRANSVERSAL 36 SUR 32 04,Envigado,Envigado,En servicio,-75.58083792,6.16827735
+575,575,Magnolia 1,DG 32 D TR 33 A SUR 68,Envigado,Envigado,En servicio,-75.58349038,6.173135
+576,576,Marceliano Dos,CL 33 B SUR 42 67,Envigado,Envigado,En servicio,-75.58601906,6.17256839
+577,577,Merkepaisa Sabaneta,CR 45 69 SUR 25,Sabaneta,Sabaneta,En servicio,-75.61586555,6.15218625
+578,578,Mina Parte Baja,CL 40 C SUR 29 16,Envigado,Envigado,En servicio,-75.58283183,6.1606421
+579,579,Mini-Mercado La Chica,CR 41 40 G SUR 03,Envigado,Envigado,En servicio,-75.59033788,6.16499841
+580,580,Pacho Pinturas,Cl 69 SUR 46 68,Sabaneta,Sabaneta,En servicio,-75.61639508,6.1530914
+581,581,Panaderia La Paloma,DG 31D 32 SUR 51,Envigado,Envigado,En servicio,-75.58103137,6.17643068
+582,582,Panaderia Prima Pan,CL 46 S 46 A 33,Envigado,Envigado,En servicio,-75.59697787,6.16453756
+583,583,Papeleria Mari-A,CR 40 52 B SUR 27,Envigado,Envigado,En servicio,-75.60121241,6.15515717
+584,584,Papeleria Y Variedades Estmatre,CL 40 D SUR 40 A 34,Envigado,Envigado,En servicio,-75.57946,6.1548
+585,585,Parque  Registraduria,Cl 69 SUR 45 28,Sabaneta,Sabaneta,En servicio,-75.61558994,6.15218288
+586,586,Pcell Tecnologia,TRANSVERSAL 32 A SUR  DG 31 D 34,Envigado,Envigado,En servicio,-75.58129,6.17602
+587,587,Piccolo,Cr 43 C 68 SUR 02,Sabaneta,Sabaneta,En servicio,-75.61408176,6.15152825
+588,588,Prenderia Omega,CL 38 SUR 41 77,Envigado,Envigado,En servicio,-75.58719381,6.16932317
+589,589,Presto,CR 42 36 SUR 39,Envigado,Envigado,En servicio,-75.58680027,6.17075188
+590,590,Primavera 2,CL 46 SUR 44 37,Envigado,Envigado,En servicio,-75.59655901,6.16424763
+591,591,Profamilia,CL 54 43 70,Medellín,Boston,En servicio,-75.56196225,6.25036292
+592,592,Restrepo Naranjo,CL 62 SUR 43 c 06,Sabaneta,Sabaneta,En servicio,-75.61062858,6.15456481
+593,593,Sala De Internet Cristina,CL 53 SUR 40 77,Envigado,Envigado,En servicio,-75.60646294,6.15915744
+594,594,San Mateo 2,TRANSVERSAL 34 D SUR 32 B 02,Envigado,Envigado,En servicio,-75.58196354,6.17143619
+595,595,Santa Barbara Iglesia,TRANSVERSAL 34 B SUR 30 A 18,Envigado,Envigado,En servicio,-75.57874719,6.17271306
+596,596,Surcell,CL 75 SUR 43 A 36,Envigado,Envigado,En servicio,-75.58834,6.17109
+597,597,Terminal Nuevo,CL 77 SUR 47 23,Sabaneta,Sabaneta,En servicio,-75.622798,6.149955
+598,598,Terrasanta,Cr 43 56 SUR 09,Sabaneta,Sabaneta,En servicio,-75.60621468,6.1567713
+599,599,Tienda Vegetariana,CR 42 33 B SUR 02,Envigado,Envigado,En servicio,-75.58563541,6.17234291
+600,600,Ventanas,CR 43 38 SUR 02,Envigado,Envigado,En servicio,-75.58797098,6.16982983
+601,601,Villa Grande,CR 43 A SUR 35 LOC 109,Envigado,Envigado,En servicio,-75.58210767,6.18155469
+602,602,Zafra Mercados,CR 39 D 46 E SUR 03,Envigado,Envigado,En servicio,-75.59319088,6.15911305
+603,603,Bulebar Monterey,CR 49 10 0 INT 112,Medellín,El Poblado,En servicio,-75.57638652,6.21412371
+604,604,Burbuja C.C Santa Fe,CR 43 A 7 SUR 130 PISO 3,Medellín,El Poblado,En servicio,-75.572985,6.196826
+605,605,Burbuja C.C Santa Fe (2),CR 43 A 7 SUR 130 PISO 3,Medellín,El Poblado,En servicio,-75.572985,6.196826
+606,606,Cc Automotriz,CL 23 N 43A 55,Medellín,El Poblado,En servicio,-75.56966562,6.22309843
+607,607,Cc Oviedo,CR 43 A 6 SUR 15,Medellín,El Poblado,En servicio,-75.57488985,6.19943724
+608,608,Cc Oviedo (2),CR 43 A 6 SUR 15,Medellín,El Poblado,En servicio,-75.57488985,6.19943724
+609,609,Centro Comercial Santa Fe,CR 43 A 7 SUR 170 LOC 9063,Medellín,El Poblado,En servicio,-75.573779,6.196848
+610,610,El Machetico,CL 9 N 42 – 42,Medellín,El Poblado,En servicio,-75.57023785,6.20964089
+611,611,El Rey De La 10,CL 10 N 42 14,Medellín,El Poblado,En servicio,-75.56970968,6.21035302
+612,612,El Tesoro,CR 25A 1A SUR 45,Medellín,El Poblado,En servicio,-75.558968,6.197333
+613,613,El Tesoro (2),CR 25A 1A SUR 45,Medellín,El Poblado,En servicio,-75.558968,6.197333
+614,614,Estacion 210,CL 9 N 42 42,Medellín,El Poblado,En servicio,-75.58208825,6.2137505
+615,615,Estacion 213,CL 10 N 48 0 INT 149,Medellín,El Poblado,En servicio,-75.57759052,6.21343031
+616,616,Estacion 213 (2),CL 10 N 48 0 INT 149,Medellín,El Poblado,En servicio,-75.57759052,6.21343031
+617,617,Gildardo La 10,CL10 N 35 31,Medellín,El Poblado,En servicio,-75.56580401,6.20866639
+618,618,La Vaquita Del Poblado,CL 9 SUR 29 D 76,Medellín,El Poblado,En servicio,-75.558898,6.208123
+619,619,La Visitacion,CR 32 4 SUR 80,Medellín,El Poblado,En servicio,-75.56561891,6.19654057
+620,620,Mall Las Vegas,CRR 48 7 274,Medellín,El Poblado,En servicio,-75.576589,6.209299
+621,621,Mall San Lucas,CL 20 SUR 27 115 LOCAL 110,Medellín,El Poblado,En servicio,-75.568824,6.181438
+622,622,Maxifruver Las Palmas,CR 38 26 279,Medellín,San Diego,En servicio,-75.565494,6.224716
+623,623,Nuevo Ganaservicios Poblado,CR 43A N 10 14,Medellín,El Poblado,En servicio,-75.57049415,6.2106633
+624,624,Qap De La 10,CL10 N 43C 17,Medellín,El Poblado,En servicio,-75.57215694,6.21110334
+625,625,Qap La 10 (2),CL 10 43 C 17,Medellín,El Poblado,En servicio,-75.57215694,6.21110334
+626,626,Riosur,CR 43 A 6 SUR 26,Medellín,El Poblado,En servicio,-75.57363,6.19887
+627,627,Tecnologia Sau Paulo Lech,CR 43 A  18 SUR  135,Medellín,El Poblado,Desactivado,-75.5789,6.18503
+628,628,Vizcaya,CL 10 32 115 BURBUJA 00145A,Medellín,El Poblado,En servicio,-75.56217,6.20828
+629,629,601Almacentro,CR 43 A 34 95 lLOCAL 251,Medellín,La Candelaria,En servicio,-75.59559,6.24261
+630,630,Acces Movile A&Y,CR 17 B 56 E 55,Medellín,Enciso,En servicio,-75.540331,6.242037
+631,631,Acevedo,CR 52 109 22,Medellín,La Frontera,En servicio,-75.55677603,6.3006687
+632,632,Aires De La Honda,0,Medellín,Manrique Oriental,En servicio,-75.53858,6.2665
+633,633,Alianza (San Pablo),CR 34 98 05,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.54444497,6.2878691
+634,634,Almacen La Esperanza,CL 55 12 105,Medellín,Barrio Caicedo,Desactivado,-75.53809,6.23699
+635,635,Alto De Guadalupe,CL 95 A 37 54,Medellín,Manrique Central Nº 1,En servicio,-75.548589,6.264386
+636,636,Amador Por Carabobo,CL 45 52 26,Medellín,La Candelaria,En servicio,-75.57126201,6.24621323
+637,637,Andalucia Ii,CL 107 47 51,Medellín,Aranjuez,En servicio,-75.55239617,6.29643484
+638,638,Aranjuez Metroplus,CL 93 45 A 64,Medellín,Aranjuez,En servicio,-75.55324293,6.28438021
+639,639,Argemiro La 72,CR 45 72 06,Medellín,Manrique Central Nº 1,En servicio,-75.55503489,6.2674365
+640,640,Argemiro La 72 (2),CR 45 72 06,Medellín,Manrique Central Nº 1,En servicio,-75.55503489,6.2674365
+641,641,Armando Milagrosa,CL 45 30 01,Medellín,La Milagrosa,En servicio,-75.55461329,6.23786328
+642,642,Auto Servicio La Honda,CL 71 24 86,Medellín,Manrique Oriental,En servicio,-75.54075,6.26586
+643,643,Bar Boyaca,CL 51 49 20,Medellín,La Candelaria,En servicio,-75.56668348,6.24981369
+644,644,Bar Damasco,CR 52 35 113,Medellín,La Candelaria,En servicio,-75.5742935,6.23754731
+645,645,Bar y Restaurante Puerto Nuevo,CR 52 39 03,Medellín,La Candelaria,En servicio,-75.57337872,6.24009207
+646,646,Bazar De Los Puentes Qap,CL 57 B 51 D 05,Medellín,La Candelaria,En servicio,-75.56707852,6.25606371
+647,647,Bazar San Antonio Ph,CL 47 45 87,Medellín,La Candelaria,En servicio,-75.56672403,6.24591965
+648,648,Bellanitas Gildardo,CR 37 70 2,Medellín,Manrique Oriental,En servicio,-75.54860266,6.2646744
+649,649,Benedan (2),CR 47 N 49 59,Medellín,La Candelaria,En servicio,-75.56650318,6.24801777
+650,650,Bicentenario,CL 51 35 45,Medellín,Buenos Aires,En servicio,-75.555803,6.244415
+651,651,Billar Nancy,CRA 50 B CL 123 8,Medellín,La Frontera,Desactivado,-75.55304,6.30604
+652,652,Bingo Junin,CR 49 52 81 PISO 3 LOCAL 336,Medellín,La Candelaria,En servicio,-75.56595,6.25082
+653,653,Boyaca Qap (2),CL 51 51 66 ,Medellín,La Candelaria,En servicio,-75.56864448,6.25069349
+654,654,Bulebar Peru,CR 46 55 34,Medellín,La Candelaria,En servicio,-75.56301436,6.25211997
+655,655,C.C Comercial Av. Oriental,CR 46 54 89,Medellín,La Candelaria,En servicio,-75.56338896,6.25178531
+656,656,C/Comercial Veracruz Confeciones,CR 52 51 44,Medellín,La Candelaria,En servicio,-75.569218,6.25101549
+657,657,C/Comercial Veracruz Confeciones (2),CR 52 51 44,Medellín,La Candelaria,En servicio,-75.569218,6.25101549
+658,658,Café Pilsen,CR 50 51 04,Medellín,La Candelaria,En servicio,-75.56758211,6.25021061
+659,659,Cafeteria El Ranchito Gig,CR 47 52 176,Medellín,La Candelaria,En servicio,-75.56491548,6.25088469
+660,660,Campo Valdes,CR 49 82 34,Medellín,Aranjuez,En servicio,-75.55766595,6.27541038
+661,661,Carlos Uribe,CL 85 46 A 1,Medellín,Manrique Central Nº 1,En servicio,-75.55490882,6.27722854
+662,662,Carniceria,CL 20 E 43 C 13,Medellín,La Frontera,En servicio,-75.55385676,6.30864194
+663,663,Carpinelo,CR 23 96 13,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.53826196,6.28639566
+664,664,Casa De Familia,CR 52 98 3,Medellín,Aranjuez,En servicio,-75.56230404,6.29160833
+665,665,Casa De La Cultura,CL 99 50 C 24,Medellín,Aranjuez,En servicio,-75.55953438,6.29192583
+666,666,Casino Circus,CL 53 53 62,Medellín,La Candelaria,En servicio,-75.56988219,6.25325659
+667,667,Centro De Servicios D.J.V,CL 99 A 25 C 53,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.54040048,6.28755669
+668,668,Charcuteria La Polonesa,CL 55 47 34,Medellín,La Candelaria,En servicio,-75.56405604,6.25262221
+669,669,Claro De Luna,CR 49 A 93 29,Medellín,Aranjuez,En servicio,-75.55682193,6.28484581
+670,670,Clinica El Rosario Pto Vta Le Apuesto,CR 41 63 A 43,Medellín,Villa Hermosa,En servicio,-75.5553913,6.25635899
+671,671,Comercio Salvador,CL 40 38 16,Medellín,El Salvador,En servicio,-75.56187,6.23806
+672,672,Cuatro Esquinas,CR 5 46 12,Medellín,Moravia,En servicio,-75.55993707,6.26911796
+673,673,Distraerte,CL 79 50B 27,Medellín,Moravia,En servicio,-75.5604778,6.2729308
+674,674,Drogueria Vitalicia,CR 39 81 04,Medellín,Las Granjas,En servicio,-75.548676,6.2727277
+675,675,E Tecnology,CRA 30 CL 40A 91,Medellín,La Milagrosa,En servicio,-75.55989,6.23674
+676,676,Ed Trebol,CR 46 55 95,Medellín,La Candelaria,En servicio,-75.5629572,6.25249132
+677,677,Eds Enciso,CR 28 59 – 45,Medellín,Enciso,En servicio,-75.548431,6.250468
+678,678,El Chorro,CR 33 A A 38 B 25,Medellín,El Salvador,En servicio,-75.55917559,6.23579252
+679,679,El Dorado (2),CR 52 45 29 LOC 107,Medellín,La Candelaria,En servicio,-75.57101587,6.24676954
+680,680,El Galerita,CR 42 B 110 BB 59,Medellín,Popular,En servicio,-75.54606,6.299731
+681,681,El Morcillero,CR 42B 107C 47,Medellín,Popular,Desactivado,-75.54783164,6.29589533
+682,682,El Museo,CR 51 B 86 03,Medellín,Moravia,En servicio,-75.56239593,6.27916759
+683,683,El Plan,CL 49 7 44,Medellín,Buenos Aires,En servicio,-75.536971,6.230966
+684,684,Enciso Las Delicias,CL 57 19 208,Medellín,Enciso,En servicio,-75.54285972,6.24905717
+685,685,Estacion Manrique,CR 4580 04,Medellín,Manrique Central Nº 1,En servicio,-75.554178,6.272797
+686,686,Estacion Parque De Berrio (Bazar),CR 51 50 27 LOC 68,Medellín,La Candelaria,En servicio,-75.56861473,6.24993579
+687,687,Estacion Pinal,CL 56 E 25 A 14,Medellín,Enciso,En servicio,-75.54298,6.244268
+688,688,Euro Palma Grande,CL 19 38 75 ,Medellín,San Diego,En servicio,-75.566492,6.2203
+689,689,Exito Express,CR 51 53 67,Medellín,La Candelaria,En servicio,-75.56775143,6.25321735
+690,690,Faro Del Rio,CL 65 56 A 08,Medellín,Sevilla,En servicio,-75.57109452,6.26388796
+691,691,Fenalco,CL 50 42 54,Medellín,La Candelaria,En servicio,-75.5625,6.24725
+692,692,Fereteria Bolivar,CL 50 52 73,Medellín,La Candelaria,En servicio,-75.57013378,6.25037988
+693,693,Fiscalia,CL 53 49 148,Medellín,La Candelaria,En servicio,-75.56660001,6.25233831
+694,694,Flamingo Parque Berrio,CL 51 50 34,Medellín,La Candelaria,En servicio,-75.56793768,6.25043122
+695,695,Full El Bosque # 2,CL 79 55B 143,Medellín,Moravia,En servicio,-75.56658991,6.27441837
+696,696,Gaitan Qap,CR 37 N 71 4,Medellín,Manrique Oriental,En servicio,-75.54847191,6.26574866
+697,697,Gana Expres Las Palmas,MALL INDIANA GLORIETA,Envigado,Las Palmas,En servicio,-75.53333,6.153292
+698,698,Gana La 100,CL 100 47 59,Medellín,Aranjuez,En servicio,-75.55445915,6.29123677
+699,699,Gana Servicio Parque Berrio,CL 50 51 65,Medellín,La Candelaria,En servicio,-75.5691929,6.24991463
+700,700,Gana Servicios Alpujarra (2),CL 44 51 45,Medellín,La Candelaria,En servicio,-75.57114406,6.24469232
+701,701,Gana Servicios Andalucia,CR 49 C 106 91,Medellín,Aranjuez,En servicio,-75.55508277,6.29784368
+702,702,Gana Servicios Aranjuez,CR 49 94 11,Medellín,Aranjuez,En servicio,-75.55614062,6.28594801
+703,703,Gana Servicios Bosque,CR 52 78 13,Medellín,Moravia,En servicio,-75.56474272,6.27425354
+704,704,Gana Servicios Boston,CR 38 55 59,Medellín,Boston,En servicio,-75.55703928,6.24856182
+705,705,Gana Servicios Boyaca,CR 51 52 112,Medellín,La Candelaria,En servicio,-75.56777926,6.25186556
+706,706,Gana Servicios Boyaca (2),CR 51 52 112,Medellín,La Candelaria,En servicio,-75.56777926,6.25186556
+707,707,Gana Servicios Enciso,CR 30 58 04 ,Medellín,Enciso,En servicio,-75.55032113,6.24928596
+708,708,Gana Servicios Gaitan,CR 37 70 38,Medellín,Manrique Oriental,En servicio,-75.54858839,6.26485352
+709,709,Gana Servicios Manrique,CR 45 78 80,Medellín,Manrique Central Nº 1,En servicio,-75.55435818,6.27159252
+710,710,Gana Servicios Milagrosa,CR 29 42 07,Medellín,La Milagrosa,En servicio,-75.55473047,6.23580452
+711,711,Gana Servicios Parque Berrio (1),CL 50 51 65,Medellín,La Candelaria,En servicio,-75.5691929,6.24991463
+712,712,Gana Servicios Popular,CR 43A 103 80,Medellín,Popular,En servicio,-75.55035663,6.29310938
+713,713,Gana Servicios Salvador,CR 35 A 39 06,Medellín,El Salvador,En servicio,-75.561381,6.23631413
+714,714,Gana Servicios San Blas,CRA 36 86B 33,Medellín,Las Granjas,En servicio,-75.54656421,6.27996617
+715,715,Gana Servicios San Diego,CR 43 36 03,Medellín,San Diego,En servicio,-75.56942496,6.23562631
+716,716,Gana Servicios San Diego (2),CR 43 36 03,Medellín,San Diego,En servicio,-75.56942496,6.23562631
+717,717,Gana Servicios Santa Cruz,CR 52 98 10,Medellín,Aranjuez,En servicio,-75.56216031,6.29158355
+718,718,Gana Servicios Sevilla,CR 51 C 67 11,Medellín,Sevilla,En servicio,-75.56481054,6.26407862
+719,719,Gana Servicios Villa Hermosa,CL 66 39 A 41,Medellín,Villa Hermosa,En servicio,-75.5520536,6.25839311
+720,720,Ganaservicios Barrio Caicedo,CR 9 52 54,Medellín,Barrio Caicedo,En servicio,-75.53701,6.23309
+721,721,Ganaservicios Boyaca,CR 52 A 50 46,Medellín,La Candelaria,En servicio,-75.56929229,6.25083641
+722,722,Ganaservicios Palace (2),CL 49 49 73,Medellín,La Candelaria,En servicio,-75.567318,6.248235
+723,723,Gigante Av Oriental (2),CR 46 49 A 03,Medellín,La Candelaria,En servicio,-75.56571824,6.24789688
+724,724,Gildardo,CR 45 69 68,Medellín,Manrique Central Nº 1,En servicio,-75.55534263,6.26466911
+725,725,Good Nigth,CR 46 45 22,Medellín,La Candelaria,En servicio,-75.56770654,6.24498931
+726,726,Granero Chatanoga # 2,CR 48 A N 70 03,Medellín,Manrique Central Nº 1,En servicio,-75.55838809,6.26575806
+727,727,Granero La Frontera,CR 50 35 46,Medellín,Buenos Aires,Desactivado,-75.55603504,6.24344232
+728,728,Granero La Ventanita,CR 47 81 76,Medellín,Manrique Central Nº 1,En servicio,-75.5556548,6.27444194
+729,729,Granero Marta,CR 52 79 87,Medellín,Moravia,Desactivado,-75.5647099,6.27443977
+730,730,Gs Premium Plaza,Cra 43 A 30 25 LOCAL 1018,Medellín,La Candelaria,En servicio,-75.57054,6.22923
+731,731,Guadalupe Qap,CR 42 B 95 A 11,Medellín,Manrique Central Nº 1,En servicio,-75.55001425,6.28666422
+732,732,Guadalupe Qap (2),CR 42 B 95 A 11         ,Medellín,Manrique Central Nº 1,En servicio,-75.55001425,6.28666422
+733,733,Heladeria La Locha,CR 51 D 59 04,Medellín,Sevilla,En servicio,-75.56654199,6.25779807
+734,734,Heladeria Rondinela,CL 38 51 40,Medellín,La Candelaria,Desactivado,-75.5732319,6.2392128
+735,735,Hospital 217 (2),CR 51 66 04,Medellín,Sevilla,En servicio,-75.5635989,6.26326273
+736,736,Hospital Zamora,CL 20 E 42 03,Medellín,La Frontera,En servicio,-75.55054825,6.30823724
+737,737,Hotel Romanza,CR 45 46 45,Medellín,La Candelaria,En servicio,-75.56631066,6.2451013
+738,738,Hotel Samaritano,CR 45 45 31,Medellín,La Candelaria,En servicio,-75.56658666,6.24469085
+739,739,Hv Manrique 2,CR 32 75 C 42,Medellín,Manrique Oriental,En servicio,-75.54449412,6.26793948
+740,740,Iglesia Moravia 2,CR 57 86 AA 04,Medellín,Moravia,En servicio,-75.566902,6.279611
+741,741,Internet,CL 112 63 19,Medellín,Girardot,En servicio,-75.55846799,6.3065057
+742,742,Internet Puerta Virtual,CRA 40A 20E 03,Medellín,La Frontera,En servicio,-75.54578,6.30743
+743,743,Jardin2,CR 36 86 AD 02,Medellín,Las Granjas,En servicio,-75.54623544,6.27928867
+744,744,Juananbu,CL 54 51 19,Medellín,La Candelaria,En servicio,-75.5674769,6.25395099
+745,745,Jugar Y Ganar,CL 80 C 55 12,Medellín,Moravia,En servicio,-75.56561972,6.27585479
+746,746,Jugar Y Ganar Los Industriales,CR 52 117 97,Medellín,La Frontera,En servicio,-75.55597046,6.30499036
+747,747,Jugar Y Ganar San Antonio,CL 48 46 12,Medellín,La Candelaria,En servicio,-75.5665759,6.24692516
+748,748,Jugar Y Ganar San Antonio (2),CL 48 46 12,Medellín,La Candelaria,En servicio,-75.5665759,6.24692516
+749,749,Junin Le Apuesto,CL 54 47 105 LOCAL 146,Medellín,La Candelaria,En servicio,-75.56471469,6.25193071
+750,750,Junin Le Apuesto (2),CL 54 47 105 LOCAL 146,Medellín,La Candelaria,En servicio,-75.56471469,6.25193071
+751,751,Jzd Districom,CR 51 89 36,Medellín,Aranjuez,En servicio,-75.56117,6.28153
+752,752,La 41,CL 60 40 A 37,Medellín,Villa Hermosa,En servicio,-75.55716469,6.25319672
+753,753,La 55,CL 55 F 3 19,Medellín,Barrio Caicedo,En servicio,-75.53044151,6.23583007
+754,754,La 78,CL 78 42 98,Medellín,Manrique Central Nº 1,En servicio,-75.5522001,6.27071791
+755,755,La 79 Q.A.P,CR 45 79 14,Medellín,Manrique Central Nº 1,En servicio,-75.55427913,6.27203874
+756,756,La 82 A Q.A P,CL 82 A 44 100,Medellín,Manrique Central Nº 1,En servicio,-75.55313063,6.27494684
+757,757,La Barra Roja,CR 51 70 A 20,Medellín,Moravia,En servicio,-75.56195218,6.2666596
+758,758,La Barra San Ignacio,CL 48 44 01,Medellín,La Candelaria,En servicio,-75.56503448,6.24586293
+759,759,La Bastilla 3,CR 48 50 81,Medellín,La Candelaria,En servicio,-75.56637121,6.24942907
+760,760,La Bodeguita Colombia (2),CL 50 49 52,Medellín,La Candelaria,En servicio,-75.56719313,6.24914728
+761,761,La Central,CL 49 21 38 LOCAL 0121,Medellín,Buenos Aires,En servicio,-75.54752,6.23858
+762,762,La Central (2),CL 49 21 38 LOCAL 0121,Medellín,Buenos Aires,En servicio,-75.54752,6.23858
+763,763,La Cumbre,CR 50 B 124 64,Medellín,La Frontera,En servicio,-75.5524964,6.3070029
+764,764,La Esquina De Buenos Aires,CR 35 48A 68,Medellín,Buenos Aires,En servicio,-75.55666784,6.24237083
+765,765,La Farma Drogueria,CL 70 47 07,Medellín,Manrique Central Nº 1,En servicio,-75.55659,6.26528
+766,766,La Francia,CL 111 49 C 06,Medellín,La Frontera,En servicio,-75.55280449,6.30149866
+767,767,La Frontera,CR 50 B 122 3,Medellín,La Frontera,En servicio,-75.555179,6.3055951
+768,768,La Mansion,CR 45 65 78,Medellín,Villa Hermosa,En servicio,-75.55622175,6.25941079
+769,769,La Mejor Esquina,CL 79 50B 01,Medellín,Moravia,En servicio,-75.5605,6.27299
+770,770,La Mila,CL 45 27 51,Medellín,La Milagrosa,En servicio,-75.55265834,6.23621752
+771,771,La Pastora,CL 49 N 11C 20,Medellín,Buenos Aires,En servicio,-75.545444,6.23692
+772,772,La Playa Rey (2),CL 51 45 27 ,Medellín,La Candelaria,En servicio,-75.56562828,6.24868801
+773,773,La Salle,CR 42 B 91 79 INT 101,Medellín,Manrique Central Nº 1,En servicio,-75.5502875,6.28216529
+774,774,La Sorpresa,CL 53 51 60,Medellín,La Candelaria,En servicio,-75.56816134,6.25262094
+775,775,La Ventanita,CR 46 108 A 38,Medellín,Popular,En servicio,-75.54988943,6.29837649
+776,776,La Y,CR 49 A 87 134,Medellín,Aranjuez,En servicio,-75.55685917,6.28072543
+777,777,Las Mellizas,CL 49 27 56,Medellín,Buenos Aires,En servicio,-75.55065559,6.23977983
+778,778,Lauros 2,CRA 46 87 25,Medellín,Manrique Central Nº 1,En servicio,-75.55388,6.27986
+779,779,Los Palos,CL 56 19 19,Medellín,Enciso,En servicio,-75.54339,6.23919
+780,780,Madre Laurita,CR 55 94 C 19,Medellín,Aranjuez,En servicio,-75.564489,6.287139
+781,781,Mall San Luis,CL 59 42 24,Medellín,Villa Hermosa,En servicio,-75.55882413,6.25306427
+782,782,Manbru,CL 86 41A 47,Medellín,Manrique Central Nº 1,En servicio,-75.549426,6.278033
+783,783,Manrique La 39,CR 39 71 AA 17,Medellín,Manrique Oriental,En servicio,-75.548772,6.267586
+784,784,Manrique La 43,CL 69 43 01,Medellín,Manrique Central Nº 1,En servicio,-75.55307176,6.26397888
+785,785,Maracaibo # 1,CL 53 49 109,Medellín,La Candelaria,En servicio,-75.5666467,6.25219791
+786,786,Maracaibo Rey (2),CL 53 46 77,Medellín,La Candelaria,En servicio,-75.56435871,6.25075554
+787,787,Maria Cano,CR 36 B 102 C 19,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.544889,6.290963
+788,788,Maria Reina,CL 86 44 25 INT 101,Medellín,Manrique Central Nº 1,En servicio,-75.55227006,6.27853366
+789,789,Mercados,CL 94 48 33,Medellín,Aranjuez,En servicio,-75.55565261,6.28569972
+790,790,Merke Paisa Manrique,CL 67 44 110,Medellín,Manrique Central Nº 1,En servicio,-75.555185,6.263106
+791,791,Mirador De Boston,CR 63 36 30,Medellín,Enciso,En servicio,-75.55358,6.253475
+792,792,Miraflorez,CL 47 21 05,Medellín,Buenos Aires,En servicio,-75.54873262,6.2365246
+793,793,Montallantas,CR 45 85 93,Medellín,Manrique Central Nº 1,En servicio,-75.55330881,6.27831524
+794,794,Moviles La 30,CR 30 69 A 43,Medellín,Manrique Oriental,En servicio,-75.54327,6.26391
+795,795,Niquia Parte Baja,AV 42 N 57 21,Bello,Bello,En servicio,-75.5484459,6.34049758
+796,796,Nueva Bombona,CL 45 N 21 09,Medellín,Buenos Aires,En servicio,-75.548941,6.234986
+797,797,Nuevo Andalucia,CR 49A 107 12,Medellín,Aranjuez,En servicio,-75.553424,6.298326
+798,798,Nuevo Casino London,CR 51 53 81,Medellín,La Candelaria,En servicio,-75.567776,6.25262
+799,799,Nuevo Cerros,CL 46 15B 11,Medellín,Buenos Aires,En servicio,-75.544236,6.232711
+800,800,Nuevo Loreto,CL 35 32 32,Medellín,La Milagrosa,En servicio,-75.55874485,6.23223682
+801,801,Nutabe Parque,CR 29 A 40 A 79,Medellín,La Milagrosa,En servicio,-75.55565444,6.2350549
+802,802,Nutabe Parque (2),CR 29 A 40 A 79         ,Medellín,La Milagrosa,En servicio,-75.55565444,6.2350549
+803,803,Nutibara,CL 53 50 17,Medellín,La Candelaria,En servicio,-75.56708006,6.25200684
+804,804,Oasis,CR 55 A 89 05,Medellín,Moravia,En servicio,-75.56683394,6.28191844
+805,805,Of Le Apuesto Andalucia,CR 46 A 106 A 82,Medellín,Popular,En servicio,-75.55196398,6.29563991
+806,806,Of Oro La Francia,CL 110 47 05,Medellín,La Frontera,En servicio,-75.55064219,6.29982138
+807,807,Of Pagadiario,CR 43 A 104 63,Medellín,Popular,En servicio,-75.55032733,6.29379758
+808,808,Of Rompoy,CR 42 B 118 32,Medellín,Popular,En servicio,-75.54505254,6.30143547
+809,809,Ofcina Principal Full,CL 94 49A 29,Medellín,Aranjuez,En servicio,-75.55686887,6.28573182
+810,810,Oficina Le Apuesto La 39,CR 39 65 AA 48,Medellín,Villa Hermosa,En servicio,-75.551747,6.25670821
+811,811,Oficina Palace,CR 50 51 25,Medellín,La Candelaria,En servicio,-75.56769455,6.25031099
+812,812,Oficina Palace (2),CR 50 51 25,Medellín,La Candelaria,En servicio,-75.56769455,6.25031099
+813,813,Oficina Prado,CR 50 A 65 01,Medellín,Sevilla,En servicio,-75.56159867,6.26222314
+814,814,Pablo Escobar,CL 38 B 26 D 10,Medellín,La Milagrosa,En servicio,-75.55452636,6.23149996
+815,815,Pablo Tobon,CL 51 40 9,Medellín,La Candelaria,En servicio,-75.55981927,6.24720408
+816,816,Pablo Vi,CR 50 A 114 5,Medellín,La Frontera,En servicio,-75.55348068,6.30291548
+817,817,Panmaderia Almapan,CR 39 94 110,Medellín,Manrique Central Nº 1,En servicio,-75.548198,6.285508
+818,818,Papeleria Azul Celeste,CR 52 40 51,Medellín,Palermo,En servicio,-75.5645033,6.2891441
+819,819,Papeleria Leydi,CR 48 B 117 93,Medellín,La Frontera,En servicio,-75.55069,6.30277
+820,820,Papeleria Y Variedades Pao,CL 103 CARRERA 63 E 26,Medellín,Girardot,En servicio,-75.56457,6.29568
+821,821,Parque De Boston,CL 54 38 45,Medellín,Boston,En servicio,-75.55785407,6.2476224
+822,822,Parque Norte,CL 77 53 90,Medellín,Moravia,En servicio,-75.56562539,6.27266582
+823,823,Parque Obrero,CL 59 A 38 28,Medellín,Boston,En servicio,-75.55578284,6.25125281
+824,824,Parque Villa Hermosa,CR 40 64 24,Medellín,Villa Hermosa,En servicio,-75.55421482,6.25624855
+825,825,Parque Villa Hermosa,CL 66 39 A 09,Medellín,Villa Hermosa,En servicio,-75.55189488,6.25827762
+826,826,Parqueadero Botero,CL 53 52 A 58,Medellín,La Candelaria,En servicio,-75.56911517,6.2529391
+827,827,Parqueadero Botero (2),CL 53 52 A 58,Medellín,La Candelaria,En servicio,-75.56911517,6.2529391
+828,828,Parqueadero Continental,CR 50 52 04,Medellín,La Candelaria,En servicio,-75.56724906,6.25103003
+829,829,Parqueadero Exitoso,CR 52 64 03,Medellín,Sevilla,En servicio,-75.56693797,6.26190551
+830,830,Parqueadero Metro Palo Gig (2),CL 49 44 36,Medellín,La Candelaria,En servicio,-75.56423198,6.24670726
+831,831,Parqueadero Oriental,CR 47 58 35,Medellín,La Candelaria,En servicio,-75.56209242,6.25494097
+832,832,Parqueadero Oriental (Parqueadero Argos),CR 46 56 12,Medellín,La Candelaria,En servicio,-75.56266596,6.25270814
+833,833,Parquedero La 45,CL 45 36 29,Medellín,El Salvador,En servicio,-75.55888856,6.2404097
+834,834,Pasaje Junin Maracaibo,CR 49 52 141,Medellín,La Candelaria,En servicio,-75.56605611,6.25137614
+835,835,Pasaje Junin Maracaibo (2),CR 49 52 141,Medellín,La Candelaria,En servicio,-75.56605611,6.25137614
+836,836,Patio Bonito,CR 49 52 27,Medellín,La Candelaria,En servicio,-75.56646766,6.25014713
+837,837,Patio El Union,CR 50 52 50 INT 262,Medellín,La Candelaria,En servicio,-75.56701768,6.25152439
+838,838,Pinal Le Apuesto,CL 56 A 25 A A 05,Medellín,Enciso,En servicio,-75.54587145,6.24479946
+839,839,Pinky,CR 45 70 45,Medellín,Manrique Central Nº 1,En servicio,-75.55540444,6.26542069
+840,840,Piñateria Fabio,CR 36 86B 138,Medellín,Las Granjas,En servicio,-75.5463547,6.27997455
+841,841,Pipenet.Com,CL 56 33 02,Medellín,Boston,En servicio,-75.5529209,6.24654442
+842,842,Playon Ii,CL 123 51 A 39,Medellín,La Frontera,En servicio,-75.55441992,6.3064412
+843,843,Plaza De Florez 1,CL 50 38 86,Medellín,Boston,En servicio,-75.5589956,6.24515814
+844,844,Popular La 46,CR 46 123 12 INT 101,Medellín,Popular,En servicio,-75.54828264,6.30339679
+845,845,Principal Pagadiario,CL 92 50 05,Medellín,Aranjuez,En servicio,-75.55806541,6.28325055
+846,846,Principal Pagadiario (2),CL 92 50 05,Medellín,Aranjuez,En servicio,-75.55806541,6.28325055
+847,847,Punto De Venta Oro,CR 2 C 51 B 21,Medellín,Barrio Caicedo,En servicio,-75.53255298,6.23077544
+848,848,Punto Verde,CL 52 43 16,Medellín,La Candelaria,En servicio,-75.56247776,6.24836277
+849,849,Q.A.P Principal,CL 93 49 17,Medellín,Aranjuez,En servicio,-75.55627999,6.28443413
+850,850,Qap 3 Esquinas,CR 10 52 00,Medellín,Barrio Caicedo,En servicio,-75.53770068,6.23316932
+851,851,Qap 3 Esquinas (2),CR 10 52 00         ,Medellín,Barrio Caicedo,En servicio,-75.53770068,6.23316932
+852,852,Qap San Cayetano,CR 51 90 05,Medellín,Aranjuez,En servicio,-75.56130942,6.2819918
+853,853,Qap Santa Cruz,CR 49 N 98 A 31,Medellín,Aranjuez,En servicio,-75.55640341,6.29052414
+854,854,Raif. Net,CR 42 50 79,Medellín,La Candelaria,En servicio,-75.56205861,6.24721496
+855,855,Restaurante Arelis,CR 25 75 C 115,Medellín,Manrique Oriental,En servicio,-75.53887,6.26862
+856,856,Salon De Maquinas Y Apuestas La 80,CR 50 C 80 04,Medellín,Moravia,En servicio,-75.56122126,6.2740931
+857,857,Salsamentaria Guadalupe,CR 40 95 A 04,Medellín,Manrique Central Nº 1,En servicio,-75.54922641,6.28648516
+858,858,Salsamenteria V8,CL 21 40 76,Medellín,La Frontera,En servicio,-75.544735,6.307938
+859,859,Salvador Iglesia,CR 35 A 39 51,Medellín,El Salvador,En servicio,-75.56137933,6.23653656
+860,860,San Antonio # 3 (2),CL 46 51 00 LOC 139,Medellín,La Candelaria,En servicio,-75.56981704,6.24722378
+861,861,San Blas,CRA 36 84C 30,Medellín,Las Granjas,En servicio,-75.54634564,6.27581283
+862,862,San Jose De La Cima,CR 32 91 04,Medellín,Las Granjas,En servicio,-75.54449851,6.28271815
+863,863,Santa Cruz La Rosa,CL 98 50 A A 5,Medellín,Aranjuez,En servicio,-75.55914751,6.29044471
+864,864,Santa Elena (2),CL 52 49 27,Medellín,La Candelaria,En servicio,-75.56675754,6.25011433
+865,865,Servi Cenet,CR B B  104 39,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.54555,6.29268
+866,866,Serviteca San Diego,CL 37 44 11,Medellín,San Diego,En servicio,-75.56893412,6.23611425
+867,867,Supermercado Avila,CL 39 26 E 14,Medellín,La Milagrosa,En servicio,-75.554304,6.232552
+868,868,Surtipan,CR 45 20 E 50,Medellín,La Frontera,En servicio,-75.554953,6.309348
+869,869,Tareas.Co,CL 79 46 48,Medellín,Manrique Central Nº 1,En servicio,-75.55565215,6.27221322
+870,870,Teleferico 2,CR 46 A106 A 32,Medellín,Popular,En servicio,-75.55207453,6.29549809
+871,871,Terminal Loreto,CR 32 32 41,Medellín,La Milagrosa,En servicio,-75.560968,6.230175
+872,872,Terminal Pablo Escobar,CL 38 A 26 EE 04,Medellín,La Milagrosa,En servicio,-75.555042,6.230595
+873,873,Terran,CL 83 39 124,Medellín,Las Granjas,En servicio,-75.54845,6.27436
+874,874,Tienda Don Jose,CR 50 C 77 A 10,Medellín,Moravia,En servicio,-75.56163108,6.27173013
+875,875,Tienda Durley,CL 125 50 E 36,Medellín,La Frontera,En servicio,-75.55377,6.30716
+876,876,Tienda Manantiales,VEREDA GRANIZAL ANTIGUA VIA GUARNE,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.535905,6.30409
+877,877,Tienda Mixta Jairo,CR 10 3 C 67 47,Medellín,Girardot,En servicio,-75.569011,6.298557
+878,878,Todo Pan #2,CR 51 53 03,Medellín,La Candelaria,En servicio,-75.56785185,6.25312067
+879,879,Torres De La Fuente (2),CL 65 55 8,Medellín,Sevilla,En servicio,-75.56854707,6.26318935
+880,880,Tus Llamadas Vzla,CR 51 51 47 INTERIOR 3211,Medellín,La Candelaria,En servicio,-75.56818,6.25085
+881,881,Umbrales De Boston,CR 43 57 60,Medellín,La Candelaria,En servicio,-75.56014105,6.25230636
+882,882,Unidad Intermedia,CR 51A 100 17,Medellín,Aranjuez,En servicio,-75.560735,6.293175
+883,883,Union Plaza,CL 53 49 109 LOCAL 109,Medellín,La Candelaria,En servicio,-75.5653413,6.2514204
+884,884,Universidad Maria Cano,CL 56 41 70,Medellín,La Candelaria,En servicio,-75.55951019,6.25067936
+885,885,Upb,CRA 36 87 35,Medellín,Las Granjas,En servicio,-75.54597441,6.28077971
+886,886,Vargas Pan,CR 40 C 21 06,Medellín,La Frontera,En servicio,-75.54672,6.30834
+887,887,Variedades Celu @Ida,CRA 43 81 63,Medellín,Manrique Central Nº 1,En servicio,-75.55194,6.27381
+888,888,Variedades Jaime,CL 89 52 19,Medellín,Aranjuez,En servicio,-75.56378,6.28122
+889,889,Variedades Jhoncar,CL 20 D 43 C 12,Medellín,La Frontera,En servicio,-75.5541,6.30821
+890,890,Variedades La 27,CRA 27 C 77 80,Medellín,Manrique Oriental,En servicio,-75.54167,6.26949
+891,891,Variedades Maria Angel,CL 57 DD 22 B 04,Medellín,Enciso,En servicio,-75.55462,6.2485
+892,892,Variedades Movie,CL 41 28 61,Medellín,La Milagrosa,En servicio,-75.55474598,6.23472861
+893,893,Variedades Rosana,CR 26 DD 37 73,Medellín,La Milagrosa,En servicio,-75.554869,6.229667
+894,894,Video Tienda,CR 48 A 76 66,Medellín,Manrique Central Nº 1,En servicio,-75.55746476,6.27017295
+895,895,Villa Del Socorro,CR 49 B 105 A 04,Medellín,Aranjuez,En servicio,-75.55530681,6.29623673
+896,896,Villa Hermosa Parque Jugar Y Ganar,CL 66 C 40 19,Medellín,Villa Hermosa,En servicio,-75.55205544,6.25947033
+897,897,Villanueva Le Apuesto,CR 49 57 51 LOC 001,Medellín,La Candelaria,En servicio,-75.56363541,6.25429462
+898,898,Villanueva Qap,CL 58 47 13,Medellín,La Candelaria,En servicio,-75.56237907,6.25471449
+899,899,Villatinita,CR 16 56 AA 62,Medellín,Enciso,En servicio,-75.53914256,6.23921112
+900,900,Zamora Restaurante,CL 123A 51B 60,Medellín,La Frontera,En servicio,-75.55507713,6.30693556
+901,901,Apuestas Girardota,Crr 15 N 5B 48,Girardota,Girardota,En servicio,-75.44524735,6.37778237
+902,902,C.C Las Plazas Girardota,CL 6 N 15 48 ,Girardota,Girardota,En servicio,-75.44584,6.377772
+903,903,Calle Del Comercio,CL 16 11 86,Barbosa,Barbosa,En servicio,-75.32940076,6.43656066
+904,904,Casino,CR 15 13 55 ,Barbosa,Barbosa,En servicio,-75.33156321,6.43718343
+905,905,Castisan,CR 17 13 05,Barbosa,Barbosa,En servicio,-75.33224915,6.43740333
+906,906,Charcuteria La 89,CL 39 50A 00,Copacabana,Copacabana,En servicio,-75.50734,6.34138
+907,907,El Alzate,CL 52 CR 50 A 03,Copacabana,Copacabana,En servicio,-75.50868934,6.34749637
+908,908,Estación De Servicios Puertas Del Norte,CR 21 13 11,Barbosa,Barbosa,En servicio,-75.33406394,6.43839023
+909,909,Euro Barbosa,CR 14 15 38,Barbosa,Barbosa,En servicio,-75.33088002,6.43692791
+910,910,Farmasi,CR 27 46 77,Copacabana,Copacabana,En servicio,-75.49495,6.35616
+911,911,Ferreteria,CL 50 57 35,Copacabana,Copacabana,En servicio,-75.51234945,6.34513684
+912,912,Fruver Copacabana,CL 50 51 83,Copacabana,Copacabana,En servicio,-75.509083,6.346178
+913,913,Fruver Girardota,CL 7 16 27,Girardota,Girardota,En servicio,-75.446853,6.377728
+914,914,Gana Servicios Copacabana,CR 51 49 61,Copacabana,Copacabana,En servicio,-75.50865837,6.3458128
+915,915,Gana Servicios Girardota,CL 7 N 16 20,Girardota,Girardota,En servicio,-75.44669005,6.37774814
+916,916,Gana Servicios Hatillo,AV HATILLO,Barbosa,El Hatillo,En servicio,-75.40263127,6.40883581
+917,917,Gana Servicios Limonar,AUT NORTE KM 20,Girardota,Girardota,En servicio,-75.4952,6.361799
+918,918,Gana Servicios Porce,VIA MEDELLIN PTO BERRIO,Barbosa,Barbosa,En servicio,-75.206058,6.54908636
+919,919,Granero El Machete,CL 50 52 36,Copacabana,Copacabana,En servicio,-75.50940598,6.34607988
+920,920,Guasimalito,DG 53 13 18,Copacabana,Copacabana,En servicio,-75.49269389,6.35677589
+921,921,Jugar Y Ganar Parque,CR 16 N 6 54,Girardota,Girardota,En servicio,-75.44635654,6.37790248
+922,922,Jugar Y Ganar Parque (2),CR 16 06 54         ,Girardota,Girardota,En servicio,-75.44635654,6.37790248
+923,923,La 10 Nº 2,CR 16 10 06,Girardota,Girardota,En servicio,-75.44878974,6.37597282
+924,924,La Asuncion,CR 56 52 29,Copacabana,Copacabana,En servicio,-75.51183684,6.3465783
+925,925,La Avenida,CL 7 18 33,Girardota,Girardota,En servicio,-75.44789511,6.37901371
+926,926,La Bomba Qap Copacabana,CR 48 52 32,Copacabana,Copacabana,En servicio,-75.50734279,6.34888015
+927,927,La Gorda,CL 50 47 17,Copacabana,Copacabana,En servicio,-75.50594784,6.34734526
+928,928,La Misericordia,CL 4864 29 AP 101/CL 48,Copacabana,Copacabana,En servicio,-75.517349,6.342007
+929,929,La Pedrera,CR 44 50 A 44,Copacabana,Copacabana,En servicio,-75.50420062,6.34899088
+930,930,Licores Y Abarrotes El Descanso,Cra. 52a 41 106,Copacabana,Copacabana,En servicio,-75.50868,6.34172
+931,931,Mundo Video,CL15 11 85,Barbosa,Barbosa,En servicio,-75.32996736,6.43604922
+932,932,Oficina Ppal Qap,CR 15 13 09,Barbosa,Barbosa,En servicio,-75.33171358,6.4370131
+933,933,Oficina Ppal Qap (2),CR 15 13 09,Barbosa,Barbosa,En servicio,-75.33171358,6.4370131
+934,934,Oficina Principal Candilejas,CR 15 5 B 23,Girardota,Girardota,En servicio,-75.44505588,6.37774674
+935,935,Oficina Principal Gigante Copacabana,CL 50 52 08,Copacabana,Copacabana,En servicio,-75.50933309,6.34609803
+936,936,Oficina Principal Qap Copacabana,CL 49 49 50,Copacabana,Copacabana,En servicio,-75.50729116,6.34620256
+937,937,Papeleria Alexa,CR 17 17 49,Barbosa,Barbosa,Desactivado,-75.3307829,6.4391251
+938,938,Papeleria Y Miselania La 47,CL 47 50 83,Copacabana,Copacabana,En servicio,-75.50803,6.34389
+939,939,Peluqueria Y Spa La Cosmetiquera,CL 50 39 216,Copacabana,Copacabana,En servicio,-75.5021245,6.3498464
+940,940,Principal Oro,CL 16 15 51,Barbosa,Barbosa,En servicio,-75.33105123,6.43803773
+941,941,Puente La Seiba,CL 5 B 13 A 42,Girardota,Girardota,En servicio,-75.44410582,6.37675259
+942,942,Pv Oficina Principal Gana Copacabana,CL 50 49 30 ,Copacabana,Copacabana,En servicio,-75.5074358,6.34685217
+943,943,Pv Oficina Principal Gana Copacabana (2),CL 50 49 30 ,Copacabana,Copacabana,En servicio,-75.5074358,6.34685217
+944,944,Salsamentaria Los Suttas,CL 10 B 10 A 44,Girardota,Girardota,En servicio,-75.44501668,6.37095183
+945,945,Texas Ranchos Y Licores,CL 50 34 04,Copacabana,Copacabana,En servicio,-75.499251,6.354195
+946,946,Tienda El Refugio,VEREDA ZARZAL LA LUZ,Copacabana,Copacabana,En servicio,-75.513143,6.33967
+947,947,Tienda La Ventana,CR 57 47 25,Copacabana,Copacabana,En servicio,-75.51179,6.34295
+948,948,Tienda Sevillana 2,CR 19 C 15 61,Barbosa,Barbosa,En servicio,-75.33421,6.43789
+949,949,Torres,CL 49 47 04,Copacabana,Copacabana,En servicio,-75.50573665,6.34685779
+950,950,Variedades El Abuelo,CR 56 43 163,Copacabana,Copacabana,En servicio,-75.51030834,6.34237847
+951,951,Variedades El Punto Del Bebe Y Algo Mas,CR 28 45 68,Copacabana,Copacabana,En servicio,-75.4949,6.35505
+952,952,Villa Nueva,CR 55A 56 113,Copacabana,Copacabana,En servicio,-75.51210724,6.34976102
+953,953,Alianza,CL 48 A 102 A 68,Medellín,San Javier N0 1,En servicio,-75.61774798,6.25964548
+954,954,Antonio Nariño,CR 106 43 12,Medellín,San Javier N0 1,En servicio,-75.62049226,6.25644401
+955,955,Arenera,CL 39 D 116 91,Medellín,San Javier N0 1,En servicio,-75.62759687,6.25292723
+956,956,Barrio Cristobal 3,CR 88 39 67,Medellín,Los Pinos,En servicio,-75.60870841,6.24867674
+957,957,Candilejas Corazon,CL 34 B 116 F 89,Medellín,Belencito,En servicio,-75.62994372,6.24798787
+958,958,Casino Santa Lucia,CR 87 47 DD 38,Medellín,Los Pinos,En servicio,-75.60390722,6.2585758
+959,959,Cellminsto,CL 58 101 36,Medellín,Calasanz,En servicio,-75.610548,6.273933
+960,960,Ciber Cafe Internet Triny,CL 34 C 118 10,Medellín,Belencito,En servicio,-75.616732,6.244864
+961,961,Comercio Socorro,CR 102B 48C 29 ,Medellín,San Javier N0 1,En servicio,-75.61832,6.2599
+962,962,Consumo America,CL 44 80 69,Medellín,Los Pinos,En servicio,-75.60061357,6.25006328
+963,963,Consumo Los Colores,CR 74 52 05,Medellín,Suramericana,En servicio,-75.58918294,6.26272742
+964,964,Cuarta Brigada 1,CL 50 77 A 7,Medellín,Calasanz,En servicio,-75.59279921,6.26155478
+965,965,Cuarta Brigada 2,CL 50 74 91,Medellín,Calasanz,En servicio,-75.5909062,6.2606595
+966,966,D1 San Javier,CRA 98 41 77,Medellín,San Javier N0 1,En servicio,-75.614912,6.255406
+967,967,Delicias De Patry,CL 51 73 83,Medellín,Suramericana,En servicio,-75.58961433,6.26061204
+968,968,Deposito Los Sauces,CL 39 108 76,Medellín,San Javier N0 1,En servicio,-75.62149523,6.25128185
+969,969,Divino Niño 2,CL 45 A 107 74,Medellín,San Javier N0 1,En servicio,-75.62113641,6.25783661
+970,970,Donde La Toca,CL 49 AB 96 84 INTERIOR 201,Medellín,Los Pinos,En servicio,-75.60557379,6.25939593
+971,971,El Jugadero,CR 82 A 48 30 APARTAMENTO 301,Medellín,Los Pinos,En servicio,-75.59831,6.25145
+972,972,Escaleras Electricas Del 20,CL 38 A 108 05,Medellín,San Javier N0 1,En servicio,-75.62086345,6.25093972
+973,973,Flamingo La America,CL 44 86 62,Medellín,Los Pinos,En servicio,-75.60566,6.25126
+974,974,Floresta Pradera,CR 94 48 DD 27,Medellín,San Javier N0 1,En servicio,-75.60909869,6.26022667
+975,975,Ganaservicios Belencito,CL 34 B 93 B 05,Medellín,Belencito,En servicio,-75.61930613,6.2446443
+976,976,Garaje Casa De Familia Lea,CR 93 48 E 79,Medellín,San Javier N0 1,En servicio,-75.60806483,6.26023451
+977,977,Gildardo Metro,CR 99 44 36,Medellín,San Javier N0 1,En servicio,-75.61498884,6.25669961
+978,978,Granero La Estacion Del 2,CL 36 112 02,Medellín,San Javier N0 1,En servicio,-75.62360443,6.24907901
+979,979,Heladeria Toxxon,CL 42 101 03,Medellín,San Javier N0 1,En servicio,-75.61633644,6.25590842
+980,980,King Bar,CL 44 86 11,Medellín,Los Pinos,Desactivado,-75.60537778,6.25082247
+981,981,La 77,CL 44 77 13,Medellín,Los Pinos,En servicio,-75.59608789,6.24995145
+982,982,La Esquina De Yovany,CL 42 AD 117 10 INT 102,Medellín,San Javier N0 1,En servicio,-75.62984141,6.2576413
+983,983,La Tienda De Juan,CR 108 40 35,Medellín,San Javier N0 1,En servicio,-75.618946,6.261276
+984,984,Magic Paper,CL 58 D 92 A 102,Medellín,Calasanz,En servicio,-75.60372,6.27495
+985,985,Mall Nuevo Mundo,CR 74 53 59,Medellín,La Candelaria,En servicio,-75.58857459,6.26302837
+986,986,Mall Santana,CL 50 A 86 295,Medellín,Calasanz,En servicio,-75.60462,6.269065
+987,987,Mercados Cordoba,CR 87 49 9,Medellín,San Javier N0 1,En servicio,-75.60519633,6.26073547
+988,988,Mercapublic,CR 92 47F 16,Medellín,San Javier N0 1,En servicio,-75.6086388,6.25798454
+989,989,Metro San Javier,CR 47 A 98 A 08,Medellín,San Javier N0 1,En servicio,-75.61404567,6.25727481
+990,990,Miscelania Y Papeleria Pizarra,CL 61 75 124 LOCAL 2,Medellín,Calasanz,En servicio,-75.58944,6.26801
+991,991,Nisa,CR 87 44 B 23,Medellín,Los Pinos,En servicio,-75.60563629,6.25249958
+992,992,Nuevo Julio,CL 39 B 108 66,Medellín,San Javier N0 1,En servicio,-75.6217,6.2521
+993,993,Nutabe La 88,CR 88 36 47,Medellín,Los Pinos,En servicio,-75.61078298,6.24700373
+994,994,Of Santa Monica,CL 38 89 20,Medellín,Los Pinos,En servicio,-75.61036729,6.24902338
+995,995,Oficina Carlos Uribe Floresta 1,CR 87 48 E 11,Medellín,San Javier N0 1,En servicio,-75.60504545,6.26040459
+996,996,Oro Santamonica,CR 92 34 E 76,Medellín,Belencito,En servicio,-75.61627237,6.24642174
+997,997,Panaderia Santa Isabel,CL 37 86 A 60,Medellín,Los Pinos,En servicio,-75.6098516,6.2465277
+998,998,Papeleria Lapiz Rojo,CR 79 53 07,Medellín,Calasanz,En servicio,-75.5947,6.26667
+999,999,Papeleria Y Variedades,CRA 115A 39F 7,Medellín,San Javier N0 1,En servicio,-75.62590951,6.25536038
+1000,1000,Penagos,CL 47B 92B 10,Medellín,San Javier N0 1,En servicio,-75.60930877,6.25724431
+1001,1001,Plazoleta Metro 2,CL 47 97 22,Medellín,San Javier N0 1,En servicio,-75.61327246,6.25699156
+1002,1002,Salado,CL 39 D 112 92,Medellín,San Javier N0 1,En servicio,-75.62503688,6.25369512
+1003,1003,San Clemente,CL 53 78 61,Medellín,Calasanz,En servicio,-75.59418295,6.26627655
+1004,1004,San German,CL 65 N 74 B 141,Medellín,Calasanz,En servicio,-75.586979,6.267055
+1005,1005,Santa Lucia 2,CR 87 47 A 31,Medellín,Los Pinos,En servicio,-75.60356412,6.25740985
+1006,1006,Santa Monica 92,CR 92 43 23,Medellín,Los Pinos,En servicio,-75.60957331,6.25301065
+1007,1007,Santa Rosa De Lima,CR 86 B 49 DD 05,Medellín,San Javier N0 1,En servicio,-75.60503455,6.26265704
+1008,1008,Terminal Belencito,CL 34 B 94 135,Medellín,Belencito,En servicio,-75.62006327,6.24489873
+1009,1009,Variedades La Mona,CL 102 48FA 48,Medellín,San Javier N0 1,En servicio,-75.61832446,6.25987574
+1010,1010,Variedades Saba,CR 120 43 BA 07,Medellín,San Javier N0 1,En servicio,-75.62743,6.25776
+1011,1011,Barrio Centro,CL 128 SUR 46 51,Caldas,Caldas,En servicio,-75.63138348,6.09291545
+1012,1012,Bomba Rey,CR 50 122 SUR 54,Caldas,Caldas,En servicio,-75.6361281,6.09698914
+1013,1013,Café Minerva,CL 130 B SUR 49 03,Caldas,Caldas,En servicio,-75.63444201,6.09121643
+1014,1014,Cafeteria La Charlot,CL 135 SUR 48 69,Caldas,Caldas,En servicio,-75.63364164,6.08703286
+1015,1015,Cafeteria Rangel La Variante,CR 45 128 SUR 04,Caldas,Caldas,En servicio,-75.63071656,6.09290281
+1016,1016,Calle  Larga Nuevo,CRA 46 D 74 SUR 70,Sabaneta,Sabaneta,En servicio,-75.62008518,6.15144216
+1017,1017,Capri Pan,CR 54 128 SUR 15,Caldas,Caldas,En servicio,-75.63945011,6.09165705
+1018,1018,Cementerio,CR 50 137 SUR 03,Caldas,Caldas,En servicio,-75.63466486,6.08511319
+1019,1019,Chance Caldas,CL 129 SUR 50 20,Caldas,Caldas,En servicio,-75.63543183,6.09208795
+1020,1020,Chance Caldas (2),CL 129 SUR 50 20,Caldas,Caldas,En servicio,-75.63543183,6.09208795
+1021,1021,Cocorollo,CR 48 100 B 151,Caldas,Caldas,En servicio,-75.632987,6.117104
+1022,1022,El Dinamo,CL 124 SUR 50 01,Caldas,Caldas,En servicio,-75.63572095,6.09595788
+1023,1023,El Rey,CR 50 99 SUR 253,Caldas,Caldas,En servicio,-75.6347759,6.12216129
+1024,1024,El Rey Ancon,CR 52 88 SUR 15,Caldas,Caldas,En servicio,-75.63585867,6.14765144
+1025,1025,El Socorro,CL 132 SUR 51 05,Caldas,Caldas,En servicio,-75.63611677,6.08945986
+1026,1026,Ferreteria La Bomba,CL 37 SUR 40A 03,Envigado,Envigado,En servicio,-75.58605964,6.16950704
+1027,1027,Ferreteria Mandalay,CR 50 138 SUR 205,Caldas,Caldas,En servicio,-75.63406933,6.08382275
+1028,1028,Gana Servicios Caldas,CR 50 130 SUR 38,Caldas,Caldas,En servicio,-75.636137,6.091112
+1029,1029,Gana Servicios Tablaza,CR 50 99 SUR 268,Caldas,Caldas,En servicio,-75.6346466,6.12209631
+1030,1030,Heladeria Acuarius,CR 48 135 SUR 111,Caldas,Caldas,En servicio,-75.63325615,6.08699267
+1031,1031,La 49,CR 49 134 SUR 09,Caldas,Caldas,En servicio,-75.63414907,6.08784701
+1032,1032,La Docena,DG 53 127 SUR 51,Caldas,Caldas,En servicio,-75.637424,6.09379402
+1033,1033,La Loceria,CR 53 130 SUR 05,Caldas,Caldas,En servicio,-75.63735987,6.09089509
+1034,1034,La Playita,CL 100SUR 49B 13,Caldas,Caldas,En servicio,-75.6334131,6.11964179
+1035,1035,Los Lagos 2,VEREDA LA SALADA,Caldas,Caldas,En servicio,-75.62474635,6.05069994
+1036,1036,Mandalay,CL 140 SUR 51 A 13,Caldas,Caldas,En servicio,-75.63416522,6.08220091
+1037,1037,Merke Paisa Caldas,CR 50 125 SUR 234,Caldas,Caldas,En servicio,-75.636227,6.095458
+1038,1038,Panaderia A Y M,CR 50 160 SUR 77,Caldas,Caldas,En servicio,-75.638633,6.0664
+1039,1039,Pitufos,CR 50 132 SUR 80,Caldas,Caldas,En servicio,-75.6348791,6.08904957
+1040,1040,Simura,CL 130 SUR 51 43,Caldas,Caldas,En servicio,-75.637128,6.091345
+1041,1041,Surtiventas,CL 128 SUR 48 A 02,Caldas,Caldas,En servicio,-75.63405865,6.09299536
+1042,1042,Verlucy,CR 49 138 SUR 52,Caldas,Caldas,En servicio,-75.63345094,6.08434292
+1043,1043,Vitrina Qap,CR 50 128 SUR 32,Caldas,Caldas,En servicio,-75.63522674,6.09259891
+1044,1044,Antigua,CR 76 29 56,Medellín,Belen,En servicio,-75.59617269,6.23102429
+1045,1045,Aventura Centro Comercial,CR 52 65 91 PISO 2,Medellín,Sevilla,En servicio,-75.566343,6.264197
+1046,1046,Billares Rivera,CR 57 A 45 A 9,Medellín,La Candelaria,En servicio,-75.57568667,6.24858251
+1047,1047,Boreal,CR 65 F 30 C 03,Medellín,Belen,En servicio,-75.58621521,6.23368117
+1048,1048,C.C. Cupichincha,CR 54 46 52 LOC 123,Medellín,La Candelaria,En servicio,-75.57258657,6.24830061
+1049,1049,Centro Comercial Francisco,CR 54 48 56 LOC 41,Medellín,La Candelaria,En servicio,-75.57206065,6.24954325
+1050,1050,El Chagualo,CR 55 A 61 41,Medellín,San Benito,En servicio,-75.56978636,6.26045235
+1051,1051,El Hueco,CL 49 53 57,Medellín,La Candelaria,En servicio,-75.57139456,6.24973989
+1052,1052,Gana Belen Parque (2),CR 76 30A 32,Medellín,Belen,En servicio,-75.59627469,6.2322787
+1053,1053,Gana Servicios Minorista,CR 56 56 79,Medellín,San Benito,En servicio,-75.5717473,6.25668347
+1054,1054,Gana Servicios Minorista (2),CR 56 56 79,Medellín,San Benito,En servicio,-75.5717473,6.25668347
+1055,1055,Granero Los Díez,CL 61 53 69,Medellín,Sevilla,En servicio,-75.56889142,6.26001091
+1056,1056,Los Urrea,CR 56A 51 03,Medellín,San Benito,En servicio,-75.57302,6.2534
+1057,1057,Mimos (Q.A.P),CR 76 32 01,Medellín,Belen,En servicio,-75.5964411,6.23369937
+1058,1058,Mimos (Q.A.P) (2),CR 76 32 01,Medellín,Belen,En servicio,-75.5964411,6.23369937
+1059,1059,Plaza Mayor,CL 41 55 80 LOC 314,Medellín,La Candelaria,Desactivado,-75.57627,6.242707
+1060,1060,Plaza Minorista Sector 1 Loc 9A,CL 55 A 57 80,Medellín,San Benito,En servicio,-75.57293361,6.25708338
+1061,1061,Pocita,CR 77 30 05,Medellín,Belen,En servicio,-75.59723285,6.23145234
+1062,1062,Premium Plaza,CL 29 46 G 10 LOC 2423 2 PISO C.C PREMIUM PLAZA,Medellín,San Diego,En servicio,-75.57037446,6.22950382
+1063,1063,Torres De La Fuente,CL 65 55 8,Medellín,Sevilla,En servicio,-75.56854707,6.26318935
+1064,1064,Al Pan Pan,CR 46 48 78,Medellín,La Candelaria,En servicio,-75.56606003,6.24718335
+1065,1065,Benedan,CR 47 N 49 59,Medellín,La Candelaria,En servicio,-75.56650318,6.24801777
+1066,1066,Bulevar La Playa,CL 52 46 50,Medellín,La Candelaria,En servicio,-75.56520296,6.24934427
+1067,1067,Cafe Bar Bola Bola,CL 48 55 67,Medellín,La Candelaria,En servicio,-75.57358,6.2496
+1068,1068,Centro Comercial El Parque,CL 54 47 105 LOCAL 101,Medellín,La Candelaria,En servicio,-75.56471469,6.25193071
+1069,1069,Centro Comercial El Parque (2),CL 54 47 105 LOCAL 101,Medellín,La Candelaria,En servicio,-75.56471469,6.25193071
+1070,1070,Delitinto,CL 50 48 01,Medellín,La Candelaria,En servicio,-75.56670031,6.24875966
+1071,1071,Drogueria Todo Drogas,CL 49 47 50,Medellín,La Candelaria,Desactivado,-75.56668657,6.24799201
+1072,1072,El Dorado,CR 52 45 29 LOC 107,Medellín,La Candelaria,En servicio,-75.57101587,6.24676954
+1073,1073,Fiscalia (2),CL 53 49 148,Medellín,La Candelaria,En servicio,-75.56660001,6.25233831
+1074,1074,Gigante Av Oriental,CR 46 49 A 03,Medellín,La Candelaria,En servicio,-75.56571824,6.24789688
+1075,1075,Gigante Av Oriental (3),CR 46 49 A 03,Medellín,La Candelaria,En servicio,-75.56571824,6.24789688
+1076,1076,Junin Adn,CL 49 48 17,Medellín,La Candelaria,En servicio,-75.56710464,6.2480361
+1077,1077,Junin Adn (2),CL 49 48 17,Medellín,La Candelaria,En servicio,-75.56710464,6.2480361
+1078,1078,Junin Adn (3),CL 49 48 17,Medellín,La Candelaria,En servicio,-75.56710464,6.2480361
+1079,1079,La Bastilla 3 (2),CR 48 50 81,Medellín,La Candelaria,En servicio,-75.56637121,6.24942907
+1080,1080,La Playa Rey,CL 51 45 27 ,Medellín,La Candelaria,En servicio,-75.56562828,6.24868801
+1081,1081,Lankaster,CR 46 48 83,Medellín,La Candelaria,En servicio,-75.56615654,6.24729618
+1082,1082,Licorera La Bastilla,CR 48 50 12,Medellín,La Candelaria,En servicio,-75.56649821,6.24889275
+1083,1083,Maracaibo Rey,CL 53 46 77,Medellín,La Candelaria,En servicio,-75.56435871,6.25075554
+1084,1084,Multicarnes La Playa,CR 46 52 05,Medellín,La Candelaria,En servicio,-75.56479428,6.24922482
+1085,1085,Oficina Avenida Oriental,CR 46 52 29,Medellín,La Candelaria,En servicio,-75.56465609,6.24949595
+1086,1086,Parqueadero Metro Palo Gig,CL 49 44 36,Medellín,La Candelaria,En servicio,-75.56423198,6.24670726
+1087,1087,Plazuela De San Ignacio,CR 44 48 43,Medellín,La Candelaria,En servicio,-75.56468984,6.24647013
+1088,1088,Plazuelas De San Diego,CR 43 33 57,Medellín,San Diego,En servicio,-75.5686859,6.23398358
+1089,1089,Restaurante Dardanelos # 2,CR 48 39 74,Medellín,La Candelaria,En servicio,-75.57080996,6.23991991
+1090,1090,Restaurante Dukar,CR 48 32 191,Medellín,La Candelaria,En servicio,-75.57302487,6.23496837
+1091,1091,Sabropan,CR 46 57 06,Medellín,La Candelaria,En servicio,-75.56232024,6.25343008
+1092,1092,San Diego Rey,CR 43 33 57 LC 163,Medellín,San Diego,En servicio,-75.57001505,6.23430647
+1093,1093,San Jose,CL 49 45 42,Medellín,La Candelaria,En servicio,-75.56515436,6.24754831
+1094,1094,San Sebastian (2),CR 46 41 54,Medellín,La Candelaria,En servicio,-75.56947569,6.24148352
+1095,1095,Sucre,CR 47 52 135,Medellín,La Candelaria,En servicio,-75.5650775,6.25088258
+1096,1096,Tu Pan,CR 46 52 05,Medellín,La Candelaria,En servicio,-75.56503016,6.24928126
+1097,1097,Abarrotes E M,CR 84 104 A 11,Bello,Paris,En servicio,-75.582597,6.306239
+1098,1098,Aguacatala 211,CR 50 12 SUR 0 (105),Medellín,Guayabal,En servicio,-75.58185178,6.19580839
+1099,1099,AYURA,CL 85  42 01 ( AYU2 10),Itagui,Itagui,En servicio,-75.58578147,6.18704486
+1100,1100,Ayura (2),CL 85 42 01 (105)        ,Itagui,Itagui,En servicio,-75.58578147,6.18704486
+1101,1101,Berrio,CR 51 51 44,Medellín,La Candelaria,En servicio,-75.56814769,6.25071838
+1102,1102,Berrio 234,CR 51 48 00 INT 132 (BER2 34),Medellín,La Candelaria,En servicio,-75.56930832,6.24813313
+1103,1103,Bingo Terminal Del Norte,CR 64C 78 580 LOCAL 50,Medellín,Caribe,En servicio,-75.57130251,6.27822735
+1104,1104,Bosque Plaza,CR 52 71 136,Medellín,Moravia,En servicio,-75.5656,6.268485
+1105,1105,Boyaca Qap,CL 51 51 66 ,Medellín,La Candelaria,En servicio,-75.56864448,6.25069349
+1106,1106,Brosty Suarez,CR 63 103 E 64,Medellín,Caribe,En servicio,-75.56195715,6.29563673
+1107,1107,Burbuja Mayorca Etapa 3,CR 48 50 SUR 128 BURBUJA 1082 ETAPA 3,Itagui,Itagui,En servicio,-75.60431,6.160705
+1108,1108,Burbuja Mayorca Etapa 3  (2),CR 48 50 SUR 128 BURBUJA 1082 ETAPA 3,Itagui,Itagui,En servicio,-75.60431,6.160705
+1109,1109,Burbuja Metroparque Berrio # 2,CR 51  49 00 LOC 134,Medellín,La Candelaria,En servicio,-75.56890544,6.24894202
+1110,1110,Burbuja San Antonio # 1,CR  51  45 00 LOCAL104,Medellín,La Candelaria,En servicio,-75.57024333,6.24585323
+1111,1111,Cantina Y Restaurante Aguadas,CR 52 44 56,Medellín,La Candelaria,En servicio,-75.57139211,6.24524881
+1112,1112,Caribe Qap,CR 64C 74 18,Medellín,Caribe,En servicio,-75.57334099,6.27265566
+1113,1113,Casino Slot,CR 51 51 35,Medellín,La Candelaria,En servicio,-75.56830115,6.25072803
+1114,1114,Casino Slot (2),CR 51 51 35,Medellín,La Candelaria,En servicio,-75.56830115,6.25072803
+1115,1115,Cc Estacion Niquia,DG 55 N 37 41 LOCAL 138,Bello,Bello,En servicio,-75.543105,6.340346
+1116,1116,Cc Estacion Niquia (2),DG 55 N 37 41 LOCAL 138,Bello,Bello,En servicio,-75.543105,6.340346
+1117,1117,Cc Mayorca Local 356 (2),CL 51 SUR 48 57,Itagui,Itagui,En servicio,-75.60540534,6.16185605
+1118,1118,Cc Metrocentro 1 Local 102,CR 52 42 60 LOCAL 102,Medellín,La Candelaria,En servicio,-75.57208603,6.24325899
+1119,1119,Cencosud Metro Bello,CR 50 27 B 71,Bello,Bello,En servicio,-75.55768493,6.31718968
+1120,1120,Centro C. Terminal Coonorte,CR 64 C 78 580 N 9863,Medellín,Caribe,En servicio,-75.57118572,6.279341
+1121,1121,Centro C. Terminal Fonda,CR 64 C 78 580,Medellín,Caribe,En servicio,-75.57082094,6.27880298
+1122,1122,Centro C. Terminal Mercatodo,CR 64 C 78 580 N 083,Medellín,Caribe,En servicio,-75.57120181,6.27840253
+1123,1123,Centro C. Terminal Ochoa,CR 64 C 78 580 N 9853,Medellín,Caribe,En servicio,-75.57075656,6.28015683
+1124,1124,CENTRO COMERCIAL EL BUFALO,CL 50 CR 41 81 INTERIOR 101,Itagui,Itagui,En servicio,-75.6063759,6.16506122
+1125,1125,Centro Comercial Universo,Cl 50 N 53 12 LOCAL 124,Medellín,La Candelaria,En servicio,-75.57051149,6.25073983
+1126,1126,Cisneros,CL 46  54 00 (137),Medellín,La Candelaria,En servicio,-75.57273609,6.24824806
+1127,1127,Cootrafa,CL 46 49 B 07,Bello,Bello,En servicio,-75.55701852,6.33171241
+1128,1128,Corona,CR 52 N 50 68,Medellín,La Candelaria,En servicio,-75.56945226,6.25049373
+1129,1129,Delicias La 65,CL 84 65 10,Medellín,Caribe,En servicio,-75.572648,6.280476
+1130,1130,Diagonal 50 Lea,DG 50 49 17,Medellín,La Candelaria,En servicio,-75.56744023,6.24829055
+1131,1131,Drogas La Rebaja,Cr 52 49 89,Medellín,La Candelaria,En servicio,-75.56984486,6.24996248
+1132,1132,El Bodegon,CR 50 85 157,Itagui,Itagui,En servicio,-75.590213,6.190908
+1133,1133,Estacion Bello,CL 44  44 18,Bello,Bello,En servicio,-75.55403177,6.33096593
+1134,1134,Estación Bello (2),CL 44 44 18,Bello,Bello,En servicio,-75.55403177,6.33096593
+1135,1135,Estacion Floresta  (Flo 210),CL 47 D  79 00  (FLO 210),Medellín,Calasanz,En servicio,-75.59727555,6.25835846
+1136,1136,Estacion La Estrella (2),CR 49 77 SUR 90,Sabaneta,Sabaneta,En servicio,-75.625895,6.152486
+1137,1137,Estacion Madera,CL 25 B 49 32 INT 124 (MAD2 20),Bello,Bello,En servicio,-75.55739419,6.31443285
+1138,1138,Estacion Sabaneta,CRA 48B 67SUR 10,Sabaneta,Sabaneta,En servicio,-75.616625,6.155617
+1139,1139,Estacion Santa Lucia,CL 47 DD 86 00 (LUC 2 16),Medellín,Los Pinos,En servicio,-75.60337794,6.25867683
+1140,1140,Éxito De Colombia,CR 66 48 C 38,Medellín,Suramericana,En servicio,-75.58307943,6.25426107
+1141,1141,Fabricato Hv,CR 49 44 18,Bello,Bello,En servicio,-75.55590831,6.33054478
+1142,1142,Ferrocarril,CR 64 C 78 580,Medellín,Caribe,En servicio,-75.57103551,6.2796668
+1143,1143,Flamingo Bolivar,CR 51 48 31,Medellín,La Candelaria,En servicio,-75.56938339,6.24853017
+1144,1144,Gana Servicios Alpujarra,CL 44 51 45,Medellín,La Candelaria,En servicio,-75.57114406,6.24469232
+1145,1145,Gana Servicios C.C Puerta Del Norte I I (2),DG 55 AUT NORTE LOCAL 1 154,Bello,Bello,En servicio,-75.54238293,6.33927264
+1146,1146,Gana Servicios Parque Berrio (4),CL 50 51 65,Medellín,La Candelaria,En servicio,-75.5691929,6.24991463
+1147,1147,Gana Servicios Parque Berrio (5),CL 50 51 65,Medellín,La Candelaria,En servicio,-75.5691929,6.24991463
+1148,1148,Heladeria Y Billares Los Ronderos,CR 52 41 18,Medellín,La Candelaria,En servicio,-75.57242211,6.2423628
+1149,1149,Hospital 217,CR 51 66 04,Medellín,Sevilla,En servicio,-75.5635989,6.26326273
+1150,1150,Hospital Prado,CR 51 59 05,Medellín,Sevilla,En servicio,-75.56577851,6.25821907
+1151,1151,La Bodeguita Colombia,CL 50 49 52,Medellín,La Candelaria,En servicio,-75.56719313,6.24914728
+1152,1152,La Magnolia 2,DG 32 D 32 C SUR 8,Envigado,Envigado,En servicio,-75.58391845,6.17419346
+1153,1153,La Red,CL 53 52A 06,Medellín,Candelaria,En servicio,-75.5688112,6.2530042
+1154,1154,Madera,CR 45 26 19 ,Bello,Bello,En servicio,-75.55356791,6.3152664
+1155,1155,Mall Vegas Plaza,CRR 48 76 D SUR 52 LOCAL 131 ,Sabaneta,Sabaneta,En servicio,-75.623686,6.152161
+1156,1156,Maya Mass,CR 49 45 123,Medellín,La Candelaria,En servicio,-75.568352,6.246648
+1157,1157,Media Naranja,CR 53 48 35,Medellín,La Candelaria,En servicio,-75.57117521,6.24908182
+1158,1158,Media Naranja-Pichincha,CR 52 48 02,Medellín,La Candelaria,En servicio,-75.570277,6.248548
+1159,1159,Media Naranja-Pichincha (2),CR 52 48 02,Medellín,La Candelaria,En servicio,-75.570277,6.248548
+1160,1160,Metro Acevedo Ac210,CR 63 A 105 68,Medellín,Girardot,En servicio,-75.55931445,6.3007568
+1161,1161,Metro Estacion Parque Berrio,CR 51 50 50,Medellín,La Candelaria,En servicio,-75.56843344,6.25000604
+1162,1162,Metro Plazuela Nutibara,CR 50 A  52 03,Medellín,La Candelaria,En servicio,-75.5674852,6.25088815
+1163,1163,Metro Terminal   ,CL 50 40 01 LOCAL 115   ,Itagui,Itagui,En servicio,-75.60713909,6.16631982
+1164,1164,Multicarnes,CL 53 51 08,Medellín,La Candelaria,En servicio,-75.5678478,6.2525336
+1165,1165,Niquitao Con Maturin,CR 44 46 13,Medellín,La Candelaria,En servicio,-75.56613141,6.24476914
+1166,1166,Nuevo Tricentenario,CR 63 C N 96 A 136 INT 115,Medellín,Caribe,En servicio,-75.571846,6.279098
+1167,1167,Nutabe Seguro,CL 70 51 D 08,Medellín,Sevilla,En servicio,-75.56510189,6.26703825
+1168,1168,Oficina Alpujarra Manual,CL 44 51 11,Medellín,La Candelaria,En servicio,-75.57096542,6.24462309
+1169,1169,Pablo Tobon (2),CL 51 40 9,Medellín,La Candelaria,En servicio,-75.55981927,6.24720408
+1170,1170,Papeleria Señal Net,CL 64 A 78 581 TERMINAL NORTE LOCAL 319,Medellín,Caribe,Desactivado,-75.57123,6.27987
+1171,1171,Parque Berrio,CL 50 51 65,Medellín,La Candelaria,En servicio,-75.5691929,6.24991463
+1172,1172,Parque San Pedro,CL 68 51 A 01,Medellín,Sevilla,En servicio,-75.5634228,6.26568075
+1173,1173,Parqueadero El Pulpo,CL 44 48 73,Medellín,La Candelaria,En servicio,-75.56963377,6.24412868
+1174,1174,Participacion Parque De Berrio,CR 51 50 67,Medellín,La Candelaria,En servicio,-75.56853443,6.2501473
+1175,1175,Participacion Parque De Berrio (2),CR 51 50 67,Medellín,La Candelaria,En servicio,-75.56853443,6.2501473
+1176,1176,Peladitos De Corazon,CR 63 109 A 34,Medellín,Girardot,En servicio,-75.5579822,6.3029784
+1177,1177,Plazuela Nutibara,CL 51 A 50 61 LOCAL 001,Medellín,La Candelaria,En servicio,-75.56768772,6.25077205
+1178,1178,Pollos Mario San Diego,CR 43 A 33 25,Medellín,La Candelaria,En servicio,-75.57025054,6.23404354
+1179,1179,Pvi Caribe,CR 64 C 74 9,Medellín,Caribe,En servicio,-75.57349194,6.27264295
+1180,1180,Pvi Prado,CR 51 57 105,Medellín,La Candelaria,En servicio,-75.56640335,6.25673674
+1181,1181,Pvi Prado (2),CR 51 57 105,Medellín,La Candelaria,En servicio,-75.56640335,6.25673674
+1182,1182,Restaurante Cafetos,CR 50 41 215,Medellín,La Candelaria,En servicio,-75.57100688,6.24441435
+1183,1183,San Antonio # 2,CR 51 45 00 LOC 136,Medellín,La Candelaria,En servicio,-75.57024333,6.24585323
+1184,1184,San Antonio # 3,CL 46 51 00 LOC 139,Medellín,La Candelaria,En servicio,-75.56981704,6.24722378
+1185,1185,San Antonio 232,CR 51 47 00 INT 106,Medellín,La Candelaria,En servicio,-75.56947843,6.24773275
+1186,1186,San Antonio 252,CR 51 45 00 MD 116,Medellín,La Candelaria,En servicio,-75.57024333,6.24585323
+1187,1187,San Sebastian,CR 46 41 54,Medellín,La Candelaria,En servicio,-75.56947569,6.24148352
+1188,1188,Santa Elena,CL 52 49 27,Medellín,La Candelaria,En servicio,-75.56675754,6.25011433
+1189,1189,Suramericana,CL 48 65 00 INT 120 (SAN 2 22),Medellín,Suramericana,En servicio,-75.58241748,6.25325469
+1190,1190,Talleres,CR 46 46 03,Bello,Bello,En servicio,-75.55444816,6.33318688
+1191,1191,Terminal Norte Metro,CR 64 C 78 580,Medellín,Caribe,En servicio,-75.57087458,6.27896294
+1192,1192,Terminal Norte Metro 1,CR 64 C 78 580,Medellín,Caribe,En servicio,-75.57116963,6.27945298
+1193,1193,Terminal Norte Ochoa,CR 64 C 78 580,Medellín,Caribe,En servicio,-75.57101406,6.27869633
+1194,1194,Terpel La 65,CR 65 78 190,Medellín,Caribe,En servicio,-75.5733924,6.27623436
+1195,1195,Veracruz # 1,CR 52 51 42 LOC 180,Medellín,La Candelaria,En servicio,-75.569219,6.25101326
+1196,1196,Veracruz # 1 (2),CR 52 51 42 LOC 180,Medellín,La Candelaria,En servicio,-75.569219,6.25101326
+1197,1197,Bar 3 Reyes,CL 49 N 59 13,Medellín,La Candelaria,En servicio,-75.57627304,6.25164649
+1198,1198,Bar El Cariñito,CL 44 A 59 03,Medellín,La Candelaria,En servicio,-75.57755579,6.24763913
+1199,1199,Bar Y Restaurante Caballo Blanco,CR 57 A 45 10,Medellín,La Candelaria,En servicio,-75.57579026,6.24781933
+1200,1200,Bodega Colombia,CL 49 B 68 94,Medellín,Suramericana,En servicio,-75.58529209,6.25748726
+1201,1201,Cencosud Jumbo La 65,CR 65 45 85,Medellín,La Candelaria,En servicio,-75.58524999,6.25188273
+1202,1202,Cencosud Jumbo La 65 No. 2,CR 65 45 85,Medellín,La Candelaria,En servicio,-75.58551944,6.25161318
+1203,1203,Centro Comercial El Castillo,CL 46 53 A 14 LC 102,Medellín,La Candelaria,En servicio,-75.57236616,6.24812173
+1204,1204,Centro Comercial Obelisco,CR 74 48 37,Medellín,Suramericana,En servicio,-75.59215255,6.25697713
+1205,1205,Colanta,CL 47A 99 36,Medellín,San Javier N0 1,En servicio,-75.61463924,6.25767577
+1206,1206,Consumo San Joaquin,CR 69 42 29,Medellín,Laureles,En servicio,-75.58799389,6.24766309
+1207,1207,Estadio ,CR 70 47D 00 (EST 2 20),Medellín,Laureles,En servicio,-75.58779155,6.25317375
+1208,1208,Éxito Colombia,CR 66 49 A 32,Medellín,Suramericana,En servicio,-75.58247591,6.25565197
+1209,1209,Gana Servicios Barrio Triste,CL 46 59 47,Medellín,La Candelaria,En servicio,-75.57716675,6.24960733
+1210,1210,Gana Servicios Los Sauces,CL 50 65 01,Medellín,Suramericana,En servicio,-75.58114461,6.2560048
+1211,1211,Ganaservicios San Javier,CR 99 42 54,Medellín,San Javier N0 1,En servicio,-75.61600737,6.25600625
+1212,1212,La 87,CR 87 45 C 96 LOCAL 4,Medellín,Los Pinos,En servicio,-75.60294121,6.25576007
+1213,1213,Los Veteranos,CR 101 40 39,Medellín,San Javier N0 1,En servicio,-75.61653392,6.25485978
+1214,1214,Macroraiz,CR 67 49B 15 LC 13A,Medellín,Suramericana,En servicio,-75.58325577,6.25656332
+1215,1215,Makro,CL 44 66 50,Medellín,La Candelaria,En servicio,-75.58590982,6.24950122
+1216,1216,Mall Comercial Y Parqueadero Tenerife,CR 55 45 10,Medellín,La Candelaria,En servicio,-75.57403954,6.24723072
+1217,1217,Merquefacil,CL 43 100 28,Medellín,San Javier N0 1,En servicio,-75.61644366,6.25664214
+1218,1218,Semillero Éxito,CR 66 49 40,Medellín,Suramericana,En servicio,-75.58268306,6.25520488
+1219,1219,Tierras Antioqueñas (Pa Mi Tiera),CL 50 68 123,Medellín,Suramericana,En servicio,-75.58493907,6.25781136
+1220,1220,Metro Cable Juan Xxiii,CR 99 D D 48 F 01,Medellín,San Javier N0 1,En servicio,-75.61320043,6.26601881
+1221,1221,Oficina Apuestas Ochoa,CL 61 CR 129 A 19,Medellín,San Cristobal Vereda La Loma,En servicio,-75.63487009,6.27620804
+1222,1222,Vallejuelo,CL 61 B 104 B 11,Medellín,San Javier N0 1,En servicio,-75.62154,6.25582
+1223,1223,Estacion Metro Cable Santo Domingo,CR 32 102 B 83,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.54227528,6.2927584
+1224,1224,Metro Cable 3,CR 31 102 C 42,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.54153771,6.29283267
+1225,1225,Metro Cable 3 (2),CR 31 102 C 042,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.54153771,6.29283267
+1226,1226,Teleferico 1,CL 107 B 42 B 06,Medellín,Popular,En servicio,-75.54796416,6.2953675
+1227,1227,Terminal Santo Domingo,CR 31 107 2,Medellín,Santo Domingo Savio Nº 1,En servicio,-75.54113176,6.29514511
+1228,1228,5 Esquinas 2,CL 45 84 9,Medellín,Los Pinos,En servicio,-75.60364458,6.25333584
+1229,1229,Asados La 80,CR 80 64 A 12,Medellín,Calasanz,En servicio,-75.59316802,6.27308671
+1230,1230,California Movil,CL 73 72 A 56,Medellín,El Diamante,En servicio,-75.58273,6.27383
+1231,1231,Consumo Floresta,CR 84 45 F 12,Medellín,Laureles,En servicio,-75.601015,6.256056
+1232,1232,Distribuidora Berlin,CR 81 32 109,Medellín,Belen,Desactivado,-75.60237635,6.2350438
+1233,1233,Exito La 80,CR 81 37 D 9,Medellín,Los Pinos,En servicio,-75.60272482,6.24612394
+1234,1234,Farmacia,CL 50 80 21,Medellín,Calasanz,En servicio,-75.59713737,6.2635528
+1235,1235,Floresta 2,CR 82 45 D 48,Medellín,Los Pinos,En servicio,-75.60095739,6.25487341
+1236,1236,Floresta La 80,CR 80 48 B 60,Medellín,Calasanz,En servicio,-75.59739758,6.26026723
+1237,1237,Gana Servicios America,CL 44 82 07,Medellín,Los Pinos,En servicio,-75.6040851,6.25060736
+1238,1238,Gana Servicios Punto Clave,CL 29 46 49 B ,Medellín,La Candelaria,En servicio,-75.57278,6.23007
+1239,1239,Glorieta Colombia,CR 80 50 41,Medellín,Calasanz,En servicio,-75.59654828,6.26462908
+1240,1240,Hermanos Velez,CL 44 84 38,Medellín,Los Pinos,En servicio,-75.60479723,6.25083554
+1241,1241,La 80 Calasanz,CR 80 53 A 05 PISO 01,Medellín,Calasanz,En servicio,-75.59587246,6.26763281
+1242,1242,La Consolata,TRANSVERSAL 39 B 79 54,Medellín,Los Pinos,En servicio,-75.59803288,6.2481765
+1243,1243,Las Mercedes,CR 84 32 85,Medellín,Belen,En servicio,-75.60768045,6.23447608
+1244,1244,Laureles,CR 81 42 37,Medellín,Los Pinos,En servicio,-75.60260333,6.24792806
+1245,1245,Lavapress,CL 35 84 31,Medellín,Los Pinos,En servicio,-75.60700665,6.24411968
+1246,1246,Los Montañeritos,CR 82 44 03,Medellín,Los Pinos,En servicio,-75.60403939,6.25077172
+1247,1247,Los Picapiedras,CL 53 A 80 A 59,Medellín,Calasanz,Desactivado,-75.59682475,6.26770088
+1248,1248,Lucrecio Jaramillo,CR 79 38 102,Medellín,Los Pinos,En servicio,-75.5992602,6.24576394
+1249,1249,Mall La 34,CL 34 80 C 22,Medellín,Los Pinos,En servicio,-75.60251988,6.24083542
+1250,1250,Metro Estacion Floresta,CR 80 48 27,Medellín,Calasanz,En servicio,-75.59775476,6.25930712
+1251,1251,Metro Estacion Floresta (2),CR 80 48 27     ,Medellín,Calasanz,En servicio,-75.59775476,6.25930712
+1252,1252,Nueva Cuarta Brigada,CR 77 C N 52 55,Medellín,Calasanz,En servicio,-75.593073,6.263799
+1253,1253,Oficina America  2,CL 44 82 79,Medellín,Los Pinos,En servicio,-75.60436399,6.2506263
+1254,1254,Oficina Don Quijote,CL 35 81 21,Medellín,Los Pinos,En servicio,-75.60320304,6.24321037
+1255,1255,Papeleria  Punta Fina,CL 44 84 23,Medellín,Los Pinos,En servicio,-75.60475499,6.25067796
+1256,1256,Qap La 80,CR 80 46 40,Medellín,Calasanz,En servicio,-75.59819166,6.25657741
+1257,1257,Santa Gema # 2,CL 33 81 03,Medellín,Belen,En servicio,-75.60342569,6.23861107
+1258,1258,Super Vaquita La 33,CL 33 83 A 36,Medellín,Belen,En servicio,-75.60718592,6.23870492
+1259,1259,Tarapaca,CR 80 39 201,Medellín,Los Pinos,En servicio,-75.59916303,6.24898799
+1260,1260,Tramites La 80,CR 81 40 12,Medellín,Los Pinos,En servicio,-75.60250921,6.24708522
+1261,1261,Transversal,TRANSVERSAL 45 C 85 05,Medellín,Los Pinos,En servicio,-75.60281719,6.25487765
+1262,1262,Argemiro Buenos Aires,CL 49 34 03,Medellín,Buenos Aires,En servicio,-75.55621152,6.24245638
+1263,1263,Avenida Obrero,CL 32 56 04,Bello,Bello,En servicio,-75.56154717,6.31994718
+1264,1264,Ayacucho San Ignacio,CL 49 42 48,Medellín,La Candelaria,En servicio,-75.5624514,6.24581993
+1265,1265,Cabañas,CR 55 27 A 29,Bello,Bello,En servicio,-75.56061784,6.31644165
+1266,1266,Confiar,CL 50 45 16,Medellín,La Candelaria,En servicio,-75.56449748,6.24784034
+1267,1267,Consumo,CL 49 32 85,Medellín,Buenos Aires,En servicio,-75.55493192,6.24181158
+1268,1268,El Palo,CR 45 48 90,Medellín,La Candelaria,En servicio,-75.56501513,6.24671598
+1269,1269,El Palo (2),CR 45 48 90,Medellín,La Candelaria,En servicio,-75.56501513,6.24671598
+1270,1270,El Palo Con Bombona,CR 45 46 76,Medellín,La Candelaria,En servicio,-75.56609064,6.24517299
+1271,1271,El Palo Con Bombona (2),CR 45 46 76,Medellín,La Candelaria,En servicio,-75.56609064,6.24517299
+1272,1272,Estacion Alejandro Echavarria,CL 5013 17,Medellín,Buenos Aires,En servicio,-75.540788,6.233546
+1273,1273,Ganaservicios Buenos Aires,CL 49 30 04,Medellín,Buenos Aires,En servicio,-75.552929,6.240894
+1274,1274,Gildardo Buenos Aires,CL 49 32 34,Medellín,Buenos Aires,En servicio,-75.55454949,6.2417753
+1275,1275,Las Acasias,CL 5653A 17,Itagui,Itagui,En servicio,-75.60679566,6.17629216
+1276,1276,Pagadiario,CL 49 38 77,Medellín,Buenos Aires,En servicio,-75.55995023,6.24437738
+1277,1277,Panorama,CR 45 49 56,Medellín,La Candelaria,En servicio,-75.56448532,6.24745015
+1278,1278,Multiservicios Aliadas,CR 84 F 18 A 03,Medellín,Belen,En servicio,-75.60872,6.22262
