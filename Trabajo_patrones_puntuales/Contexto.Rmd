@@ -189,8 +189,19 @@ Data Metro Medellin. Url: https://datosabiertosmetrodemedellin.opendata.arcgis.c
 
 ```{r}
 # Lectura del shape de la región de interés:
+coordinate.units <- c("metre", "metres")
+
+library(maptools)
 region <- st_read("Area-Metropolitana.shp")
-plot(region)
+region <- st_transform(region, crs = CRS("+proj=utm +zone=18N +ellps=WGS84"))
+
+win <- as(as(region, 'Spatial'), 'owin')
+ppp.locations <- ppp(x = data_UTM[,1],
+                     y = data_UTM[,2],
+                     window = win)
+
+unitname(ppp.locations) <- coordinate.units
+plot(ppp.locations)
 ```
 
 
