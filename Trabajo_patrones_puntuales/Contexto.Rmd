@@ -118,6 +118,16 @@ class(shape_civica)
 ```
 
 
+
+```{r}
+civica.locations <- st_transform(shape_civica)
+st_geometry(shape_civica)
+
+
+class(civica.locations)
+```
+
+
 <br>
 
 ### Conversión de longitud-latitud a UTM (metros)
@@ -141,15 +151,52 @@ head(data_UTM)
 
 
 ```{r}
-# win <- as(as(borde, 'Spatial'), 'owin')
-# win
+# sp.locations <- as(civica.locations, "Spatial")
+# sp.border <- as(region, "Spatial")
+# i <- gIntersects(sp.locations, sp.border , byid=TRUE)
+# 
+# plot(sp.border)
+# points(sp.locations)
+# points(sp.locations@coords[!i,1],
+#        sp.locations@coords[!i,2], 
+#        col='red', cex=3, pch=3)
+```
 
-xrange <- c(min(data_UTM[,1]), max(data_UTM[,1]))
-yrange <- c(min(data_UTM[,2]), max(data_UTM[,2]))
+```{r}
+# Lectura del shape de la región de interés:
+coordinate.units <- c("metre", "metres")
 
+library(maptools)
+region <- st_read("Area-Metropolitana.shp")
+region <- st_transform(region, crs = CRS("+proj=utm +zone=18N +ellps=WGS84"))
+
+#plot(region)
+
+win <- as(as(region, 'Spatial'), 'owin')
 ppp.locations <- ppp(x = data_UTM[,1],
                      y = data_UTM[,2],
-                     xrange, yrange)
+                     window = win)
+
+
+
+unitname(ppp.locations) <- coordinate.units
+plot(ppp.locations)
+```
+
+
+
+
+
+```{r, echo = FALSE}
+# win <- as(as(borde, 'Spatial'), 'owin')
+# win
+# 
+# xrange <- c(min(data_UTM[,1]), max(data_UTM[,1]))
+# yrange <- c(min(data_UTM[,2]), max(data_UTM[,2]))
+# 
+# ppp.locations <- ppp(x = data_UTM[,1],
+#                      y = data_UTM[,2],
+#                      xrange, yrange)
 
 ```
 
@@ -187,22 +234,7 @@ Data Metro Medellin. Url: https://datosabiertosmetrodemedellin.opendata.arcgis.c
 <hr>
 
 
-```{r}
-# Lectura del shape de la región de interés:
-coordinate.units <- c("metre", "metres")
 
-library(maptools)
-region <- st_read("Area-Metropolitana.shp")
-region <- st_transform(region, crs = CRS("+proj=utm +zone=18N +ellps=WGS84"))
-
-win <- as(as(region, 'Spatial'), 'owin')
-ppp.locations <- ppp(x = data_UTM[,1],
-                     y = data_UTM[,2],
-                     window = win)
-
-unitname(ppp.locations) <- coordinate.units
-plot(ppp.locations)
-```
 
 
 
