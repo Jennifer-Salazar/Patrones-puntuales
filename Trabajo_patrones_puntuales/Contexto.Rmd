@@ -97,8 +97,6 @@ civica_loc
 
 ### Conjunto de datos en formato Shape file
 
-
-
 ```{r}
 ## read in the data
 shape_civica <- st_read("Puntos_de_Recarga_C%C3%ADvica.shp")
@@ -106,20 +104,17 @@ shape_civica <- st_read("Puntos_de_Recarga_C%C3%ADvica.shp")
 
 
 
-* Gráfico de colores de las localizaciones de puntos de recarga discrimado por variables
+Se trabaja con los municipios del Valle de Aburra exceptuando las localizaciones de los municios de Barbosa, Girardota y Caldas ya que tienen pocas observaciones y quedan a los extremos de la zona de estudio
 
 ```{r}
-plot(shape_civica)
 
-# Clase de objeto shape
-class(shape_civica)
+shape_civica$municipio <- as.factor(shape_civica$municipio)
 
+indices <- shape_civica$municipio %in% c("Barbosa", "Girardota", "Caldas")
 
-```
-
+shape_civica <- shape_civica[!indices, ]
 
 
-```{r}
 civica.locations <- st_transform(shape_civica)
 st_geometry(shape_civica)
 
@@ -149,18 +144,7 @@ head(data_UTM)
 
 ### Creación del objeto ppp de las localizaciones de los puntos de recarga de la tarjeta cívica
 
-
-```{r}
-# sp.locations <- as(civica.locations, "Spatial")
-# sp.border <- as(region, "Spatial")
-# i <- gIntersects(sp.locations, sp.border , byid=TRUE)
-# 
-# plot(sp.border)
-# points(sp.locations)
-# points(sp.locations@coords[!i,1],
-#        sp.locations@coords[!i,2], 
-#        col='red', cex=3, pch=3)
-```
+* Se trabaja inicialmente con el borde del Valle de Áburra:
 
 ```{r}
 # Lectura del shape de la región de interés:
@@ -180,25 +164,24 @@ ppp.locations <- ppp(x = data_UTM[,1],
 
 
 unitname(ppp.locations) <- coordinate.units
+ppp.locations <- as.ppp(ppp.locations)
 plot(ppp.locations)
 ```
 
 
 
+* Como hay zonas del Valle de Áburra sin observaciones (zonas rurales) se debe de considerar un nuevo borde o área de estudio para realizar los analisis con el fin de que no queden muchos espacios vacios (las localizaciones estan ubicadas principalmente en zonas urbanas)
 
-
-```{r, echo = FALSE}
-# win <- as(as(borde, 'Spatial'), 'owin')
-# win
-# 
-# xrange <- c(min(data_UTM[,1]), max(data_UTM[,1]))
-# yrange <- c(min(data_UTM[,2]), max(data_UTM[,2]))
-# 
-# ppp.locations <- ppp(x = data_UTM[,1],
-#                      y = data_UTM[,2],
-#                      xrange, yrange)
-
+```{r}
+win <- ripras(ppp.locations)
+ppp.locations <- ppp(x = data_UTM[,1],
+                     y = data_UTM[,2],
+                     window = win)
+ppp.locations <- as.ppp(ppp.locations)
+plot(ppp.locations)
 ```
+
+
 
 
 ### Intensidad
@@ -208,23 +191,319 @@ La intensidad es la densidad promedio de puntos o en otras palabras, el número 
 Un enfoque para evaluar la intensidad es dividir el área de estudio en cuadrantes y contar el número de puntos que caen en cada cuadrante. Si los puntos tienen una intensidad uniforme y son completamente aleatorios, entonces los recuentos de cuadrantes deben ser números aleatorios de Poisson con media constante. Podemos probar esa hipótesis usando el estadístico de prueba de bondad de ajuste $χ^2$
 
 ```{r}
-qc.loc <- quadratcount(ppp.locations, nx=5, ny=5)
+qc.loc <- quadratcount(ppp.locations, nx=3, ny=4)
 plot(ppp.locations, pch=3, cex=0.6)
 plot(qc.loc, add=T, textargs = list(col='red'))
 ```
 
+<br>
 
 ### Test de homógeneidad o intensidad constante.
+
+
+$$H_0: Aleatoriedad ~~ vs. ~~ Ha: $$
 
 ```{r}
 quadrat.test(qc.loc)
 ```
 
-El valor p muy bajo indica que la intensidad no es constante. 
+El valor p es muy pequeño, lo que indica que la intensidad no es constante. 
+
+<br>
+
+## Estimación de la intensidad via Kernel
+
+```{r}
+intensidad <- density.ppp(ppp.locations, sigma = bw.scott(ppp.locations))
+
+intensidadpoints <- density.ppp(ppp.locations, sigma = bw.scott(ppp.locations), at="points")
+
+
+# Estimaciones de la intensidad
+par(mfrow=c(1,2))
+plot(intensidad, main = "Gráfico de probabilidad")
+plot(intensidadpoints, main = "Gráfico de puntos")
+```
+
+
+```{r}
+par(mfrow=c(2,3), mar=c(0,0,1,2))
+
+# Ancho de banda por defecto
+plot(density.ppp(ppp.locations), main = paste("Sigma (defecto):", round(attr(density.ppp(ppp.locations), "sigma"),3)))
+
+# Ancho de banda: diggle
+plot(density.ppp(ppp.locations, sigma = bw.diggle(ppp.locations)), main = paste("Sigma (diggle):", round(attr(density.ppp(ppp.locations, sigma = bw.diggle(ppp.locations)), "sigma"),3)))
+
+# Ancho de banda: CvL
+plot(density.ppp(ppp.locations, sigma = bw.CvL(ppp.locations)), main = paste("Sigma (CvL):", round(attr(density.ppp(ppp.locations, sigma = bw.CvL(ppp.locations)), "sigma"),3)))
+
+
+# Ancho de banda: frac
+plot(density.ppp(ppp.locations, sigma = bw.frac(ppp.locations)), main = paste("Sigma (frac):", round(attr(density.ppp(ppp.locations, sigma = bw.frac(ppp.locations)), "sigma"),3)))
+
+
+# Ancho de banda: ppl
+plot(density.ppp(ppp.locations, sigma = bw.ppl(ppp.locations)), main = paste("Sigma (ppl):", round(attr(density.ppp(ppp.locations, sigma = bw.ppl(ppp.locations)), "sigma"),3)))
+
+
+# Ancho de banda: scott.iso
+plot(density.ppp(ppp.locations, sigma = bw.scott.iso(ppp.locations)), main = paste("Sigma (scott.iso):", round(attr(density.ppp(ppp.locations, sigma = bw.scott.iso(ppp.locations)), "sigma"),3)))
+
+```
+
+
+### Ajuste de modelos
+
+**Modelo base:**
+
+Un modelo de Poisson homogéneo
+
+Ejemplo: $λ_θ((x,y))=exp(θ_0)$ se ajusta:
+
+
+```{r}
+base.loc <- ppm(ppp.locations, ~1)
+coef(base.loc)
+```
+
+<br>
+
+**El modelo log-lineal:**
+
+Un modelo de Poisson inhomogéneo con una intensidad logarítmica lineal en las coordenadas cartesianas. 
+
+Ejemplo: $λ_θ((x,y))=exp(θ_0+θ_1x+θ_2y)$ se ajusta:
+
+
+```{r}
+loglin.loc <- ppm(ppp.locations, ~x+y)
+coef(loglin.loc)
+```
+
+Este modelo específico se puede escribir en forma de:
+
+
 
 
 <br>
 
+**El modelo log-lineal en x:**
+
+Un modelo de Poisson inhomogéneo con una intensidad logarítmica lineal en x. 
+
+Ejemplo: $λ_θ((x,y))=exp(θ_0+θ_1x)$ se ajusta:
+
+
+```{r}
+loglin.loc.x <- ppm(ppp.locations, ~x)
+coef(loglin.loc.x)
+```
+
+<br>
+
+**El modelo log-lineal en y:**
+
+Un modelo de Poisson inhomogéneo con una intensidad logarítmica lineal en y. 
+
+Ejemplo: $λ_θ((x,y))=exp(θ_0+θ_1y)$ se ajusta:
+
+
+```{r}
+loglin.loc.y <- ppm(ppp.locations, ~y)
+coef(loglin.loc.y)
+```
+
+
+<br>
+
+**El log-cuadrático con término de interacción**
+
+Un modelo de Poisson inhomogéneo con intensidad que es log-cuadrático y tiene un término de interacción en x e y. 
+
+$λ_θ((x,y))=exp(θ_0+θ_1x+θ_2y+θ_3x^2+θ_4y^2+θ_5x⋅y)$ se ajusta mediante
+
+
+```{r}
+logquad.loc <- ppm(ppp.locations, ~polynom(x, y, 2))
+coef(logquad.loc)
+```
+
+<br>
+
+**El modelo log-cúbico  con término de interacción**
+
+Un modelo de Poisson inhomogéneo con una intensidad que es log-cubico y tiene un término de interacción en x e y.
+
+
+Ejemplo: $λ_θ((x,y))=exp(θ_0+θ1x+θ_2y+θ_3x^2+θ_4x*y+ +θ_5y^2+θ_6x^3+θ_7x^2y+θ_8xy^2+θ_9y^3)$ se ajusta mediante
+
+
+```{r}
+logcubic.loc <- ppm(ppp.locations, ~polynom(x, y, 3))
+coef(logcubic.loc)
+```
+
+
+<br>
+
+### Predicción del modelo
+
+
+Estos modelos fueron creados para la predicción:
+
+El valor devuelto por la función de ajuste de modelos ppm es un objeto de clase ppm que representa el modelo ajustado. Esto es análogo a otros objetos modelo en R y, por lo tanto, se pueden aplicar operaciones estándar, como trazar, predecir o coef, entre otras.
+
+Combinamos el comando plot() con el comando predict() para visualizar las predicciones de los modelos ajustados para el conjunto de datos **ppp.locations**:
+
+
+```{r}
+par(mfrow=c(2,3),mar=c(0,0,1,2))
+
+plot(predict(base.loc), main='Modelo base')
+points(ppp.locations, pch=16, cex=0.2)
+
+plot(predict(loglin.loc), main='log-linear')
+points(ppp.locations, pch=16, cex=0.2)
+
+plot(predict(loglin.loc.x), main='log-linear en x')
+points(ppp.locations, pch=16, cex=0.2)
+
+plot(predict(loglin.loc.y), main='log-linear en y')
+points(ppp.locations, pch=16, cex=0.2)
+
+plot(predict(logquad.loc), main='log-cuadrático con interacción')
+points(ppp.locations, pch=16, cex=0.2)
+
+plot(predict(logcubic.loc), main='log-cúbico con interacción')
+points(ppp.locations, pch=16, cex=0.2)
+```
+
+Mediantes las predicciones de ajustes se resalta que:
+
+* El modelo base por su estructura tiene una predicción constante.
+
+* Se nota los cambios entre los modelos base, los log-lineales y log-polinomiales.
+
+* Entre los modelos log lineales mediante los gráficos de predicción se resalta que el modelo con solo "y" y el modelo con "x e y" tienen predicciones similares en cambio el que esta respecto a "x" difiere un poco. 
+
+* El modelo cuadrático y cúbico tienen predicciones muy similares lo que indica que no es necesario la inclusión del del termino cúbico, es decir, no es necesario ajustar un modelo de grado 3.
+
+
+<br>
+
+
+### Comprobación de los modelos de Poisson ajustados
+
+Después de ajustar un modelo de proceso de punto a un conjunto de datos de patrones puntuales, debemos verificar que el modelo se ajuste bien y que cada suposición de componente del modelo sea apropiada.
+
+Un enfoque informal, no probabilístico, consiste en examinar los residuos del modelo.
+
+$$residual=observado−ajustado$$
+
+Si el modelo se ajusta bien, entonces los residuos deben estar centrados alrededor de cero.
+
+
+**Se aplica la función diagnostic.ppm() en los modelos ajustados:**
+
+
+```{r, results="hide"}
+par(mfrow=c(2,3),mar=c(1,1,2,2))
+diagnose.ppm(base.loc, which = "smooth", main = "modelo base")
+diagnose.ppm(loglin.loc, which = "smooth", main = 'log-linear')
+diagnose.ppm(loglin.loc.x, which = "smooth", main = 'log-linear en x')
+diagnose.ppm(loglin.loc.y, which = "smooth", main = 'log-linear en y')
+diagnose.ppm(logquad.loc, which = "smooth", main = 'log-cuadrático')
+diagnose.ppm(logcubic.loc, which = "smooth", main = 'log-cúbico')
+```
+
+
+* El resalta el comportamiento similar de los residuales en el modelo base y en todos los modelos log-lineales.
+
+* Los residuales son similares en los modelos log-polinomiales.
+
+* En general los residuales toman valores muy cercanos a cero (positivos y negativos)
+
+* El ajuste tiende a ser mejor en el centro en el modelo base y en los log lineales en donde esta la mayor cantidad de localizaciones que entraron al estudio y en los modelos log-polinomiales tiende a ser mejor en el centro y en alguna de las esquinas de Berlin.
+
+
+<hr>
+
+```{r}
+fryplot(ppp.locations, main='clustered', pch=16, cex=0.2)
+```
+
+## estimación de la función k asumiendo inhomogeneo(Kinhom) para el patrón de puntos de recarga de la civica:
+
+para estimar la funcion k:
+Kinhom: Inhomogeneo (intensidad no constante)
+
+### Kinhom (asumiendo que la intensidad es no constante)
+
+
+**Patrón original (Cluster)**
+
+```{r}
+plot(Kinhom(ppp.locations), main='clustered')
+```
+
+* $\hat{K}(r)>K(pois)(r)$: agrupamiento.
+
+* Se evidencia el patrón agregado o de cluster, ya que sas curvas estimadas estan por encima de la teorica, por tanto es un patrón agregado - cluster.
+
+
+<br>
+
+## estimación de la función g asumiendo inhomogeneo(pcfinhom) para el patrón de puntos de recarga de la civica:
+
+para estimar la funcion g:
+pcfinhom: Inhomogeneo (intensidad no constante)
+
+### pcfinhom (asumiendo que la intensidad es no constante)
+
+```{r}
+plot(pcfinhom(ppp.locations), main='clustered')
+```
+
+* Es evidente el patrón de cluster o agrupamiento, dado que toma valores muy altos en distancias pequeñas y en distancias grandes va convergiendo a la curva teorica.
+
+
+
+## Envelopes
+
+**Kest**
+
+```{r}
+Env_hom <- envelope(Y = ppp.locations, fun = Kest)
+plot(Env_hom, main = "Envelopes homogeo")
+```
+
+**Kinhom**
+
+```{r}
+Env_inhom <- envelope(Y = ppp.locations, fun = Kinhom)
+plot(Env_inhom, main = "Envelopes inhomogeneo")
+```
+
+
+
+**pcf**
+
+```{r}
+Env_hom_g <- envelope(Y = ppp.locations, fun = pcf)
+plot(Env_hom_g, main = "Envelopes")
+```
+
+**pcfinhom**
+
+
+```{r}
+Env_inhom_g <- envelope(Y = ppp.locations, fun = pcfinhom)
+plot(Env_inhom_g, main = "Envelopes")
+```
+
+
+<br>
 ### Referencias:
 
 * Puntos de recaraga tarjeta Cívica. Fuente: Open
