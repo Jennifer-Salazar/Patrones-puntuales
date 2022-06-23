@@ -85,7 +85,7 @@ kable(head(civica)) %>%
 ### Gráfica de los datos
 
 
-```{r}
+```{r, eval=FALSE, echo=FALSE}
 library(leaflet)
 civica_loc <- leaflet(data=civica) %>% 
   
@@ -95,6 +95,22 @@ civica_loc <- leaflet(data=civica) %>%
 
 civica_loc
 ```
+
+```{r}
+library(tmap)
+
+shape_civica <- st_read("Puntos_de_Recarga_C%C3%ADvica.shp")
+region <- st_read("Area-Metropolitana.shp")
+
+tmap_options(check.and.fix = TRUE, basemaps = "OpenStreetMap")
+tmap_mode('view')
+
+tm_shape(region)+
+  tm_polygons(alpha = 0.5, border.alpha = 0.7) +
+  tm_shape(shp = shape_civica)+
+  tm_dots(size = 0.01)
+```
+
 
 <br>
 
@@ -316,7 +332,6 @@ plot(intensidad_visual, main = "Gráfico de probabilidad")
 contour(intensidad_visual, add = TRUE)
 
 ```
-
 
 * Estimaciones de la intensisad en un gráfico 3D:
 
