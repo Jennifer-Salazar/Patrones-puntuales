@@ -1,5 +1,5 @@
 ---
-title: "Contextualización base de datos de patrones puntuales"
+title: "Análisis de patrones puntuales de puntos de recarga de la tarjeta cívica"
 author: "Jennifer Salazar"
 date: ""
 output:
@@ -19,6 +19,7 @@ library(spatstat)
 library(rgeos)
 library(sf)
 library(rgdal)
+library(maptools)
 ```
 
 
@@ -29,6 +30,8 @@ Conjunto de datos extraido de **Datos Abiertos - Metro de Medellín**: https://d
 Datos asociados a la subárea de la estadística espacial llamada patrones puntuales, que contiene información relacionada con la ubicación de los establecimientos que prestan el servicio de recarga de la tarjeta Cívica utilizada para acceder a los distintos modos de transporte del SITVA (Sistema Integrado de Transporte del Valle de Aburrá).
 
 Se centra en los sitios por fuera de las estaciones, distribuidos en todo el Valle de Aburrá que componen la oferta que el Metro de Medellín pone a disposición de sus viajeros para que cada vez tengan más alternativas y comodidad a la hora de recargar la tarjeta Cívica.
+
+![](civica.jpg)
 
 La Metodología del levantamiento de los datos es mediante la digitalización a partir de imagen Satelital.
 
@@ -102,24 +105,21 @@ civica_loc
 shape_civica <- st_read("Puntos_de_Recarga_C%C3%ADvica.shp")
 ```
 
+<br>
 
-
-Se trabaja con los municipios del Valle de Aburra exceptuando las localizaciones de los municios de Barbosa, Girardota y Caldas ya que tienen pocas observaciones y quedan a los extremos de la zona de estudio
+Se trabaja con los municipios del Valle de Áburra exceptuando las localizaciones de los municipios de Barbosa, Girardota y Caldas ya que tienen pocas observaciones y quedan a los extremos generando sesgo en las estimaciones: 
 
 ```{r}
-
+# Conversión a tipo factor
 shape_civica$municipio <- as.factor(shape_civica$municipio)
 
+# Municipios a eliminar
 indices <- shape_civica$municipio %in% c("Barbosa", "Girardota", "Caldas")
 
+# Eliminación de los municipios en el conjunto de dato
 shape_civica <- shape_civica[!indices, ]
 
-
-civica.locations <- st_transform(shape_civica)
-st_geometry(shape_civica)
-
-
-class(civica.locations)
+class(shape_civica)
 ```
 
 
@@ -132,45 +132,43 @@ class(civica.locations)
 # Latitud - Longitud
 data_long_lat <- as.matrix(data.frame(x=shape_civica$longitud,
                               y=shape_civica$latitud))
-head(data_long_lat)
 
 # Datos en metros (UTM)
 data_UTM <- project(data_long_lat ,"+proj=utm +zone=18N +ellps=WGS84")
-head(data_UTM)
-
 ```
 
 <br>
 
 ### Creación del objeto ppp de las localizaciones de los puntos de recarga de la tarjeta cívica
 
-* Se trabaja inicialmente con el borde del Valle de Áburra:
+**Se muestra inicialmente el patrón con el borde del Valle de Áburra:**
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 # Lectura del shape de la región de interés:
 coordinate.units <- c("metre", "metres")
 
-library(maptools)
+
+# region del area metropolitana
 region <- st_read("Area-Metropolitana.shp")
 region <- st_transform(region, crs = CRS("+proj=utm +zone=18N +ellps=WGS84"))
 
-#plot(region)
-
+# Ventana
 win <- as(as(region, 'Spatial'), 'owin')
 ppp.locations <- ppp(x = data_UTM[,1],
                      y = data_UTM[,2],
                      window = win)
-
-
-
+# Gráfico del objeto ppp
 unitname(ppp.locations) <- coordinate.units
 ppp.locations <- as.ppp(ppp.locations)
 plot(ppp.locations)
 ```
 
 
+<br>
 
 * Como hay zonas del Valle de Áburra sin observaciones (zonas rurales) se debe de considerar un nuevo borde o área de estudio para realizar los analisis con el fin de que no queden muchos espacios vacios (las localizaciones estan ubicadas principalmente en zonas urbanas)
+
+**Nueva región de estudio (contorno) a trabajar**
 
 ```{r}
 win <- ripras(ppp.locations)
@@ -181,27 +179,43 @@ ppp.locations <- as.ppp(ppp.locations)
 plot(ppp.locations)
 ```
 
+<br>
+
+# Análisis de patrones puntuales espaciales
+
+El análisis de patrones de puntos se enfoca en la distribución espacial de los eventos observados y hace inferencias sobre el proceso subyacente que los generó. En particular, hay dos cuestiones principales de interés (Bivand et al. 2008):
+
+La distribución de eventos en el espacio, también denotada como propiedad de primer orden, medida por la intensidad del patrón de puntos, y la existencia de posibles interacciones entre eventos, también denotada como propiedad de segundo orden, medida por la tendencia de los eventos a aparecer agrupados, independientes o espaciados regularmente.
 
 
+<br>
 
-### Intensidad
+## Estimación de la intensidad
 
 La intensidad es la densidad promedio de puntos o en otras palabras, el número esperado de puntos por unidad de área. La intensidad puede ser constante (uniforme) o puede variar de un lugar a otro (no uniforme o inhomogéneo).
 
 Un enfoque para evaluar la intensidad es dividir el área de estudio en cuadrantes y contar el número de puntos que caen en cada cuadrante. Si los puntos tienen una intensidad uniforme y son completamente aleatorios, entonces los recuentos de cuadrantes deben ser números aleatorios de Poisson con media constante. Podemos probar esa hipótesis usando el estadístico de prueba de bondad de ajuste $χ^2$
 
+
+### Prueba gráfica:
+
 ```{r}
+par(mfrow=c(1,2))
 qc.loc <- quadratcount(ppp.locations, nx=3, ny=4)
 plot(ppp.locations, pch=3, cex=0.6)
 plot(qc.loc, add=T, textargs = list(col='red'))
+plot(as.im(ppp.locations,dimyx=3), main="Conteo por cuandrantes")
 ```
+
+* Mediante la prueba gráfica se puede concluir que la intensidad no es constante, ya que los cuadros de conteo toman valores con grandes diferencias, por lo tanto se puede considerar que la intensidad es inhomogenea, es decir, el comportamiento espacial de los puntos de recarga civica varia dependiendo de la zona, con algunas zonas centrales presentando una mayor acumulación de puntos de recarga. 
+
 
 <br>
 
-### Test de homógeneidad o intensidad constante.
+### Prueba teorica: test de homógeneidad o intensidad constante.
 
 
-$$H_0: Aleatoriedad ~~ vs. ~~ Ha: $$
+$$H_0: Poisson~Homogeneo (Intensidad~constante) \\ vs. \\ H_a: Poisson~Inhomogeneo (Intensidad~no~constante) $$
 
 ```{r}
 quadrat.test(qc.loc)
@@ -211,20 +225,33 @@ El valor p es muy pequeño, lo que indica que la intensidad no es constante.
 
 <br>
 
-## Estimación de la intensidad via Kernel
+## Estimación de la intensidad via Kernel (no parámetrica)
 
-```{r}
-intensidad <- density.ppp(ppp.locations, sigma = bw.scott(ppp.locations))
+La estimación no parámetrica de la intensidad, se estima mediante de la densidad del kernel:
 
-intensidadpoints <- density.ppp(ppp.locations, sigma = bw.scott(ppp.locations), at="points")
+Hay diferentes formas de estimar la intensidad, uno de ellos es una estimación no paramétrica mediante suavizado del kernel. Si observamos $n$ puntos $\{x_i\}^n_{i=1}$ entonces la forma de un estimador de suavizado kernel es:
 
 
-# Estimaciones de la intensidad
-par(mfrow=c(1,2))
-plot(intensidad, main = "Gráfico de probabilidad")
-plot(intensidadpoints, main = "Gráfico de puntos")
-```
+$$\hat{\lambda(x)}= \frac{1}{h^2} \sum_{i=1}^n \frac{k \left(\frac{||x-x_i||}{h} \right)}{q(||x||)}$$
 
+donde $x_i \in \{x_1, x_2, ..., x_n\}$ es un punto observado, $h$ es el ancho de banda, $q(∥x∥)$ es una corrección de borde para compensar las observaciones que faltan debido a efectos de borde, y $κ(u)$ es una función kernel bivariada y simétrica.
+
+R actualmente implementa una función de núcleo cuártico bidimensional:
+
+
+$$ k(u) =  \left\{ \begin{array}{lcc}
+             \frac{3}{\pi}(1-||u||^2)^2 &   si~~u \in (-1,1) \\
+             \\~~ 0 &  e.o.c \\
+             \end{array}
+   \right.$$
+
+donde $||u||^2 = u^2_1 + u^2_2$ es la norma al cuadrado del punto $u=(u_1,u_2)$.
+
+
+No existe una regla general para seleccionar el ancho de banda h, que rige el nivel de suavizado. Los anchos de banda pequeños dan como resultado mapas más puntiagudos y los anchos de banda grandes dan como resultado un mapa más uniforme. Es razonable utilizar varios valores según el proceso que se esté considerando y elegir un valor que parezca plausible (Bivand et al. 2008).
+
+
+* Probando estimaciones de la intensidad via Kernel con diferentes anchos de banda:
 
 ```{r}
 par(mfrow=c(2,3), mar=c(0,0,1,2))
@@ -248,12 +275,67 @@ plot(density.ppp(ppp.locations, sigma = bw.ppl(ppp.locations)), main = paste("Si
 
 
 # Ancho de banda: scott.iso
-plot(density.ppp(ppp.locations, sigma = bw.scott.iso(ppp.locations)), main = paste("Sigma (scott.iso):", round(attr(density.ppp(ppp.locations, sigma = bw.scott.iso(ppp.locations)), "sigma"),3)))
+# plot(density.ppp(ppp.locations, sigma = bw.scott.iso(ppp.locations)), main = paste("Sigma (scott.iso):", round(attr(density.ppp(ppp.locations, sigma = bw.scott.iso(ppp.locations)), "sigma"),3)))
+
+k1 <- density(ppp.locations, sigma = bw.scott(ppp.locations))
+ancho_banda <- round(bw.scott(ppp.locations), 2)
+plot(k1, main = paste("Sigma (scott)", "\n Anchos de banda: ", ancho_banda[1], ",", ancho_banda[2]))
 
 ```
 
 
-### Ajuste de modelos
+
+* Después de probar diferentes anchos de banda para la estimación de la intensidad via Kernel, se elije como el mejor ancho de banda el obtenido mediante **scott** y adicionalmente se trabaja con un ancho de banda escogido manualmente:
+
+
+
+**scott**
+
+```{r}
+intensidad_scott <- density.ppp(ppp.locations, sigma = bw.scott(ppp.locations))
+
+
+# Estimaciones de la intensidad mediante scott
+par(mfrow=c(1,2))
+plot(intensidad_scott, main = "Gráfico de probabilidad")
+plot(intensidad_scott, main = "Gráfico de probabilidad")
+contour(intensidad_scott, add = TRUE)
+```
+
+
+
+**Manual**
+
+```{r}
+intensidad_visual <- density(ppp.locations, sigma = 700)
+
+# Estimaciones de la intensidad visualmente
+par(mfrow=c(1,2))
+plot(intensidad_visual, main = "Gráfico de probabilidad")
+plot(intensidad_visual, main = "Gráfico de probabilidad")
+contour(intensidad_visual, add = TRUE)
+
+```
+
+
+* Estimaciones de la intensisad en un gráfico 3D:
+
+**scott**
+
+```{r}
+persp(intensidad_scott)
+```
+
+**Manual**
+
+```{r}
+persp(intensidad_visual)
+```
+
+
+<br>
+
+## Ajuste de modelos para la estimación de la intensidad (parámetrica)
 
 **Modelo base:**
 
@@ -280,11 +362,6 @@ Ejemplo: $λ_θ((x,y))=exp(θ_0+θ_1x+θ_2y)$ se ajusta:
 loglin.loc <- ppm(ppp.locations, ~x+y)
 coef(loglin.loc)
 ```
-
-Este modelo específico se puede escribir en forma de:
-
-
-
 
 <br>
 
@@ -352,8 +429,6 @@ coef(logcubic.loc)
 
 Estos modelos fueron creados para la predicción:
 
-El valor devuelto por la función de ajuste de modelos ppm es un objeto de clase ppm que representa el modelo ajustado. Esto es análogo a otros objetos modelo en R y, por lo tanto, se pueden aplicar operaciones estándar, como trazar, predecir o coef, entre otras.
-
 Combinamos el comando plot() con el comando predict() para visualizar las predicciones de los modelos ajustados para el conjunto de datos **ppp.locations**:
 
 
@@ -385,9 +460,7 @@ Mediantes las predicciones de ajustes se resalta que:
 
 * Se nota los cambios entre los modelos base, los log-lineales y log-polinomiales.
 
-* Entre los modelos log lineales mediante los gráficos de predicción se resalta que el modelo con solo "y" y el modelo con "x e y" tienen predicciones similares en cambio el que esta respecto a "x" difiere un poco. 
-
-* El modelo cuadrático y cúbico tienen predicciones muy similares lo que indica que no es necesario la inclusión del del termino cúbico, es decir, no es necesario ajustar un modelo de grado 3.
+* El modelo cuadrático y cúbico tienen predicciones muy similares lo que indica que no es necesario la inclusión del del termino cúbico (no es necesario ajustar un modelo de grado 3), siendo estos los modelos que mejor lograron estimar la intensidad en el caso parámetrico, sin embargo se observa una gran falta de detalle en dicha estimación, por lo tanto, se considera trabajar con las estimaciones no parámetricas de la intensidad.
 
 
 <br>
@@ -395,7 +468,7 @@ Mediantes las predicciones de ajustes se resalta que:
 
 ### Comprobación de los modelos de Poisson ajustados
 
-Después de ajustar un modelo de proceso de punto a un conjunto de datos de patrones puntuales, debemos verificar que el modelo se ajuste bien y que cada suposición de componente del modelo sea apropiada.
+Después de ajustar un modelo de proceso a un conjunto de datos de patrones puntuales, debemos verificar que el modelo se ajuste bien y que cada suposición de componente del modelo sea apropiada.
 
 Un enfoque informal, no probabilístico, consiste en examinar los residuos del modelo.
 
@@ -418,46 +491,80 @@ diagnose.ppm(logcubic.loc, which = "smooth", main = 'log-cúbico')
 ```
 
 
-* El resalta el comportamiento similar de los residuales en el modelo base y en todos los modelos log-lineales.
+* Se resalta el comportamiento similar de los residuales en el modelo base y en todos los modelos log-lineales.
 
 * Los residuales son similares en los modelos log-polinomiales.
 
 * En general los residuales toman valores muy cercanos a cero (positivos y negativos)
 
-* El ajuste tiende a ser mejor en el centro en el modelo base y en los log lineales en donde esta la mayor cantidad de localizaciones que entraron al estudio y en los modelos log-polinomiales tiende a ser mejor en el centro y en alguna de las esquinas de Berlin.
+* El ajuste tiende a ser mejor en el centro en el modelo base y en los log lineales en donde está la mayor cantidad de localizaciones que entraron al estudio y en los modelos log-polinomiales tiende a ser mejor en el centro y en alguna de las esquinas de la región de estudio.
+
 
 
 <hr>
 
-```{r}
-fryplot(ppp.locations, main='clustered', pch=16, cex=0.2)
-```
 
-## estimación de la función k asumiendo inhomogeneo(Kinhom) para el patrón de puntos de recarga de la civica:
+**Ahora se realizan las estimaciones de la función k y g (Segundo momento) para validar el tipo de patrón de las localizaciones de los puntos de recarga civica**
 
-para estimar la funcion k:
-Kinhom: Inhomogeneo (intensidad no constante)
+
+la existencia de posibles interacciones entre eventos, también denotada como propiedad de segundo orden, medida por la tendencia de los eventos a aparecer agrupados, independientes o espaciados regularmente.
+
+Primer momento: $\lambda(u)$
+
+
+Segundo momento: $\lambda^{(2)}(u,v)$ (funcion producto de segundo orden) 
+
+
+* The pair correlation function
+
+$$g(u,v) = \frac{\lambda^{(2)}(u,v)}{\lambda(u)\lambda(v)}  \\
+g(r) = \frac{K'(r)}{2 \pi r}$$
+
+* k-function Ripley
+
+$$K(u,v)=\int{g(u,v)dudv}$$
+
+
+En el caso homogeneo (CRS):
+
+$$k(r)= \pi r^2 ~~~~ g(r) = 1$$
+
+
+* función que cuenta el numero de puntos por diferentes radios
+
+$$\hat{k}(r)= \frac{1}{|w|} \sum_{i=1}^n \sum_{i \neq j} \frac{1(||x_i-x_j|| < r)}{\lambda(x_i) \lambda(x_j) w(x_i, x_j)}$$
+
+* k(r): conteo por circulos que van aumentando su área.
+
+* g(r) conteo de anillos concéntricos (se pierde el centro).
+
+
+
+**Reglas de decisión**
+
+* Comparamos la estimación $\hat{K}(r)$ con la función Poisson $K$. Los valores $\hat{K}(r)>πr^2$ sugieren agrupamiento, mientras que $\hat{K}(r)<πr^2$ sugiere un patrón regular.
+
+* El valor $g(r)=1$ corresponde a la aleatoriedad completa. Para otros procesos, los valores $g(r)>1$ sugieren agrupamiento o atracción a la distancia r, mientras que los valores $g(r)<1$ sugieren inhibición o regularidad.
+
+
+## Estimación de la función k asumiendo inhomogeneidad (Kinhom) para el patrón de puntos de recarga de la civica:
+
 
 ### Kinhom (asumiendo que la intensidad es no constante)
 
-
-**Patrón original (Cluster)**
 
 ```{r}
 plot(Kinhom(ppp.locations), main='clustered')
 ```
 
-* $\hat{K}(r)>K(pois)(r)$: agrupamiento.
 
-* Se evidencia el patrón agregado o de cluster, ya que sas curvas estimadas estan por encima de la teorica, por tanto es un patrón agregado - cluster.
+* $\hat{K}(r)>K(pois)(r)$: Se evidencia que el patrón es agregado o de cluster, ya que las curvas estimadas estan por encima de la curva teorica, por lo tanto se concluye de manera confiable que es un patrón agregado - cluster.
 
 
 <br>
 
-## estimación de la función g asumiendo inhomogeneo(pcfinhom) para el patrón de puntos de recarga de la civica:
+## Estimación de la función g asumiendo inhomogeneidad (pcfinhom) para el patrón de puntos de recarga de la civica:
 
-para estimar la funcion g:
-pcfinhom: Inhomogeneo (intensidad no constante)
 
 ### pcfinhom (asumiendo que la intensidad es no constante)
 
@@ -465,18 +572,12 @@ pcfinhom: Inhomogeneo (intensidad no constante)
 plot(pcfinhom(ppp.locations), main='clustered')
 ```
 
-* Es evidente el patrón de cluster o agrupamiento, dado que toma valores muy altos en distancias pequeñas y en distancias grandes va convergiendo a la curva teorica.
+* Como $g(r)>1$ se sugiere un agrupamiento, es decir, es evidente el patrón de cluster, dado que toma valores muy altos en distancias pequeñas y en distancias grandes va convergiendo a la curva teórica.
 
+<br>
 
+## Envelopes (Monte Carlo tests)
 
-## Envelopes
-
-**Kest**
-
-```{r}
-Env_hom <- envelope(Y = ppp.locations, fun = Kest)
-plot(Env_hom, main = "Envelopes homogeo")
-```
 
 **Kinhom**
 
@@ -485,14 +586,8 @@ Env_inhom <- envelope(Y = ppp.locations, fun = Kinhom)
 plot(Env_inhom, main = "Envelopes inhomogeneo")
 ```
 
+* Inicialmente queda por encima de las bandas, por lo tanto es notorio el patrón de cluster o agrupamiento.
 
-
-**pcf**
-
-```{r}
-Env_hom_g <- envelope(Y = ppp.locations, fun = pcf)
-plot(Env_hom_g, main = "Envelopes")
-```
 
 **pcfinhom**
 
@@ -503,7 +598,18 @@ plot(Env_inhom_g, main = "Envelopes")
 ```
 
 
+* La curva estimada toma valores por encima, especialmente para distancia pequeñas toma valores grandes, quedando por fuera y encima de las bandas teóricas, por lo tanto se concluye que es un patrón tipo cluster - agrupamiento.
+
 <br>
+
+**Conclusión:** Tanto con las estimaciones de las funciones **k** y **g**, comparadas con la curva teórica de aleatoriedad completa y con el test de Monte Carlo con las envolventes, se concluye que el patrón de las localizaciones de puntos de recarga de la cívica siguen un patrón tipo cluster - agrupamiento inhomogéneo.
+
+A partir del conocimiento del tipo de patrón se pueden observar diversas zonas con mayor probabilidad de presentar puntos de recargas de la tarjeta cívica, además de otras zonas que aunque pertenecen a áreas urbanas presenta un mayor potencial para presentar nuevos puntos de recarga de la cívica.
+
+
+
+<br>
+
 ### Referencias:
 
 * Puntos de recaraga tarjeta Cívica. Fuente: Open
