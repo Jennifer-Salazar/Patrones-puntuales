@@ -231,7 +231,7 @@ plot(as.im(ppp.locations,dimyx=3), main="Conteo por cuandrantes")
 ### Prueba teorica: test de homógeneidad o intensidad constante.
 
 
-$$H_0: Poisson~Homogeneo (Intensidad~constante) \\ vs. \\ H_a: Poisson~Inhomogeneo (Intensidad~no~constante) $$
+$$H_0: Aleatoriedad~completa \\ vs. \\ H_a: No~Aleatoriedad~completa $$
 
 ```{r}
 quadrat.test(qc.loc)
@@ -251,17 +251,6 @@ Hay diferentes formas de estimar la intensidad, uno de ellos es una estimación 
 $$\hat{\lambda(x)}= \frac{1}{h^2} \sum_{i=1}^n \frac{k \left(\frac{||x-x_i||}{h} \right)}{q(||x||)}$$
 
 donde $x_i \in \{x_1, x_2, ..., x_n\}$ es un punto observado, $h$ es el ancho de banda, $q(∥x∥)$ es una corrección de borde para compensar las observaciones que faltan debido a efectos de borde, y $κ(u)$ es una función kernel bivariada y simétrica.
-
-R actualmente implementa una función de núcleo cuártico bidimensional:
-
-
-$$ k(u) =  \left\{ \begin{array}{lcc}
-             \frac{3}{\pi}(1-||u||^2)^2 &   si~~u \in (-1,1) \\
-             \\~~ 0 &  e.o.c \\
-             \end{array}
-   \right.$$
-
-donde $||u||^2 = u^2_1 + u^2_2$ es la norma al cuadrado del punto $u=(u_1,u_2)$.
 
 
 No existe una regla general para seleccionar el ancho de banda h, que rige el nivel de suavizado. Los anchos de banda pequeños dan como resultado mapas más puntiagudos y los anchos de banda grandes dan como resultado un mapa más uniforme. Es razonable utilizar varios valores según el proceso que se esté considerando y elegir un valor que parezca plausible (Bivand et al. 2008).
@@ -569,7 +558,7 @@ $$\hat{k}(r)= \frac{1}{|w|} \sum_{i=1}^n \sum_{i \neq j} \frac{1(||x_i-x_j|| < r
 
 
 ```{r}
-plot(Kinhom(ppp.locations), main='clustered')
+plot(Kinhom(ppp.locations), main='clustered', lambda = intensidad_scott)
 ```
 
 
@@ -584,7 +573,7 @@ plot(Kinhom(ppp.locations), main='clustered')
 ### pcfinhom (asumiendo que la intensidad es no constante)
 
 ```{r}
-plot(pcfinhom(ppp.locations), main='clustered')
+plot(pcfinhom(ppp.locations), main='clustered', lambda = intensidad_scott)
 ```
 
 * Como $g(r)>1$ se sugiere un agrupamiento, es decir, es evidente el patrón de cluster, dado que toma valores muy altos en distancias pequeñas y en distancias grandes va convergiendo a la curva teórica.
@@ -596,7 +585,7 @@ plot(pcfinhom(ppp.locations), main='clustered')
 
 **Kinhom**
 
-```{r}
+```{r, echo = FALSE}
 Env_inhom <- envelope(Y = ppp.locations, fun = Kinhom)
 plot(Env_inhom, main = "Envelopes inhomogeneo")
 ```
@@ -607,7 +596,7 @@ plot(Env_inhom, main = "Envelopes inhomogeneo")
 **pcfinhom**
 
 
-```{r}
+```{r, echo = FALSE}
 Env_inhom_g <- envelope(Y = ppp.locations, fun = pcfinhom)
 plot(Env_inhom_g, main = "Envelopes")
 ```
@@ -619,7 +608,9 @@ plot(Env_inhom_g, main = "Envelopes")
 
 **Conclusión:** Tanto con las estimaciones de las funciones **k** y **g**, comparadas con la curva teórica de aleatoriedad completa y con el test de Monte Carlo con las envolventes, se concluye que el patrón de las localizaciones de puntos de recarga de la cívica siguen un patrón tipo cluster - agrupamiento inhomogéneo.
 
-A partir del conocimiento del tipo de patrón se pueden observar diversas zonas con mayor probabilidad de presentar puntos de recargas de la tarjeta cívica, además de otras zonas que aunque pertenecen a áreas urbanas presenta un mayor potencial para presentar nuevos puntos de recarga de la cívica.
+* A partir del conocimiento del tipo de patrón se puede observar diversas zonas con mayor probabilidad de presentar puntos de recargas de la tarjeta cívica, además de otras zonas que aunque pertenecen a áreas urbanas no presentan tanto puntos de recarga por ello tienen un mayor potencial para presentar nuevos puntos de recarga de la cívica.
+
+* Con el análisis del patrón puntual, la estrategia es que para una localización de un punto de recarga de la tarjeta civica  hay un radio r (aprox 3000) alrededor con alta probabilidad de presentar otro punto de recarga civica, con esto adicionalmente se le puede recomendar a la empresa **metro** que para las localizaciones de puntos de recarga donde no existan puntos de recarga a menos de un radio r, es recomendable colocar un nuevo punto de recarga de la tarjeta.
 
 
 
