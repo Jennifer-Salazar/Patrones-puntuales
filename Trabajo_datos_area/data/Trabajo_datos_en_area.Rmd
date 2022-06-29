@@ -311,17 +311,32 @@ pval <- punif((diff + 1)/(nsim + 1))
 
 ## Ajuste de modelos de datos en área 
 
+Generalmente a la hora de realizar análisis estadístico se busca que los datos sean independientes entre sí, eso seria lo ideal, pero la realidad es muy distinta y en los datos de área se encuentra autocorrelación espacial que es afirmada por los tests que ya vimos anteriormente, en algunos casos hay información de covariables que nos ayuda a modelar esta dependencia espacial, pero en otros casos no, por lo que el objetivo es mirar como se puede modelar la estructura de autocorrelación espacial.
+ 
+### 9.4.1 Enfoques estadísticos espaciales
+
+
+Cuando se trabaja con datos se esperan que las observaciones sean independientes, con los datos espaciales esto generalmente no pasa, pues hay una dependencia espacial en el fondo y esto sucede con los datos en área, en esta primera sección vamos a trabajar modelos autoregresivos para modelar la dependencia espacial. Desde un punto estadístico se puede dar cuenta de las observaciones correlacionadas considerando una estructura del siguiente tipo en el modelo. Si el vector de respuestas es normal multivariado, podemos expresar el modelo de la siguiente manera: 
+
+$$Y = \mu + e$$
+
+Donde $\mu$ es el vector de medias que se puede modelar de diferentes maneras y $e$ es el vector de errores aleatorios que se asume con una distribución normal con media cero y viarianza $V$. Muchas veces se asume que la media depende de un termino lineal de covariables, entonces cambiaremos a $\mu$ por $X^T\beta$, por otro lado, la correlación entre áreas se puede considerar dandodele una forma especifica a la matriz de varianza $V$. Muchas estructuras de correlación espacial podrían ser viables para dar cuenta de la dependencia espacial, sin embargo, nos vamos a enfocar en los dos enfoques que usan comúnmente en la practica que son los modelos SAR(autoregresivo simultáneo) y CAR(autoregresivo condicional).
+
+Anteriormente, se tomaron la media de los recuentos de casos de leucemia por área, hay varias alternativas para manejar la heterogeneidad proveniente de las variaciones en las poblaciones, una de las alternativas propuestas por Waller y Gotway(2004, p. 348) es realizar una transformación logarítmica de la tasa: 
+
+$$Z_i = log \frac{1000(Y_i + 1)}{n_i}$$
+
+La transformación de las incidencias de proporciones aún no son normales, cuenta con tres valores atípicos que pueden ser interesantes, ya que los patrones que muestran pueden estar relacionados con covariables sustanciales, como covariables se utilizaran: la inversa de la distancia al TCE más cercano (PEXPOSURE), la proporción de personas de 65 años o más (PCTAGE65) y la proporción de personas con vivienda propia (PCTWNHOME). Para ejemplificar, comencemos con un modelo lineal de la relación entre las proporciones de incidencia transformadas y las covariables.  
 
 ```{r}
 nylm <- lm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = NY8)
 summary(nylm)
-```
-
-
-```{r}
 NY8$lmresid <- residuals(nylm)
 ```
 
+Del resumen anterior se puede decir que la proporción de adultos mayores a los 65 años y la proporción de personas con vivienda propia parece contribuir a la explicación de la variabilidad de la variable respuesta, pero la exposición al TCE no lo hace, se observa que sigue habiendo mucha información en los residuales que podríamos tratar de utilizar.
+
+Ya que la prueba de Moran está destinada a detectar la autocorrelación espacial, podemos intentar ajustar un modelo que tenga esto en cuenta. Sin embargo, no debemos olvidar que las especificaciones erróneas detectadas por Moran pueden tener una variedad de causas. 
 
 ```{r}
 library(spdep)
@@ -430,11 +445,15 @@ summary(nysmaw)
 ### 9.4.2 Enfoques de econometria espacial
 
 
+El análisis espacial es muy apetecido porque se puede aplicar en diversas disciplinas científicas con diferentes enfoques. Un ejemplo es lo bienes raíces, este enfoque genera una gran cantidad de datos espaciales y estudiar su mercado resulta de mucha importancia para la economía, hay varios autores como Anselin que han presentado la econometría espacial, si bien ya mostramos como resolvimos un problema de salud publica puede ser más típico en un marco econométrico probrar primero la heteroscedasticidad e intentar aliviarla ajustando los errores estándar de los coeficientes:
+
 
 ```{r}
 library(lmtest)
 bptest(nylm)
 ```
+
+Los resultados de la prueba de Breusch-Pagan indican la presencia de heteroscedasticidad cuando se regresan sobre las variables ya mencionadas anteriormente. Esto sugiere que se podría ajustar los errores estimados utilizando una matriz de varianza teniendo en cuenta la heteroscedasticidad:
 
 
 ```{r}
