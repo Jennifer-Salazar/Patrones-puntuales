@@ -1,8 +1,12 @@
 ---
 title: "Trabajo de datos en área"
-author: "Jennifer Salazar"
-date: "28/6/2022"
-output: html_document
+author: 
+- "Jennifer Salazar"
+- "Juan Esteban Sanchez"
+- "Miguel Angel Londoño"
+date: ""
+output: 
+  rmdformats::robobook
 ---
 
 ```{r setup, include=FALSE}
@@ -84,7 +88,7 @@ library(rgdal)
 library(spatialreg)
 # library(devtools)
 # Instalando el paquete McSpatial desde GitHub
-install_github("cran/McSpatial")
+#install_github("cran/McSpatial")
 
 # Lectura de mapas espaciales como objetos vectoriales
 NY8 <- readOGR(".", "NY8_utm18")
@@ -435,7 +439,7 @@ Empezaremos con un ejemplo con la variable simulada para las secciones censales 
 
 La prueba que se usará en esta discusión es la I de Moran:
 
-[](I_moran.png)
+![](I_moran.png)
 
 donde $y_i$ es la i-ésima observación, $\bar{y}$ es la media de la variable de interés y $w_{ij}$ es el peso espacial del enlace entre i y j. Centrarse en la media es equivalente a afirmar que el modelo correcto tiene una media constante y que cualquier patrón restante después del centrado es causado por las relaciones espaciales codificadas en los pesos espaciales.
 
@@ -495,7 +499,7 @@ moran_t1
 
 Los resultados anteriores se pueden resumir en la siguiente tabla.
 
-[](table_9.1.png)
+![](table_9.1.png)
 
 Lo anterior muestra cuán importante puede ser comprender que las pruebas de autocorrelación espacial también pueden reaccionar a un modelo mal especificado de la media, y que la omisión de una variable con patrón espacial de la función media "parecerá" una autocorrelación espacial para las pruebas.
 
@@ -503,15 +507,45 @@ Lo anterior muestra cuán importante puede ser comprender que las pruebas de aut
 
 ### 9.3.1 Pruebas globales
 
+La I de Moran, `moran.test`, es quizás la prueba global más común y, por esta razón, la seguimos usando aquí. Otras pruebas globales implementadas en el paquete spdep incluyen:
+
+- Geary's C (geary.test()), 
+- Getis-Ord G global (globalG.test()) 
+- Y la prueba espacial general de productos cruzados Mantel, que incluye Moran's I, Geary's C, y la variante Sokal de la C de Geary como formas alternativas (sp.mantel.mc()). 
+
+Todos estos son para variables continuas.
+
+Aquí se evaluan las siguientes hipótesis:
+
+H0: No hay dependencia espacial para los pesos espaciales elegidos.
+
+Ha: Hay dependencia espacial para los pesos espaciales elegidos.
+
+Podría parecer que Monte Carlo o pruebas equivalentes basadas en permutaciones bootstrap, en las que los valores de la variable de interés se asignan aleatoriamente a entidades espaciales, brindarían protección contra errores de inferencia.
+
+En realidad, debido a que las pruebas de autocorrelación espacial son sensibles al patrón espacial en la variable de interés de cualquier fuente, no son necesariamente, como vimos anteriormente, buenas guías para decidir qué está sucediendo en el proceso de generación de datos.
+
+Otro problema para el que no existe un mejor consejo actual es cómo proceder si algunas entidades del área no tienen vecinos. De forma predeterminada, las funciones de prueba en spdep no aceptan ponderaciones espaciales con entidades no vecinas a menos que el argumento zero.policy se establezca en TRUE.
+
+A continuación, utilizado el conjunto de datos de los ocho condados del censo en el estado de Nueva York se realizan algubnos ejemplos: 
+
+El primer ejemplo es probar el número de casos por tramo censal para la autocorrelación usando el estilo predeterminado de ponderaciones espaciales de estandarización de filas y usando la suposición de aleatorización analítica al calcular la varianza de la estadística. 
 
 ```{r}
 moran.test(NY8$Cases, listw = nb2listw(NY_nb))
 ```
 
+El resultado, como vemos, es que el patrón espacial de la variable de interés es significativo, y es muy probable que los tramos vecinos tengan valores similares por cualquier motivo.
+
+
+Cambiando el estilo de los pesos espaciales para que todos los pesos sean iguales y sumando el número de observaciones.
+
 ```{r}
 lw_B <- nb2listw(NY_nb, style = "B")
 moran.test(NY8$Cases, listw = lw_B)
 ```
+
+vemos que el valor de probabilidad resultante se reduce unas 20 veces.
 
 ```{r}
 moran.test(NY8$Cases, listw = lw_B, randomisation = FALSE)
@@ -729,7 +763,7 @@ $$Y = \beta X^T + \lambda W(Y - X^T \beta) + \epsilon, $$
 
 el primer término $\beta X^T$ es el componente de tendencia espacial, mientras que $\lambda W(Y - X^T \beta)$ es el componente estocástico espacial.
 
-[](Fig9.11.png)
+![](Fig9.11.png)
 
 
 Sin embargo, este modelo no tiene en cuenta la distribución heterogénea de la población por tramos más allá de la corrección introducida en la transformación proporciones de incidencia. La versión ponderada de estos modelos se puede instalar para que los distritos se ponderan proporcionalmente a la inversa del tamaño de su población. Para ello incluimos el parámetro weights=POP8 en la llamada a la función **lm**.
