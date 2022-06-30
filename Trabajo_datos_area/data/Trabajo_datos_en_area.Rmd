@@ -26,6 +26,8 @@ vignette("nb", package = "spdep")
 ```{r}
 library(spdep)
 library(rgdal)
+require(spatialreg)
+
 NY8 <- readOGR(".", "NY8_utm18")
 NY_nb <- read.gal("NY_nb.gal", region.id = row.names(NY8))
 summary(NY_nb)
@@ -311,7 +313,7 @@ pval <- punif((diff + 1)/(nsim + 1))
 
 ## Ajuste de modelos de datos en área 
 
-Generalmente a la hora de realizar análisis estadístico se busca que los datos sean independientes entre sí, eso seria lo ideal, pero la realidad es muy distinta y en los datos de área se encuentra autocorrelación espacial que es afirmada por los tests que ya vimos anteriormente, en algunos casos hay información de covariables que nos ayuda a modelar esta dependencia espacial, pero en otros casos no, por lo que el objetivo es mirar como se puede modelar la estructura de autocorrelación espacial.
+Generalmente a la hora de realizar un análisis estadístico se busca que los datos sean independientes entre sí, eso seria lo ideal, pero la realidad es muy distinta y en los datos de área se encuentra autocorrelación espacial que es afirmada por los tests que ya vimos anteriormente, en algunos casos hay información de covariables que nos ayuda a modelar esta dependencia espacial, pero en otros casos no, por lo que el objetivo es mirar como se puede modelar la estructura de autocorrelación espacial.
  
 ### 9.4.1 Enfoques estadísticos espaciales
 
@@ -343,6 +345,9 @@ library(spdep)
 NYlistw <- nb2listw(NY_nb, style = "B")
 lm.morantest(nylm, NYlistw)
 ```
+Se muestra el calculo del I __Moran__ de la regresión lineal de los datos, se observa que el estadístico es significativo a una significancia del 0.05 y que el I  de __Moran__ observado es $I = 0.083090278$.
+
+A modo de comparación, mostramos la estimación del parámetro de máxima verosimilitud ajustada utilizando los mismos datos.
 
 ```{r}
 NYlistwW <- nb2listw(NY_nb, style = "W")
@@ -361,40 +366,88 @@ spautolm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = NY8,
 #### 9.4.1.1 Modelos autorregresivos simultaneos
 
 
+La especificación SAR utiliza una regresión sobre los valores de las otras áreas para dar cuenta de la dependencia espacial. Esto significa que los términos de error $e_i$ son
+modelados para que dependan unos de otros de la siguiente manera:
+
+$$e_i = \sum_{i=1}^{m}  b_{ij}e_i + \xi_i, $$
+Aquí, $\xi_i$ se utiliza para representar errores residuales, que se supone que se distribuyen de forma independiente de acuerdo con una distribución normal con media cero
+y matriz de covarianza diagonal $\Sigma_{\xi}$ con elementos $\sigma^2_{\xi_i}$, i = 1,...,m. Los valores $b_{ij}$ se utilizan para representar dependencia espacial entre áreas. $b_{ii}$ debe establecerse en cero para que cada área no retroceda sobre sí misma. Tenga en cuenta que si expresamos los términos de error como: 
+$$Y = \beta X^T + B(Y - X^T \beta) + \epsilon, $$
+el modelo también se puede expresar como
+$$(I-B)(Y-X^T \beta)= \epsilon,$$
+
+donde $B$ es una matriz que contiene los parámetros de dependencia $b_{ij}$ e I es
+la matriz identidad de la dimensión requerida. Es importante señalar que para que este modelo SAR esté bien definido, la matriz I − B, pues esta debevser no singular.
+Bajo este modelo, $Y$ se distribuye de acuerdo a una normal multivariante con media $E[Y] = X^T \beta$ y una matriz de covarianzas:
+$$Var[Y]= (I-B)^{-1} \Sigma_{\xi}(I-B^T)^{-1}$$
+Usualmente, $\Sigma_\xi$ depende de un solo parametro $\sigma^2$, tal que $\Sigma_\xi = \sigma^2 I$ y $Var[Y]$ se simplifica a:
+$$Var[Y] = \sigma^2(I-B)^{-1}(I-B^T)^{-1}$$
+Tambien es posible especificar a $\Sigma_\xi$ como una matriz diagonal de pesos asociada con la hetérogeneidad entre las observaciones. Se puede obtener una reparametrización útil de este modelo escribiendo
+$B = \lambda W$, donde $\lambda$ es un parámetro de autocorrelación espacial y W es una matriz que representa la dependencia espacial, con esta especificación la varianza de Y se convierte en:
+$$Var[Y] = \sigma^2(I-\lambda W)^{-1}(I-\lambda W^T)^{-1}$$
+
+El siguiente código muestra cómo ajustar una autorregresión simultánea al modelo elegido. Hemos ajustado el modelo estándar y el modelo ponderado utilizando el tamaño de la población en 1980 (según el censo de EE. UU.) en las áreas como pesos.
+
 ```{r}
 nysar <- spautolm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
  data = NY8, listw = NYlistw)
 summary(nysar)
 ```
 
+Según los resultados obtenidos, parece que existe una importante correlación en los residuos porque el valor estimado de $λ$ es 0.0405 y el valor p de la prueba de razón de verosimilitud es 0,022. En la prueba de razón de verosimilitud comparamos el modelo sin autocorrelación espacial (es decir, $λ = 0$) con el uno que lo permita (es decir, el modelo ajustado con autocorrelación distinta de cero parámetro). La proximidad a un TCE parece no ser significativa, aunque su valor de p está cerca de ser significativo al nivel del 95 % y sería aconsejable no descartar una posible asociación y realizar más investigaciones al respecto. los otras dos covariables son significativas, lo que sugiere que las secciones censales con mayor porcentajes de personas mayores y con menores porcentajes de dueños de casa tienen tasas de incidencia transformadas más altas.
 
+La Figura 9.11 muestra los dos componentes de los valores ajustados del SAR. Recordando nuestro modelo anterior como:
+
+$$Y = \beta X^T + \lambda W(Y - X^T \beta) + \epsilon, $$
+
+el primer término $\beta X^T$ es el componente de tendencia espacial, mientras que $\lambda W(Y - X^T \beta)$ es el componente estocástico espacial.
+
+[](Fig9.11.png)
+
+
+Sin embargo, este modelo no tiene en cuenta la distribución heterogénea de la población por tramos más allá de la corrección introducida en la transformación proporciones de incidencia. La versión ponderada de estos modelos se puede instalar para que los distritos se ponderan proporcionalmente a la inversa del tamaño de su población. Para ello incluimos el parámetro weights=POP8 en la llamada a la función **lm**.
 
 ```{r}
 nylmw <- lm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME, data = NY8,
  weights = POP8)
 summary(nylmw)
-```
 
-
-```{r}
 NY8$lmwresid <- residuals(nylmw)
 ```
 
-
+Comenzando con el modelo lineal ponderado, podemos ver que la variable de exposición a TCE se ha vuelto significativa con el signo esperado, lo que indica que
+las extensiones más cercanas a los sitios de TCE tienen proporciones de incidencia transformada ligeramente más altas. Las otras dos covariables ahora también tienen coeficientes más significativos.
 
 ```{r}
 lm.morantest(nylmw, NYlistw)
 ```
 
 
+Las pruebas de __Moran__ para residuos de regresión también se pueden utilizar con un objeto de modelo lineal. Los resultados son interesantes y sugieren que la especificación errónea detectada por el I de __Moran__ está relacionada con la heteroscedasticidad.
+
+más que a la autocorrelación espacial. Podemos verificar esto para el modelo SAR también, ya que **spautolm** también toma un argumento de pesos.
+
 ```{r}
 nysarw <- spautolm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
  data = NY8, listw = NYlistw, weights = POP8)
 summary(nysarw)
 ```
+
+
+Los coeficientes de las covariables cambian ligeramente en el nuevo modelo, y todos los valores del coeficiente p caen sustancialmente. En este ajuste SAR ponderado, la proximidad a un sitio TCE se vuelve significativa. Sin embargo, no hay rastros de espacio. autocorrelación que queda después de ajustar por el tamaño heterogéneo de la población.
+
+Para comparar ambos modelos y elegir el mejor, utilizamos el Criterio de información de Akaike (AIC) informado en los resúmenes del modelo. Los mejores modelos son aquellos con menor valores de la AIC. Por lo tanto, el modelo ponderado proporciona un mejor ajuste ya que su AIC es considerablemente menor. Esto indica la importancia de la contabilidad. para poblaciones heterogéneas en el análisis de este tipo de datos reticulares.
 <br>
 
 #### 9.4.1.2 Modelos autorregresivos condicionales
+
+La especificación CAR se basa en la distribución condicional de la distribución espacial en términos de error. En este caso, la distribución de $e_i$ condicionada a $e_{−i}$ (el vector de todos los términos de error aleatorio menos ei mismo). En lugar de todo el e−i vector, sólo se utilizan los vecinos del área i, definidos de una manera elegida. Los representamos por $e_{j∼i}$. Entonces, una forma simple de poner el condicional distribución de $e_i$ es:
+
+$$e_i |e_{j∼i} \sim N ( \sum_ {j∼i} \frac{c_{ij}e_j}{\sum_ {j∼i} c_{}ij},\frac{\sigma^2_{}e_i}{\sum_ {j∼i} c_{}ij})$$
+
+donde $c_{ij}$ son parámetros de dependencia similares a $b_{ij}$. Sin embargo, especificar las distribuciones condicionales de los términos de error no implica que la combinación existe. Para tener una distribución adecuada, se deben establecer algunas restricciones en los parámetros del modelo. Para nuestros propósitos de modelado, las pautas anteriores serán suficientes para obtener una especificación CAR adecuada en la mayoría de los casos.
+Para adaptarse a un modelo de CAR, podemos usar la función __spautolm__ nuevamente. esta vez nosotros establezca el argumento *family="CAR"* para especificar que estamos ajustando este tipo de modelos.
+
 
 ```{r}
 nycar <- spautolm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
@@ -403,16 +456,31 @@ summary(nycar)
 ```
 
 
+Los coeficientes estimados de las covariables en el modelo son muy similares a los obtenidos con los modelos SAR. Sin embargo, los valores p de dos covariables, la distancia al TCE más cercano y el porcentaje de personas ser propietario de una vivienda, están ligeramente por encima del umbral de 0,05. La prueba de la razón de verosimilitud indica que existe una autocorrelación espacial significativa y la estimación el valor de $\lambda$ es 0.0841.
+
+Considerando una regresión ponderada, usando el tamaño de la población como pesos, para que el mismo modelo dé cuenta de la distribución heterogénea de la la población elimina por completo la autocorrelación espacial en los datos. Los coeficientes de las covariables no cambian mucho y todos ellos se vuelven importante. Por lo tanto, modelar la autocorrelación espacial mediante especificaciones SAR o CAR no cambia los resultados obtenidos.
+
 ```{r}
 nycarw <- spautolm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
  data = NY8, family = "CAR", listw = NYlistw, weights = POP8)
 summary(nycarw)
 ```
 
+Se observa nuevamente que los coeficientes estimados son similares. 
 <br>
 
 
 #### 9.4.1.3 Ajuste de modelos de regresión espacial
+
+La función __spautolm__ ajusta los modelos de regresión espacial por máxima verosimilitud, encontrando primero el valor del coeficiente autorregresivo espacial, que maximiza la función de verosimilitud logarítmica para la familia de modelos elegida, y luego ajustando los otros coeficientes por mínimos cuadrados generalizados en ese punto. Esto significa que el coeficiente autorregresivo espacial se puede encontrar mediante la búsqueda de líneas utilizando optimizar, en lugar de optimizar sobre todos los parámetros del modelo al mismo tiempo.
+
+La parte más exigente de las funciones llamadas a optimizar es el coeficiente autorregresivo espacial, que es el cálculo del jacobiano, el logaritmo determinante de la matriz n × n [I-B], o $[I - \lambda W]$ en nuestra parametrización se puede aplicar lo siguiente:
+$$log(|I- \lambda W|)= log(\prod_{i=1}^n (1-\lambda \zeta_i)).$$
+Donde $\zeta_i$ son los valores propios de W, se vuelve más difícil. El método predeterminado *method="eigen"* usa valores propios y, por lo tanto, también puede establecer los límites inferior y superior para la búsqueda de línea de $\lambda$ con precisión como ([1/ mini($\zeta_i$), 1/ maxi($\zeta_i$)]), pero no es factible para n grande. También se debe tener en cuenta que los valores propios complejos se calculan para matrices de ponderaciones espaciales intrínsecamente asimétricas, y se incluyen sus partes imaginarias, de modo que los valores del determinante logarítmico son correctas (ver Bivand et al., 2013).
+
+Los enfoques alternativos implican encontrar el determinante logarítmico de un Cholesky descomposición de la matriz dispersa $(I−\lambda W)$ directamente. Aquí no es posible calcular previamente los valores propios, por lo que se calcula un determinante logarítmico para cada valor de $\lambda$ utilizado, pero el número necesario en general no es excesivo, y mucho mayor n volverse factible en computadoras ordinarias. Varias matrices dispersas diferentes se han intentado enfoques, con el uso de __Matrix__ y *method="Matrix"*,
+el sugerido actualmente. Todos los enfoques de descomposición de Cholesky para calcular el jacobiano se requiere que la matriz W sea simétrica o al menos similar al simétrico, previendo así pesos con estilos "W" y "S" basado en listas de vecinos simétricos y pesos espaciales generales simétricos,
+como la distancia inversa. Las matrices que son similares a las simétricas tienen la mismos valores propios, de modo que los valores propios de simétria $ W∗ = D^{1/2}WD^{1/2}$ y estandarizados por filas W = DB son los mismos, para binario simétrico o general pondera la matriz B, y D una matriz diagonal de sumas de filas inversas de B, $d_{ii} = \frac{1}{\sum_{j=1}^n b_{ij}}$.
 
 
 ```{r}
@@ -422,17 +490,22 @@ nysarwM <- spautolm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
 summary(nysarwM)
 ```
 
-```{r}
-1/range(eigenw(NYlistw))
-```
+
+El resultado de ajustar el modelo SAR ponderado usando funciones del el paquete **Matrix** es idéntico al que se obtiene al usar los valores propios de W. Si es de interés examinar los valores de la función logarítmica de verosimilitud para un rango de valores de $\lambda$, el argumento __llprof__ puede usarse para dar el número de valores de $\lambda$ igualmente espaciados que se elegirán entre el inverso del más pequeño y valores propios más grandes para __method="eigen"__, o una secuencia de tales valores más en general.
 
 ```{r}
+1/range(eigenw(NYlistw))
+
 nysar_ll <- spautolm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
  data = NY8, family = "SAR", listw = NYlistw, llprof = 100)
 nysarw_ll <- spautolm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
  data = NY8, family = "SAR", listw = NYlistw, weights = POP8,
  llprof = 100)
 ```
+
+
+finalmente, **family="SMA"** para modelos de promedios móviles simultáneos también es disponible dentro del mismo marco general, pero siempre implica el manejo matrices densas para el ajuste.
+
 
 ```{r}
 nysmaw <- spautolm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
@@ -459,13 +532,13 @@ Los resultados de la prueba de Breusch-Pagan indican la presencia de heterosceda
 ```{r}
 library(sandwich)
 coeftest(nylm)
-```
-
-
-```{r}
 coeftest(nylm, vcov = vcovHC(nylm, type = "HC4"))
 ```
 
+Se observa que los cambios son pequeños y que estos no afectan las inferencias.
+
+
+En econometría espacial el test de Moran se complementa con las pruebas del multiplicador de Lagrange. En econometría espacial el uso de estas pruebas asume el uso de ponderaciones espaciales estandarizadas por filas, entonces, se pasa de las ponderaciones binarias simétricas utilizadas anteriormente a ponderaciones simétricas similares a las estandarizadas por filas. Un interes consiste en mirar si el proceso de generación de datos es un SAR de error espacial o un SAR de retraso espacial, el primero es el SAR que ya conocemos, mientras que el modelo de rezago espacial incluye solo la variable endógena dependiente retrasada espacialmente en el modelo.
 
 ```{r}
 NYlistwW <- nb2listw(NY_nb, style = "W")
@@ -476,6 +549,23 @@ colnames(tres) <- c("Statistic", "df", "p-value")
 printCoefmat(tres)
 ```
 
+Las prueba LM robustas toman en cuenta la posibilidad alternativa, es decir, la prueba **LMerr** responderá tanto a una variable dependiente espacialmente rezagada omitida como a residuos espacialmente autocorrelacionados, mientras que la prueba **RLMerr** está diseñada para probar residuos espacialmente autocorrelacionados en lo posible en la presencia de una variable dependiente omitida. La funcióm LMtests devuelve cinco pruebas que apuntan a la especificación de un retraso espacial.
+
+El modelo de retraso espacial toma la siguiente forma:
+
+$$y = \rho Wy + X\beta + e, $$
+
+donde y es la variable endógena, x es una matriz de variables exógenas y W es la matriz de ponderaciones espaciales. Esto contrasta con el modelo espacial de Durbin, que incluye los retrasos espaciales de las covariables con coeficientes $\gamma$:
+
+$$\gamma = \rho Wy + X\beta + WX \gamma + e, $$
+
+Y el modelo de error espacial:
+
+$$y - \gamma W y = X \beta - \gamma WX \beta + e,$$
+$$(I - \gamma W)y = (I - \gamma W)X \beta + e,$$
+
+Estos son modelos autorregresivos simultáneos. Ajustemos ahora un modelo de retraso espacial por máxima verosimilitud, encontrando nuevamente el coeficiente de retraso espacial por búsqueda de línea, luego los coeficientes restantes por mínimos cuadrados generalizados. 
+
 
 ```{r}
 nylag <- lagsarlm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
@@ -484,9 +574,13 @@ summary(nylag)
 ```
 
 ```{r}
-bptest.sarlm(nylag)
+bptest.sarlm(nylag) 
 ```
 
+Las funciones de ajuste del modelo de econometría espacial también pueden utilizar matrices dispersas, pero cuando se utiliza la técnica de valor propio, patrón asintótico los errores se calculan para el coeficiente espacial. Aquí hay un problema numérico, que si las variables en el modelo se escalan de tal manera que los otros coeficientes son escalonados de manera diferente al coeficiente de autocorrelación espacial, la inversión de la matriz de coeficientes de varianza-covarianza puede fallar.
+
+El paquete McSpatial es una adición bienvenida a la selección de paquetes para econometría espacial; volveremos a algunos de sus características notables más adelante en esta sección. El paquete proporciona una función de vida de máxima semejanza utilizando valores propios para estimar el modelo de retraso espacial, dando como resultado
+los mismos resultados para los coeficientes que lagsarlm. Los errores estándar del coeficiente difieren ligeramente cuando se usan varianzas asintóticas en lagsarlm porque sarml siempre utiliza varianzas tomadas de la hessiana numérica de la optimización.
 
 ```{r}
 library(McSpatial)
@@ -496,6 +590,7 @@ McRes <- sarml(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
 c(McRes$beta, rho = McRes$rho, sig2 = McRes$sig2)
 ```
 
+Se ajustó de un modelo de Durbin espacial, un modelo de retraso espacial que incluye variables espaciales explicativas rezagadas (pero no el intercepto rezagado cuando el espacio los pesos están estandarizados por filas), vemos que el ajuste no mejora significativamente.
 
 
 ```{r}
@@ -508,6 +603,18 @@ nymix
 anova(nymix, nylag)
 ```
 
+Al ajustar los modelos de retraso espacial y de Durbin espacial, ha surgido con el tiempo que, a diferencia del modelo de error espacial, la dependencia espacial en el parámetro $\rho$ se retroalimenta, obligando a los analistas a basar la interpretación no en los parámetros ajusatados $\beta$ y $\gamma$ cuando sea apropiado, sino en formulaciones correctas medidas de impacto. 
+
+Esta retroalimentación proviene de los elementos de la matriz de varianza-covarianza de los coeficientes para el modelo de error espacial de máxima verosimilitud que vincula
+siendo $λ$ y $β$ cero, $∂^2 /(∂β∂λ) = 0$, mientras que en el modelo de rezago espacial (y por extensión, en el modelo espacial de Durbin), $∂^2 \ell /(∂β∂ρ) \neq 0$. En el modelo espacial modelo de error, para la variable del lado derecho $r, ∂yi/∂xir = βr$ y $∂yi/∂xjr = 0$ para $i \neq j$; en el modelo de retraso espacial, $∂yi/∂xjr = ((I − ρW)^{−1}Iβ_r)_{ij}$ , donde se sabe que $(I − ρW)^{−1}$ es denso.
+
+La matriz de varianza-covarianza de los coeficientes y la serie de trazas de la matriz de potencia de pesos son los ingredientes clave necesarios para calcular el impacto, medidas para el retraso espacial y los modelos espaciales de Durbin. Se necesita una estimación de la matriz de varianza-covarianza del coeficiente para la simulación de Monte Carlo de las medidas de impacto, aunque las propias medidas pueden calcularse sin una estimación de esta matriz.
+
+El extraño término de la matriz $S_r(W) = ((I− \rho W)^{−1}Iβ_r)$ necesario para calcular medidas de impacto para el modelo de retardo, y $S_r(W) = ((I − ρW)^{−1}(Iβ_r −Wγ_r))$ para el modelo espacial de Durbin, se puede aproximar utilizando trazas de potencias de la matriz de ponderaciones espaciales, así como analíticamente. Los impactos directos medios están representados por la suma de los elementos diagonales de la matriz dividida por N para cada variable exógena, los impactos totales promedio son la suma de todos elementos de la matriz divididos por N para cada variable exógena, mientras que el promedio los impactos indirectos son las diferencias entre estos dos vectores de impacto.
+
+En spdep, los métodos de impactos están disponibles para ML retraso espacial, espacial Durbin y otros objetos de modelo ajustados, incluida la respuesta retrasada espacialmente variable. Los métodos utilizan series truncadas de trazas utilizando diferentes formas de computando las huellas, aquí alimentando una matriz dispersa, que se vuelve densa, para
+obtener trazas exactas. Después de forzar los pesos espaciales a un orden comprimido matriz dispersa orientada a columnas, una forma para la cual muchas funciones y métodos están disponibles, la función trW se puede utilizar para calcular trazas, por defecto m = 30 trazas:
+
 
 ```{r}
 W <- as(as_dgRMatrix_listw(NYlistwW), "CsparseMatrix")
@@ -515,6 +622,8 @@ trMat <- trW(W, type = "mult")
 head(trMat)
 ```
 
+Se han escrito métodos para calcular los impactos para todos los espacios espaciales relevantes de esstimadores econométricos en spdep, todos compatibles con el mismo mecanismo de prueba de Monte Carlo descrito por LeSage y Pace (2009). Esto implica el muestreo de la distribución Normal multivariante dada por los coeficientes ajustados
+y su matriz de covarianza, para generar distribuciones de los impactos. Los impactos simulados se devuelven como objetos mcmc, tal como se define en el paquete coda (Best et al., 1995), y pueden mostrarse, por ejemplo, utilizando HPDinterval para los intervalos de densidad posterior más alta:
 
 
 ```{r}
@@ -535,6 +644,12 @@ HPDinterval(imps, choice = "indirect")
 HPDinterval(imps, choice = "total")
 ```
 
+
+Examinando las distribuciones de los impactos directos, las medias de las diagonales de las matrices $S_r(W)$, y de los impactos indirectos, las sumas de fuera de la diagonal
+elementos divididos por el número de observaciones, a menudo encontramos diferencias de signo. El uso de medidas de impacto en la econometría espacial ahora es obligatorio para análisis aplicados utilizando la variable dependiente rezagada, como la interpretación de los coeficientes ajustados en las variables independientes es engañoso si $ρ = 0$.
+
+Si imponemos la restricción del factor común en el modelo espacial de Durbin, que $\gamma = −ρβ$, ajustamos el modelo de error espacial:
+
 ```{r}
 nyerr <- errorsarlm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
  data = NY8, listw = NYlistwW)
@@ -545,17 +660,29 @@ summary(nyerr)
 LR.sarlm(nyerr, nymix)
 ```
 
+
+Tanto el modelo de retraso espacial como el de Durbin parecen ajustarse a los datos algo mejor que el modelo de error espacial. Sin embargo, en relación con nuestro interés inicial en la relación entre las proporciones de incidencia transformadas y la exposición a los sitios de TCE, la mejora no es demasiada que con el modelo lineal,
+y aunque parece que hemos reducido la especificación errónea encontrada en el modelo lineal al elegir el modelo de retraso espacial, la reducción en la varianza del error es solo moderada.
+Al considerar los impactos, también sugieren interpretar los coeficientes de regresión del modelo de error espacial con variables independientes y retardadas espacialmente, un modelo de error espacial de Durbin, como impactos directos e indirectos, respectivamente. El modelo también acomoda fechas de autocorrelación de error de modelado:
+
 ```{r}
 nyerr1 <- errorsarlm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
  data = NY8, listw = NYlistwW, etype = "emixed")
 coef(nyerr1)
 ```
 
+
+Una vez más vemos medidas de impacto indirecto negativo para la variable de exposición. Podemos dibujar muestras MCMC con el método MCMCsamp para modelos de regresión espacial ajustados para examinar la forma de las distribuciones de impactos directos e indirectos del modelo de error espacial de Durbin. El método MCMCsamp utiliza el algoritmo Metropolis del paquete LearnBayes para muestrear el modelo ajustado utilizando la misma función que se utilizó para calcular su Hessian numérico. 
+
 ```{r}
 set.seed(987654)
 resMCMC <- MCMCsamp(nyerr1, mcmc = 5000, burnin = 500,
  listw = NYlistwW)
 ```
+
+La econometría espacial también ha visto el desarrollo de alternativas a los métodos de máxima verosimilitud para ajustar modelos. Por ejemplo, el modelo de retraso espacial puede ajustarse por analogía con mínimos cuadrados de dos etapas en un sistema de ecuaciones simultáneas, utilizando los retrasos espaciales de las variables explicativas como instrumentos para la variable dependiente retrasada espacialmente; normalmente, $[X, WX, WWX]$ se utilizan como instrumentos. El paquete **sphet** descrito en detalle por Piras (2010), proporciona implementaciones de muchos de los estimadores descritos por Kelejian y Prucha (2007), Kelejian y Prucha (2010) y Arraiz et al. (2010); es la convención en esta rama de la literatura invertir los nombres de los coeficientes espaciales $– ρ$ es aquí el coeficiente de error espacial, $λ$ el coeficiente de retraso espacial. Las funciones de **spreg** toman una serie de argumentos que controlan el tipo de modelo que se va a ajustar, y también acomodan modelos que manejan innovaciones heterocedásticas:
+
+
 
 ```{r}
 library(sphet)
@@ -564,7 +691,7 @@ nyGMlag <- spreg(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
 summary(nyGMlag)
 ```
 
-
+La función **spreg** también se puede usar para ajustar un modelo de error espacial usando un estimador de Momentos Generalizados (GM) para el parámetro autorregresivo. Utiliza un enfoque GM para optimizar $λ$ y $σ_2$ conjuntamente, y cuando la superficie de búsqueda numérica no es demasiado plana, puede ser una alternativa a los métodos de máxima verosimilitud cuando n es grande; También se pueden manejar innovaciones heterocedásticas.
 
 ```{r}
 nyGMerr <- spreg(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
@@ -573,16 +700,25 @@ summary(nyGMerr)
 ```
 
 
+Otro paquete recientemente publicado, **splm**, proporciona estimadores de panel espacial descritos por Millo y Piras (2012), extendiendo el paquete de estimador de panel a espacial plm (Croissant y Millo, 2008). Finalmente, el paquete McSpatial proporciona funciones para la regresión de cuantiles espaciales, descrita por McMillen (2012, 2013) y varios estimadores probit espaciales, que no se tratarán aquí.
+
 ```{r}
+library(splm)
 fit <- qregspiv(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
  wmat = listw2mat(NYlistwW), data = NY8, tau = 0.5,
  nboot = 200)
 ```
 
+La función qregspiv estima una regresión de cuantiles espaciales que incluye la variable dependiente rezagada utilizando instrumentos $[X,WX]$. Parece que la regresión por cuantiles puede permitir una mayor comprensión de la relación entre la variable de exposición y la variable dependiente, pero como podemos ver en la presentación en McMillen (2013), las posibilidades de estos métodos se harán más claras cuando se hayan utilizado en trabajos más aplicados.
+
 <br>
 
 ### 9.4.3 Otros métodos
 
+Se pueden utilizar otros métodos para modelar la dependencia entre áreas. En esta sección presentamos algunos de ellos, basados en parte en la encuesta aplicada reportada por Dormann et al. (2007).
+
+Los modelos aditivos generalizados (GAM) son muy similares a los modelos lineales generalizados, pero también permiten incluir términos no lineales en el modelo lineal. Vale la pena señalar que el argumento de la fórmula lineal, lineal generalizada, espacial y muchos otros modelos pueden contener polinomios y términos *splines* si se desea, pero estos
+necesita ser configurado manualmente. Los diferentes tipos de funciones no lineales disponibles pueden elegirse en la función __s()__ en la fórmula. Aquí, un **spline** de regresión de placa delgada isotrópica se usa de manera efectiva como una superficie de tendencia semiparamétrica para agregar una estructura espacial suave desde los residuos hasta el ajuste.
 
 ```{r}
 library(mgcv)
@@ -593,24 +729,33 @@ nyGAM1 <- gam(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME +
 anova(nylmw, nyGAM1, test = "Chisq")
 ```
 
+Esto no agrega mucho a lo que ya sabíamos del modelo lineal ponderado, con las diferencias en los grados de libertad de los residuales mostrando que el término __spline__ de regresión de placa delgada solo toma 3.81 grados estimados de libertad. Esto, sin embargo, no explota las fortalezas reales de la técnica. Debido a que puede ajustarse a modelos generalizados, podemos dejar de usar las proporciones de incidencia transformadas para usar los recuentos de casos, compensado por el logaritmo de las poblaciones del tramo. Recuerde que hemos dicho que las suposiciones distributivas sobre la variable de respuesta son importantes: nuestra variable de respuesta tal vez debería tratarse como discreta, por lo que los métodos que respetan esto pueden ser más apropiados. 
 
-```{r}
+
+```{r, warning=FALSE}
 nyGLMp <- glm(Cases ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME +
  offset(log(POP8)), data = NY8, family = "poisson")
 summary(nyGLMp)
 ```
 
+Con el GLM como punto de partida, nuevamente agregamos una __spline__ de regresión de placa delgada isotrópica en __gam__. Hay poca sobredispersión presente, lo que encaja con *family = quasipoisson*, en el que el parámetro de dispersión no se fija en la unidad, por lo que pueden modelar una dispersión excesiva que no da como resultado grandes cambios.La comparación muestra que la presencia del término __spline__ ahora es significativa.
+Si bien los valores de los coeficientes de los ajustes de la familia de Poisson no son directamente comparables con los ajustes lineales de las proporciones de incidencia transformadas, podemos ver que la exposición a los sitios de TCE es claramente es más significativa.
 
 
-```{r}
+```{r, warning = FALSE}
 nyGAMp <- gam(Cases ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME +
  offset(log(POP8)) + s(x, y), data = NY8, family = "poisson")
 summary(nyGAMp)
-```
 
-
-
-```{r}
 anova(nyGLMp, nyGAMp, test = "Chisq")
+
 ```
+
+Las ecuaciones de estimación generalizadas (GEE) son una alternativa a las estimación de GLMs cuando tenemos datos correlacionados. Se utilizan a menudo en el análisis de datos longitudinales, cuando tenemos varias observaciones para el
+mismo tema. En un marco espacial, la correlación surge entre vecinos áreas. Los modelos de efectos mixtos lineales generalizados (GLMM) amplían los GLM al permitir la incorporación de efectos mixtos en el predictor lineal.
+
+El enfoque de vectores propios de Moran (Dray et al., 2006; Griffith y Peres Neto, 2006) involucra los patrones espaciales representados por mapas de vectores propios de la matriz de ponderaciones espaciales doblemente centrada; eligiendo el patrón ortogonal adecuado y añadiéndolos a un modelo lineal o lineal generalizado, la dependencia espacial presente en los residuos puede trasladarse al modelo. Dos de las funciones de estimación se proporcionan en __spdep__. En su forma general, el filtrado espacial elige el subconjunto de los n vectores propios que reducen el residuo autocorrelación espacial en el error del modelo con covariables. La forma de retraso
+agrega las covariables en la evaluación de qué vectores propios elegir, pero no No los utilice en la construcción de los vectores propios. __SpatialFiltering__ fue implementado y contribuido por Yongwan Chun y Michael Tiefelsdorf, y
+se presenta en Tiefelsdorf y Griffith (2007); se basa en el código de Matlab por Pedro Peres-Neto y se discute en Dray et al. (2006), Dorman et al.(2007) y Griffith y Peres-Neto (2006). El uso de estos métodos se cubre en detalle en Borcard et al. (2011, pp. 243–284) y revisado en más amplio contexto por Dray et al. (2012).
+
 
