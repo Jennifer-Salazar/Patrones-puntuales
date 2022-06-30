@@ -81,14 +81,9 @@ En el paquete spdep, las relaciones vecinas entre n observaciones están represe
 # Carga de librerias
 library(spdep)
 library(rgdal)
-<<<<<<< HEAD
 library(spatialreg)
 
 # Lectura de mapas espaciales como objetos vectoriales
-=======
-require(spatialreg)
-
->>>>>>> 06d2c6be09c7b6d92ffed5129ae7d959ee9f9cdb
 NY8 <- readOGR(".", "NY8_utm18")
 
 # Lectura de un archivo de área en una lista de vecinos
@@ -590,6 +585,8 @@ library(spdep)
 NYlistw <- nb2listw(NY_nb, style = "B")
 lm.morantest(nylm, NYlistw)
 ```
+
+
 Se muestra el calculo del I __Moran__ de la regresión lineal de los datos, se observa que el estadístico es significativo a una significancia del 0.05 y que el I  de __Moran__ observado es $I = 0.083090278$.
 
 A modo de comparación, mostramos la estimación del parámetro de máxima verosimilitud ajustada utilizando los mismos datos.
