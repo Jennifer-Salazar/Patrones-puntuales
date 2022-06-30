@@ -77,11 +77,14 @@ En el paquete spdep, las relaciones vecinas entre n observaciones están represe
 
 
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 # Carga de librerias
 library(spdep)
 library(rgdal)
 library(spatialreg)
+# library(devtools)
+# Instalando el paquete McSpatial desde GitHub
+install_github("cran/McSpatial")
 
 # Lectura de mapas espaciales como objetos vectoriales
 NY8 <- readOGR(".", "NY8_utm18")
@@ -290,68 +293,84 @@ Recomendación: Un analista cuidadoso prefiere un subconjunto de los datos de en
 
 ### 9.2.3 Manejo de objetos de pesos espaciales
 
-Hay varios paquetes de contribución que brindan soporte para matrices dispersas, entre los cuales estan:
+* Definición de matriz dispersa
 
-- **Matrix** (paquete recomendado) 
+En álgebra lineal una matriz dispersa o matriz rala o matriz hueca es una matriz de gran tamaño en la que la mayor parte de sus elementos son cero.
 
-- **as_dgRMatrix_listw** convierte un objeto listw en una matriz dispersa de matriz ordenada, comprimida y orientada a filas, como un objeto **dgRMatrix**(una subclase de la clase virtual RsparseMatrix).
+<br>
+
+Hay varios paquetes que brindan soporte para matrices dispersas, entre los cuales estan:
+
+
+- [Matrix](https://cran.r-project.org/web/packages/Matrix/index.html) (paquete recomendado) 
+
+- [as_dgRMatrix_listw](https://www.rdocumentation.org/packages/spdep/versions/1.0-2/topics/as_dgRMatrix_listw) (interfaz entre los objetos de la clase Matrix y las listas de pesos): convierte un objeto listw en una matriz dispersa a partir de una matriz ordenada, comprimida y orientada a filas, como un objeto **dgRMatrix**(una subclase de la clase virtual **RsparseMatrix**).
+
 
 Es más fácil hacer una matriz dispersa orientada a filas a partir de un objeto de pesos espaciales ya que los pesos están orientados a filas. 
 
-* Una función que se utiliza mucho en las funciones de prueba y ajuste de modelos es listw2U, que devuelve un objeto listw simétrico que representa la matriz de ponderaciones espaciales $\frac{1}{2}(W + W^T)$.
+* Una función que se utiliza mucho en las funciones de prueba y ajuste de modelos es [listw2U](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/moran.test) (Prueba I de Moran para la autocorrelación espacial) que devuelve un objeto listw simétrico que representa la matriz de ponderaciones espaciales $\frac{1}{2}(W + W^T)$.
 
 
 
-- Los objetos vecinos y de pesos producidos en otro software se pueden importar a R sin dificultad y dichos objetos también se pueden exportar a otro software.
+**Nota:** Los objetos vecinos y de pesos producidos en otro software se pueden importar a R sin dificultad y dichos objetos también se pueden exportar a otro software.
+
 
 **Ejemplo.**
 
-Se generan algunos archivos en GeoDa a partir de las secciones del censo de Syracuse escritas como un archivo de forma, con el centroide utilizado aquí almacenado en el marco de datos. Los dos primeros son para vecinos de contigüidad, utilizando los criterios de dama y torre, respectivamente. Estos archivos de formato GAL contienen solo información de vecinos y se describen en detalle en el archivo de ayuda que acompaña a la función read.gal.
+Se generan algunos archivos en GeoDa a partir de las secciones del censo de Syracuse (región de estudio) escritas como un archivo de forma, con el centroide utilizado aquí almacenado en el marco de datos. Los dos primeros son para vecinos de contigüidad, utilizando los criterios de dama y torre, respectivamente. Estos archivos de formato GAL contienen solo información de vecinos y se describen en detalle en el archivo de ayuda que acompaña a la función [read.gal](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/read.gal) (lee un archivo GAL lattice en una lista de vecinos) .
 
 ```{r}
-# Lectura del archivo en formato GAL
+# Lectura del archivo en formato GAL generado en GeoDa
 Sy14_nb <- read.gal("Sy_GeoDa1.GAL")
 
 # Validación de la igualdad de los formatos
+# Sy0_nb: subconjunto de la ciudad de Syracuse
 isTRUE(all.equal(Sy0_nb, Sy14_nb, check.attributes = FALSE))
 ```
+<br>
+
+La función [write.nb.gal](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/write.nb.gal) se utiliza para escribir archivos en formato GAL a partir de objetos nb. 
 
 
-La función **write.nb.gal** se utiliza para escribir archivos en formato GAL a partir de objetos nb. 
-
-GeoDa también crea archivos en formato GWT, descritos en la documentación de GeoDa y el archivo de ayuda, que también contienen información de distancia para el vínculo entre las áreas y se almacenan en una representación dispersa de tres columnas. Se pueden leer usando **read.gwt2nb**, aquí para un esquema de cuatro vecinos más cercanos, y solo usando los enlaces vecinos.
+(Nota: un objeto de clase "nb" es una lista de vectores enteros que contienen identificadores de números de región vecina. GAL Es un formato de datos biológicos en la forma de una lista de matriz.)
 
 
-```{r}
+
+[GeoDa](https://geodacenter.github.io/) también crea archivos en formato **GWT**, descritos en la documentación de GeoDa, ésta también contienen información de distancia para el vínculo entre las áreas y se almacenan en una representación dispersa de tres columnas. Se pueden leer usando [read.gwt2nb](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/read.gwt2nb) (leer y escribir archivos vecinos espaciales), aquí para un esquema de cuatro vecinos más cercanos, y solo usando los enlaces vecinos.
+
+
+```{r, message=FALSE, warning=FALSE}
 # Lectura del archivo en formato GWT
 Sy16_nb <- read.gwt2nb("Sy_GeoDa4.GWT")
 
 # Validación de la igualdad de los formatos
+# Sy0_nb: subconjunto de la ciudad de Syracuse
 isTRUE(all.equal(Sy10_nb, Sy16_nb, check.attributes = FALSE))
 ```
 
-Un conjunto similar de funciones está disponible para intercambiar pesos espaciales con la libreria **the Spatial Econometrics**. La representación dispersa de los pesos es similar al formato **GWT** y se puede importar usando **read.dat2listw**.
+Un conjunto similar de funciones está disponible para intercambiar pesos espaciales con la libreria [the Spatial Econometrics](http://www.econ.uiuc.edu/~lab/workshop/Spatial_in_R.html). La representación dispersa de los pesos es similar al formato **GWT** y se puede importar usando [read.dat2listw](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/read.gwt2nb) del paquete **spdep**.
 
 
-* La exportación a tres formatos diferentes pasa por la función **listw2sn**, que convierte un objeto de pesos espaciales en una representación dispersa de tres columnas. 
+* La exportación a tres formatos diferentes pasa por la función [listw2sn](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/listw2sn), que convierte un objeto de pesos espaciales en una representación dispersa de tres columnas. 
 
-* El marco de datos de salida se puede escribir como un archivo de formato GWT con **write.sn2gwt** o como una representación de texto de una matriz dispersa para Matlab™ con **write.sn2dat**.
-
-
-* Los archivos escritos usando **write.sn2gwt** se pueden leer en Stata™ con spmat import W using.
-
-* Hay una función llamada **listw2WB** para crear una lista de pesos espaciales para WinBUGS, que se escribirán en un archivo usando dput. 
-
-* Para objetos vecinos, se puede usar **nb2WB**, configurando todos los pesos a la unidad. De manera similar, un objeto vecino puede exportarse a un archivo con **nb2INLA**, para pasar datos al argumento del gráfico para el modelo "bym" en ajuste usando inla. 
+* El marco de datos de salida se puede escribir como un archivo de formato **GWT** con [write.sn2gwt](https://www.rdocumentation.org/packages/spdep/versions/0.1-13/topics/read.gwt2nb) o como una representación de texto de una matriz dispersa para Matlab™ con [write.sn2dat](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/read.gwt2nb).
 
 
-* También es posible usar **nb2gra** en el paquete **BayesX** para convertir objetos nb al formato gráfico gra.
+* Los archivos escritos usando [write.sn2gwt](https://www.rdocumentation.org/packages/spdep/versions/0.1-13/topics/read.gwt2nb) se pueden leer en Stata™ con spmat import W using.
+
+* Hay una función llamada [listw2WB](https://www.rdocumentation.org/packages/spdep/versions/1.1-8/topics/nb2WB) para crear una lista de pesos espaciales para **WinBUGS**, que se escribirán en un archivo usando [dput](https://www.rdocumentation.org/packages/base/versions/3.6.2/topics/dput). 
+
+* Para objetos vecinos, se puede usar [nb2WB](https://www.rdocumentation.org/packages/spdep/versions/1.1-8/topics/nb2WB), configurando todos los pesos a la unidad. De manera similar, un objeto vecino puede exportarse a un archivo con [nb2INLA](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/nb2INLA), para pasar datos al argumento del gráfico para el modelo "bym" en ajuste usando inla. 
 
 
-* El **mat2listw** se puede usar para revertir el proceso, cuando una matriz de pesos se ha leído en R y se debe convertir en un objeto vecino y de lista de pesos. Desafortunadamente, esta función no establece el estilo del objeto listw en un valor conocido, usando **M** para señalar esta falta de conocimiento. Entonces es habitual reconstruir el objeto listw, tratando el componente de vecinos como un objeto **nb**, el componente de pesos como una lista de pesos generales y estableciendo el estilo en la función **nb2listw** directamente. 
+* También es posible usar [nb2gra](https://rdrr.io/github/datacamp/R2BayesX/man/nbAndGraConversion.html) en el paquete [BayesX](https://cran.r-project.org/web/packages/BayesX/index.html) para convertir objetos **nb** al formato gráfico **gra**.
 
 
-* Finalmente, hay una función **nb2lines** para convertir listas de vecinos en objetos **SpatialLinesDataFrame**, dadas las coordenadas de los puntos que representan las áreas. Esto permite trazar objetos vecinos de forma alternativa y, si es necesario, exportarlos como archivos de forma.
+* El [mat2listw](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/mat2listw) se puede usar para revertir el proceso, cuando una matriz de pesos se ha leído en R y se debe convertir en un objeto vecino y de lista de pesos. Desafortunadamente, esta función no establece el estilo del objeto listw en un valor conocido, usando **M** para señalar esta falta de conocimiento. Entonces es habitual reconstruir el objeto listw, tratando el componente de vecinos como un objeto **nb**, el componente de pesos como una lista de pesos generales y estableciendo el estilo en la función [nb2listw](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/nb2listw) directamente. 
+
+
+* Finalmente, hay una función [nb2lines](https://www.rdocumentation.org/packages/spdep/versions/1.2-4/topics/nb2lines) para convertir listas de vecinos en objetos **SpatialLinesDataFrame**, dadas las coordenadas de los puntos que representan las áreas. Esto permite trazar objetos vecinos de forma alternativa y, si es necesario, exportarlos como archivos de forma.
 
 
 
@@ -364,7 +383,7 @@ Un conjunto similar de funciones está disponible para intercambiar pesos espaci
 ![](9.3.png)
 </center>
 
-En la figura anterior (Fig. 9.3), se hizo uso de **listw2mat** para convertir un objeto de pesos espaciales en una matriz densa para su visualización. La misma función se usa para construir una representación densa de la matriz $(I − ρW)$ para simular la autocorrelación espacial dentro de la función **invIrW**, donde $W$ es una matriz de pesos, $ρ$ es un coeficiente de autocorrelación espacial e $I$ es la matriz identidad. Este enfoque fue introducido por Cliff y Ord (1973, pp. 146-147), y no impone condiciones estrictas sobre la matriz a invertir (solo que no sea singular), y solo se aplica a simulaciones de un proceso autorregresivo simultáneo. 
+En la figura anterior (Fig. 9.3), se hizo uso de [listw2mat] para convertir un objeto de pesos espaciales en una matriz densa para su visualización. La misma función se usa para construir una representación densa de la matriz $(I − ρW)$ para simular la autocorrelación espacial dentro de la función [invIrW](https://www.rdocumentation.org/packages/spdep/versions/0.7-9/topics/invIrM), donde $W$ es una matriz de pesos, $ρ$ es un coeficiente de autocorrelación espacial e $I$ es la matriz identidad. Este enfoque no impone condiciones estrictas sobre la matriz a invertir (solo que no sea singular), y solo se aplica a simulaciones de un proceso autorregresivo simultáneo. 
 
 A continuación se realiza la simulación comenzando con un vector de números aleatorios correspondientes al número de distritos censales en Syracuse, usamos los pesos de contigüidad estandarizados por filas para introducir la autocorrelación:
 
@@ -815,7 +834,7 @@ nylag <- lagsarlm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
 summary(nylag)
 ```
 
-```{r}
+```{r, eval=FALSE}
 bptest.sarlm(nylag) 
 ```
 
@@ -825,11 +844,11 @@ El paquete McSpatial es una adición bienvenida a la selección de paquetes para
 los mismos resultados para los coeficientes que lagsarlm. Los errores estándar del coeficiente difieren ligeramente cuando se usan varianzas asintóticas en lagsarlm porque sarml siempre utiliza varianzas tomadas de la hessiana numérica de la optimización.
 
 ```{r}
-library(McSpatial)
-McRes <- sarml(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
- wmat = listw2mat(NYlistwW), eigvar = eigenw(NYlistwW),
- print = FALSE, data = NY8)
-c(McRes$beta, rho = McRes$rho, sig2 = McRes$sig2)
+# library(McSpatial)
+# McRes <- sarml(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
+#  wmat = listw2mat(NYlistwW), eigvar = eigenw(NYlistwW),
+#  print = FALSE, data = NY8)
+# c(McRes$beta, rho = McRes$rho, sig2 = McRes$sig2)
 ```
 
 Se ajustó de un modelo de Durbin espacial, un modelo de retraso espacial que incluye variables espaciales explicativas rezagadas (pero no el intercepto rezagado cuando el espacio los pesos están estandarizados por filas), vemos que el ajuste no mejora significativamente.
@@ -874,15 +893,15 @@ imps <- impacts(nymix, tr = trMat, R = 1999)
 imps
 ```
 
-```{r}
+```{r, eval=FALSE}
 HPDinterval(imps, choice = "direct")
 ```
 
-```{r}
+```{r, eval=FALSE}
 HPDinterval(imps, choice = "indirect")
 ```
 
-```{r}
+```{r, eval=FALSE}
 HPDinterval(imps, choice = "total")
 ```
 
@@ -898,7 +917,7 @@ nyerr <- errorsarlm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
 summary(nyerr)
 ```
 
-```{r}
+```{r, eval = FALSE}
 LR.sarlm(nyerr, nymix)
 ```
 
@@ -944,7 +963,7 @@ summary(nyGMerr)
 
 Otro paquete recientemente publicado, **splm**, proporciona estimadores de panel espacial descritos por Millo y Piras (2012), extendiendo el paquete de estimador de panel a espacial plm (Croissant y Millo, 2008). Finalmente, el paquete McSpatial proporciona funciones para la regresión de cuantiles espaciales, descrita por McMillen (2012, 2013) y varios estimadores probit espaciales, que no se tratarán aquí.
 
-```{r}
+```{r, eval=FALSE}
 library(splm)
 fit <- qregspiv(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
  wmat = listw2mat(NYlistwW), data = NY8, tau = 0.5,
