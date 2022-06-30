@@ -14,23 +14,88 @@ knitr::opts_chunk$set(echo = TRUE)
 
 ## 9.1 Introducción
 
+Es los datos espaciales en común encontrar entidades poligonales con limites definidos. Los límites de los polígonos pueden ser definidos por un investigador (en algunos campos de estudio), pueden ser arbitrarios o pueden ser limites creados con diferentes propósitos. Los datos espaciales observados son con frecuencia agregaciones dentro de los limites, como conteos de la población. Las entidades territoriales en sí mismas pueden definir o constituir las unidades de observación. 
+
+En general las entidades de área son agregados, es decir, se utilizan para contar ciertas medidas. Muy a menudo, las entidades de área son una teselación exhaustiva del área de estudio, sin dejar ninguna parte del área total sin asignar a una entidad. Las entidades de área pueden esta formadas por múltiples entidades además de contener agujeros.
+
+Los límites de las entidades de área pueden definirse con propósitos diferentes al análisis de datos. Los cambios frecuentes en los límites son un problema importante para los análisis longitudinales. Los limites arbitrarios de las unidades de área son un problema si su modificación puede conducir a resultados diferentes, también puede presentarse un obstáculo en el análisis si la escala espacial (o la huella de un proceso de generación de datos) no coincide con los limites elegidos.
+
+Si se diseña la recopilación de datos para hacer coincidir las entidades de área con los datos, se reducirá la influencia de la elección de los agregados.
+
+Si nos vemos obligados a hacer uso de limites arbitrarios principalmente porque no existen otras fuentes viables de datos secundarios, debemos ser conscientes de las posibles dificultades y ésta es una de las principales razones por las que se puede encontrar autocorrelación espacial en el análisis de agregados de área, otra de las razones es cuando hay procesos espaciales en los que las entidades se influyen entre si por contagio y adicionalmente cuando hay una especificación errónea del modelo dejando información con patrones espaciales en los residuos; estas causas de autocorrelación espacial pueden ocurrir en combinación y es lo que hace interesante la identificación correcta de los procesos espaciales reales.   
+
+Una amplia gama de disciplinas científicas se ha encontrado con la autocorrelación espacial entre entidades de área, el problema está en establecer cuantas observaciones efectivamente independientes están presentes, cuando se han utilizado limites arbitrarios para dividir un área de estudio. La dependencia espacial positiva tiende a reducir la cantidad de información contenida en las observaciones, porque las observaciones próximas pueden usarse en parte para predecirse entre sí.
+
+En una superficie continua, todos los puntos son vecinos entre sí, aunque algunos pueden tener muy poco peso porque están muy distantes. En una superficie teselada se puede elegir definiciones vecinas que dividan al conjunto de todas las entidades (excluyendo la observación i) en miembros o no miembros del conjunto vecino de la observación i, también se puede tomar decisión de darle el mismo peso a cada relación vecina o variar los pesos en los arcos del gráfico que describe la dependencia espacial.
+
+Primero se debe de construir los vecinos y los pesos para luego proceder a buscar formas de medir la autocorrelación espacial. También es interesante mostrar cómo se puede introducir la autocorrelación espacial en datos independientes de modo que se puedan realizar simulaciones.
+
+<br>
+
+* El conjunto de datos a trabajar en ejemplos posteriores es:
+
+El conjunto de datos de 281 tramos censales para ocho condados centrales del estado de Nueva York destacados en Waller y Gotway (2004) El cual tiene una área con extensión de unos 160 km de norte a sur y 120 km de este a oeste.
+
+<center>
+![](9.1.png)
+</center>
+
+La figura 9.1 muestra las principales ciudades del área de estudio y la ubicación de 11 sitios de desechos peligrosos. Las cifras de Waller y Gotway (2004) incluyen masas de agua, que no están presentes en esta versión de los límites de los tramos, en la que los límites de los tramos siguen las líneas centrales de los lagos, en lugar de sus orillas.
+
+
+
 ## 9.2 Vecinos espacial y pesos espaciales
 
+La creación de ponderaciones espaciales es un paso necesario en el uso de datos de área, tal vez solo para verificar que no queden patrones espaciales en los residuos.
+
+El primer paso es definir que relaciones del proceso se les dara un peso diferente de cero, es decir, elegir el criterio vecino a utilizar.
+
+El segundo paso es asignar pesos a los enlaces vecinos identificados.
+
+Tratar de detectar patrones en mapas de residuos visualmente no es una opción aceptable.
+
+El prcoceso de crear los vecinos o los pesos no es nada fácil por lo que nos apoyamos de funciones del paquete spdep.
+
+
+* Dado que el análisis de datos en área depende de las elecciones realizadas al construir las ponderaciones espaciales nos apoyamos en la creación de los objetos vecinos del paquete **spded** que dispone de unas viñetas interactivas ("nb") en donde se puede explorar sobre el tema de la creación de los vecinos, que incluyen discusiones sobre la creación y el uso de pesos espaciales y se puede acceder a través de:
+
+
 ```{r}
+# Herramienta de exploración de la creación de vecinos
 vignette("nb", package = "spdep")
 ```
 
+<br>
 
-# 9.2.1 Vecinos espaciales
+### 9.2.1 Objetos vecinos
+
+En el paquete spdep, las relaciones vecinas entre n observaciones están representadas por un objeto de clase **nb**, es una lista de longitud n con los números indice de los vecinos de cada componente registrados como un vector entero, si alguna observación no tiene vecinos, el componente contiene un número entero cero.También contiene atributos, normalmente un vector de identificadores de región de caracteres y un valor lógico que indica si las relaciones son simetricas.
+
+* Los identificadores de región se pueden usar para verificar la integridad entre los datos mismos y el objeto vecino.
+
+* La tarjeta de función auxiliar devuelve la cardinalidad del conjunto vecino para cada objeto, es decir, el número de vecinos.
+
+
 
 ```{r}
+# Carga de librerias
 library(spdep)
 library(rgdal)
+library(spatialreg)
+
+# Lectura de mapas espaciales como objetos vectoriales
 NY8 <- readOGR(".", "NY8_utm18")
+
+# Lectura de un archivo de área en una lista de vecinos
+# Objeto nb
 NY_nb <- read.gal("NY_nb.gal", region.id = row.names(NY8))
+
+# Resumen de las propiedades del objeto nb
 summary(NY_nb)
 ```
 
+
+* Gráfico de vecinos completo para el área de estudio de los ocho condados
 
 ```{r}
 plot(NY8, border = "grey60")
@@ -38,31 +103,79 @@ plot(NY_nb, coordinates(NY8), pch = 19, cex = 0.6, add = TRUE)
 ```
 
 
+_Nota: contigüidades de la reina del distrito censal, donde todos los polígonos en contacto son vecinos, utilizado en Waller y Gotway (2004) y proporcionado como un archivo DBF en su sitio web, se creó un archivo de formato GAL y se leyó en R._
+
+La Figura  anterior (9.2) muestra el gráfico de vecinos completo para el área de estudio de los ocho condados. En aras de la simplicidad al mostrar cómo crear objetos vecinos, trabajamos en un subconjunto del mapa que consiste en las secciones censales dentro de Syracuse, aunque los mismos principios se aplican al conjunto de datos completo. 
+
+<br>
+
+Tenemos un objeto **nb** para examinar, podemos presentar los métodos estándar para estos objetos, hay métodos de **print**, **summary**, **plot**, entre otros:
+
+* el método de resumen presenta una tabla de distribución de números de enlace
+
+* el método de impresión como el de resumen informan sobre la asimetría y la presencia de observaciones no vecinas; la asimetría está presente cuando $i$ es vecino de $j$ pero $j$ no es vecino de $i$. 
+
+
+Recuperamos la parte de la lista de vecinos en Syracuse utilizando el método de subconjunto:
+
 
 ```{r}
+#  Filtrando por el subconjunto de la ciudad de Syracuse 
 Syracuse <- NY8[NY8$AREANAME == "Syracuse city", ]
 Sy0_nb <- subset(NY_nb, NY8$AREANAME == "Syracuse city")
-summary(Sy0_nb)
+summary(Sy0_nb) # Resumen del objeto filtrado
 ```
 
+<br>
 
+Creamos una serie de objetos vecinos de otras maneras:
+
+* Tres objetos k vecinos más cercanos: tomando $k$ puntos más cercanos como vecinos, para $k = 1, 2, 4$; esto se adapta a lo largo del área de estudio, teniendo en cuenta las diferencias en las densidades de las entidades de área. Naturalmente, en la gran mayoría de los casos, conduce a vecinos asimétricos, pero garantizará que todas las áreas tengan $k$ vecinos.
 
 ```{r}
+# Coordenadas de la ciudad Syracuse
 coords <- coordinates(Syracuse)
 IDs <- row.names(Syracuse)
+
+# Creación de los k vecinos más cercanos
 Sy8_nb <- knn2nb(knearneigh(coords, k = 1), row.names = IDs)
 Sy9_nb <- knn2nb(knearneigh(coords, k = 2), row.names = IDs)
 Sy10_nb <- knn2nb(knearneigh(coords, k = 4), row.names = IDs)
+
+
+# nbdists: calcula una lista de vectores de distancias correspondientes al objeto vecino
 dsts <- unlist(nbdists(Sy8_nb, coords))
 Sy11_nb <- dnearneigh(coords, d1 = 0, d2 = 0.75 * max(dsts),row.names = IDs)
 ```
+
+
+El objeto $k = 1$ también es útil para encontrar la distancia mínima a la que todas las áreas tienen un vecino basado en la distancia. Usando la función **nbdists**, podemos calcular una lista de vectores de distancias correspondientes al objeto vecino, aquí para los primeros vecinos más cercanos. El mayor valor será la distancia mínima necesaria para garantizar que todas las áreas estén vinculadas con al menos un vecino, por lo que podemos crear fácilmente un objeto sin observaciones de vecinos al establecer el umbral superior por debajo de este valor.
+
 
 
 <br>
 
 ## 9.2.2 Objetos de pesos espaciales
 
+_Nota: La literatura sobre pesos espaciales es sorprendentemente pequeña, a pesar de su importancia para medir y modelar la dependencia espacial en datos de área._
+
+* A continuación se da una contextualización y procedimiento de calculo de los pesos espaciales:
+
+Los pesos espaciales se pueden ver como una lista de pesos indexados por una lista de vecinos, donde el peso del enlace entre $i$ y $j$ es el $k-ésimo$ elemento del $i-ésimo$ componente de la lista de pesos, y $k$ nos dice cuál de los $i-ésimos$ valores del componente de la lista de vecinos es igual a $j$. Si $j$ no está presente en el $i-ésimo$ componente de la lista de vecinos, $j$ no es vecino de $i$. En consecuencia, algunos pesos $w_{ij}$ en la representación de la matriz de pesos $W$ se pondrán a cero, donde $j$ no es vecino de $i$.
+
+
+Una vez establecida la lista de conjuntos de vecinos para nuestra área de estudio, procedemos a asignar pesos espaciales a cada relación. Si tenemos poco conocimiento sobre el proceso espacial asumido, tratamos de evitar alejarnos de la representación binaria de un peso de unidad para los vecinos (Bavaud, 1998), y cero en caso contrario. 
+
+
+A continuación abordamos las formas en que se construyen los objetos de pesos (objetos de lista). A continuación, se mostrará la conversión de estos objetos en representaciones matriciales densas y dispersas, concluyendo con funciones para importar y exportar objetos vecinos y pesos.
+
+* La función **nb2listw** toma un objeto de lista de vecinos y lo convierte en un objeto de pesos. El estilo de conversión predeterminado es $W$, donde los pesos para cada entidad de área están estandarizados para sumar la unidad; esto también se denomina a menudo estandarización de filas. 
+
+* El método de impresión para objetos **listw** muestra las características de los vecinos subyacentes, el estilo de las ponderaciones espaciales y las constantes de ponderaciones espaciales utilizadas para calcular las pruebas de autocorrelación espacial. El componente de vecinos del objeto es el objeto nb subyacente, que proporciona la indexación del componente de pesos.
+
+
 ```{r}
+# Conversión a un objeto de pesos
 Sy0_lw_W <- nb2listw(Sy0_nb)
 Sy0_lw_W
 ```
@@ -70,33 +183,59 @@ Sy0_lw_W
 
 
 ```{r}
+# Nombres del objeto de pesos
 names(Sy0_lw_W)
 ```
 
 
 ```{r}
+# Atributos asociados al objeto de pesos
 names(attributes(Sy0_lw_W))
 ```
 
 
+Notas relevantes:
+
+* Es importante entender que para **style="W"**, los pesos varían entre la unidad dividida por el mayor y el menor número de vecinos, y las sumas de pesos para cada entidad de área son la unidad. Este estilo de pesos espaciales puede interpretarse como que permite el cálculo de valores promedio entre vecinos.
+
+* Las ponderaciones de los enlaces que se originan en áreas con pocos vecinos son mayores que las que se originan en áreas con muchos vecinos, lo que quizás aumente las entidades de área en el borde del área de estudio sin querer. Esta representación ya no es simétrica, pero es similar a la simétrica.
+
 
 ```{r}
+# Rango de valores de los pesos
 1/rev(range(card(Sy0_lw_W$neighbours)))
 summary(unlist(Sy0_lw_W$weights))
 ```
 
+```{r}
+# sumas de pesos para cada entidad de área
+summary(sapply(Sy0_lw_W$weights, sum))
+```
+
+
+Establecer estilo="B"('binary') - retiene un peso de unidad para cada relación vecina, pero en este caso, las sumas de pesos para las áreas difieren según el número de áreas vecinas que tienen.
 
 ```{r}
+# Pesos con style = "B"
 Sy0_lw_B <- nb2listw(Sy0_nb, style = "B")
 summary(unlist(Sy0_lw_B$weights))
 ```
 
 ```{r}
+# sumas de pesos para cada entidad de área con style = "B" 
 summary(sapply(Sy0_lw_B$weights, sum))
 ```
 
+* El argumento **glist** se puede usar para pasar una lista de vectores de pesos generales correspondientes a las relaciones vecinas a **nb2listw**. Digamos que creemos que la fuerza de las relaciones de vecindad se atenúa con la distancia.
+
+
+* Estrategia:
+
+Se puede configurar los pesos para que sean proporcionales a la distancia inversa entre los puntos que representan las áreas, usando **nbdists** para calcular las distancias para el objeto **nb** dado. Usando lapply para invertir las distancias, podemos obtener una estructura de pesos espaciales diferente a las anteriores. Si no se tiene ninguna razón para suponer más conocimiento sobre las relaciones entre vecinos que su existencia o ausencia, este paso es potencialmente engañoso, por el contrario si sabemos que los flujos de migración o desplazamiento describen la estructura de los pesos espaciales mejor que la alternativa binaria, puede valer la pena usarlos como pesos generales; sin embargo, puede haber problemas de simetría, porque tales flujos, a diferencia de las distancias inversas, rara vez son simétricos.
+
 
 ```{r}
+# pesos proporcionales a la distancia inversa
 dsts <- nbdists(Sy0_nb, coordinates(Syracuse))
 idw <- lapply(dsts, function(x) 1/(x/1000))
 Sy0_lw_idwB <- nb2listw(Sy0_nb, glist = idw, style = "B")
@@ -105,51 +244,154 @@ summary(unlist(Sy0_lw_idwB$weights))
 
 
 ```{r}
+# sumas de pesos para cada entidad de área
 summary(sapply(Sy0_lw_idwB$weights, sum))
 ```
 
+La Figura 9.3 muestra tres representaciones de ponderaciones espaciales para Syracuse mostradas como matrices. La imagen style="W" de la izquierda es evidentemente asimétrica, con colores más oscuros mostrando mayor peso para áreas con pocos vecinos. Los otros dos paneles son simétricos, pero expresan diferentes suposiciones sobre las fortalezas de las relaciones de vecindad.
 
 
+<center>
+![](9.3.png)
+</center>
+
+
+**Nota importante:** 
+
+El argumento final de nb2listw nos permite manejar listas de vecinos con áreas no vecinas. No es obvio que la representación del peso del conjunto vacío sea cero; tal vez debería ser NA, lo que generaría problemas más adelante. 
+
+Por esta razón, el valor predeterminado del argumento es zero.policy=FALSE, lo que genera un error cuando se proporciona un argumento nb con áreas sin vecinos. Establecer el argumento en TRUE permite la creación del objeto de pesos espaciales, con pesos cero. El argumento zero.policy posteriormente deberá usarse en cada función llamada, a menos que se establezca TRUE para la sesión R actual con set.ZeroPolicyOption(TRUE). 
+
+Bivand y Portnov (2004) analizan el contraste entre la comprensión basada en conjuntos de los vecinos y la conversión a una representación matricial, y se reduce a si el producto de los pesos de un área no vecina y un vector n arbitrario debe ser un valor faltante o cero numérico. Mantener las entidades de área no vecinas plantea preguntas sobre el tamaño relevante de n cuando se prueba la autocorrelación, entre otras cuestiones.
+
+* Por lo tanto se espera que lo siguiente genere un error
 
 ```{r}
-Sy0_lw_D1 <- nb2listw(Sy11_nb, style = "B")
+# Sy0_lw_D1 <- nb2listw(Sy11_nb, style = "B")
 ```
 
 
 ```{r}
+# pesos con style = "B" y zero.policy = TRUE
 Sy0_lw_D1 <- nb2listw(Sy11_nb, style = "B", zero.policy = TRUE)
 print(Sy0_lw_D1, zero.policy = TRUE)
 ```
+
+
+Propuesta de solución a los valores faltantes:
+
+El problema paralelo de los conjuntos de datos con valores faltantes en las variables pero con pesos espaciales totalmente especificadas se aborda a través del método **subset.listw**, que vuelve a generar los pesos para el subconjunto de áreas dado, por ejemplo, dado por complete.cases. Sabiendo qué observaciones están incompletas, los vecinos y pesos subyacentes se pueden dividir en subconjuntos en algunos casos, con el objetivo de evitar la propagación de valores de NA al calcular valores espacialmente retrasados. Muchas pruebas y funciones de ajuste de modelos pueden llevar a cabo esto internamente si se establece el indicador de argumento apropiado.
+
+Recomendación: Un analista cuidadoso prefiere un subconjunto de los datos de entrada y los pesos antes de probar o modelar.
+
+
 
 <br>
 
 ### 9.2.3 Manejo de objetos de pesos espaciales
 
+Hay varios paquetes de contribución que brindan soporte para matrices dispersas, entre los cuales estan:
+
+- **Matrix** (paquete recomendado) 
+
+- **as_dgRMatrix_listw** convierte un objeto listw en una matriz dispersa de matriz ordenada, comprimida y orientada a filas, como un objeto **dgRMatrix**(una subclase de la clase virtual RsparseMatrix).
+
+Es más fácil hacer una matriz dispersa orientada a filas a partir de un objeto de pesos espaciales ya que los pesos están orientados a filas. 
+
+* Una función que se utiliza mucho en las funciones de prueba y ajuste de modelos es listw2U, que devuelve un objeto listw simétrico que representa la matriz de ponderaciones espaciales $\frac{1}{2}(W + W^T)$.
+
+
+
+- Los objetos vecinos y de pesos producidos en otro software se pueden importar a R sin dificultad y dichos objetos también se pueden exportar a otro software.
+
+**Ejemplo.**
+
+Se generan algunos archivos en GeoDa a partir de las secciones del censo de Syracuse escritas como un archivo de forma, con el centroide utilizado aquí almacenado en el marco de datos. Los dos primeros son para vecinos de contigüidad, utilizando los criterios de dama y torre, respectivamente. Estos archivos de formato GAL contienen solo información de vecinos y se describen en detalle en el archivo de ayuda que acompaña a la función read.gal.
 
 ```{r}
+# Lectura del archivo en formato GAL
 Sy14_nb <- read.gal("Sy_GeoDa1.GAL")
+
+# Validación de la igualdad de los formatos
 isTRUE(all.equal(Sy0_nb, Sy14_nb, check.attributes = FALSE))
 ```
 
 
+La función **write.nb.gal** se utiliza para escribir archivos en formato GAL a partir de objetos nb. 
+
+GeoDa también crea archivos en formato GWT, descritos en la documentación de GeoDa y el archivo de ayuda, que también contienen información de distancia para el vínculo entre las áreas y se almacenan en una representación dispersa de tres columnas. Se pueden leer usando **read.gwt2nb**, aquí para un esquema de cuatro vecinos más cercanos, y solo usando los enlaces vecinos.
+
+
 ```{r}
+# Lectura del archivo en formato GWT
 Sy16_nb <- read.gwt2nb("Sy_GeoDa4.GWT")
+
+# Validación de la igualdad de los formatos
 isTRUE(all.equal(Sy10_nb, Sy16_nb, check.attributes = FALSE))
 ```
+
+Un conjunto similar de funciones está disponible para intercambiar pesos espaciales con la libreria **the Spatial Econometrics**. La representación dispersa de los pesos es similar al formato **GWT** y se puede importar usando **read.dat2listw**.
+
+
+* La exportación a tres formatos diferentes pasa por la función **listw2sn**, que convierte un objeto de pesos espaciales en una representación dispersa de tres columnas. 
+
+* El marco de datos de salida se puede escribir como un archivo de formato GWT con **write.sn2gwt** o como una representación de texto de una matriz dispersa para Matlab™ con **write.sn2dat**.
+
+
+* Los archivos escritos usando **write.sn2gwt** se pueden leer en Stata™ con spmat import W using.
+
+* Hay una función llamada **listw2WB** para crear una lista de pesos espaciales para WinBUGS, que se escribirán en un archivo usando dput. 
+
+* Para objetos vecinos, se puede usar **nb2WB**, configurando todos los pesos a la unidad. De manera similar, un objeto vecino puede exportarse a un archivo con **nb2INLA**, para pasar datos al argumento del gráfico para el modelo "bym" en ajuste usando inla. 
+
+
+* También es posible usar **nb2gra** en el paquete **BayesX** para convertir objetos nb al formato gráfico gra.
+
+
+* El **mat2listw** se puede usar para revertir el proceso, cuando una matriz de pesos se ha leído en R y se debe convertir en un objeto vecino y de lista de pesos. Desafortunadamente, esta función no establece el estilo del objeto listw en un valor conocido, usando **M** para señalar esta falta de conocimiento. Entonces es habitual reconstruir el objeto listw, tratando el componente de vecinos como un objeto **nb**, el componente de pesos como una lista de pesos generales y estableciendo el estilo en la función **nb2listw** directamente. 
+
+
+* Finalmente, hay una función **nb2lines** para convertir listas de vecinos en objetos **SpatialLinesDataFrame**, dadas las coordenadas de los puntos que representan las áreas. Esto permite trazar objetos vecinos de forma alternativa y, si es necesario, exportarlos como archivos de forma.
+
+
+
 
 <br>
 
 ### 9.2.4 Uso de pesos para simular la autocorrelación espacial
 
+<center>
+![](9.3.png)
+</center>
+
+En la figura anterior (Fig. 9.3), se hizo uso de **listw2mat** para convertir un objeto de pesos espaciales en una matriz densa para su visualización. La misma función se usa para construir una representación densa de la matriz $(I − ρW)$ para simular la autocorrelación espacial dentro de la función **invIrW**, donde $W$ es una matriz de pesos, $ρ$ es un coeficiente de autocorrelación espacial e $I$ es la matriz identidad. Este enfoque fue introducido por Cliff y Ord (1973, pp. 146-147), y no impone condiciones estrictas sobre la matriz a invertir (solo que no sea singular), y solo se aplica a simulaciones de un proceso autorregresivo simultáneo. 
+
+A continuación se realiza la simulación comenzando con un vector de números aleatorios correspondientes al número de distritos censales en Syracuse, usamos los pesos de contigüidad estandarizados por filas para introducir la autocorrelación:
 
 ```{r}
+# Semilla
 set.seed(987654)
+
+# Número de simulaciones (tamaño del vector de números aleatorios)
 n <- length(Sy0_nb)
+
+# Simulación de una normal de tamaño n
 uncorr_x <- rnorm(n)
+
+# Coeficiente de autocorrelación 
 rho <- 0.5
+
+# Autocorrelaciones espaciales
 autocorr_x <- invIrW(Sy0_lw_W, rho) %*% uncorr_x
 ```
 
+<center>
+![](9.4.png)
+</center>
+
+El resultado se muestra en la figura anterior (Fig. 9.4), donde el gráfico de rezago espacial de la variable original no correlacionada contrasta con el de la variable autocorrelacionada, que ahora tiene una fuerte relación positiva entre los valores del tramo y el rezago espacial; aquí el promedio de los valores de las variables vecinas. tratados El método de retraso para objetos **listw** crea valores de ‘spatial lag’: $lag(yi) = \sum_{j \in N_i} w_{ij}y_j$ para los valores observados $y_i$; $N_i$ es el conjunto de vecinos de $i$. Si el estilo del objeto de pesos es la estandarización de filas, los valores de  $lag(yi)$ serán promedios sobre los conjuntos de vecinos para cada $i$, como una ventana móvil definida por $N_i$ e incluyendo valores ponderados por $w_{ij}$. 
+
+El análisis de datos de área depende de manera crucial de la construcción de los pesos espaciales, razón por la cual se ha tardado algún tiempo en describir la amplitud de opciones que enfrenta el investigador. Ahora podemos pasar a probar la autocorrelación espacial y modelar utilizando suposiciones sobre los procesos espaciales subyacentes.
 
 <br>
 
