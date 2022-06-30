@@ -1,8 +1,9 @@
 ---
 title: "Trabajo de datos en área"
-author: "Jennifer Salazar"
-date: "28/6/2022"
-output: html_document
+author: ""
+date: ""
+output:
+  rmdformats::robobook
 ---
 
 ```{r setup, include=FALSE}
@@ -84,7 +85,7 @@ library(rgdal)
 library(spatialreg)
 # library(devtools)
 # Instalando el paquete McSpatial desde GitHub
-install_github("cran/McSpatial")
+#install_github("cran/McSpatial")
 
 # Lectura de mapas espaciales como objetos vectoriales
 NY8 <- readOGR(".", "NY8_utm18")
