@@ -398,21 +398,87 @@ El análisis de datos de área depende de manera crucial de la construcción de 
 ## 9.3 Prueba de autocorrelación espacial
 
 
+Ya que aprendimos a construir pesos espaciales, podemos comenzar a usarlos para probar la presencia de autocorrelación espacial. A continuación revisaremos los supuestos que se hacen en este test, se estará usando el I de Moran como ejemplo, sin embargo, las consecuencias también aplican para otras pruebas.
+
+- Las pruebas asumen que el modelo de media de los datos elimina patrones espaciales sistemáticos de los datos.
+
+Si estamos examinando datos ecológicos, pero ignoramos los factores ambientales como la temperatura, precipitación o elevación, no deberíamos sorprendernos si los datos parecen mostrar autocorrelación espacial (para una discusión, ver Bivand, 2008, pp. 9–15).
+
+Tal especificación errónea del modelo de media no es poco frecuente y puede ser inevitable cuando no se dispone de las observaciones sobre las variables necesarias para especificarlo correctamente.
+
+- Otro problema que puede surgir es que los pesos espaciales que usamos para las pruebas, no son los que generaron la autocorrelación - los pesos elegidos pueden, por ejemplo, no adaptarse a las escalas reales de interacción entre entidades de área.
+
+Esto es un reflejo de la especificación incorrecta del modelo de la varianza de los residuales para el modelo de media, que también puede incluir hacer suposiciones de distribución que no son apropiadas para los datos. Algunos de estos casos pueden abordarse mediante la transformación de los datos y el uso de la estimación ponderada, pero en cualquier caso, se necesita cuidado al interpretar la autocorrelación espacial aparente que en realidad puede derivarse de una especificación incorrecta.
+
+---
+
+Empezaremos con un ejemplo con la variable simulada para las secciones censales de Syracuse. Dado que se sabe que la variable de entrada se extrae al azar de la distribución Normal podemos manipularla para ver qué sucede con los resultados de las pruebas en diferentes condiciones. 
+
+La prueba que se usará en esta discusión es la I de Moran:
+
+[](I_moran.png)
+
+donde $y_i$ es la i-ésima observación, $\bar{y}$ es la media de la variable de interés y $w_{ij}$ es el peso espacial del enlace entre i y j. Centrarse en la media es equivalente a afirmar que el modelo correcto tiene una media constante y que cualquier patrón restante después del centrado es causado por las relaciones espaciales codificadas en los pesos espaciales.
+
+
+A continuación, se calcula el I de Moran para 5 configuraciones diferentes, cada función nos devuelve:
+
+El valor estimado para I
+Su valor esperado, (el cual es -1/(n-1) para los casos centrados en la media)
+La varianza de la estadística bajo aleatorización
+La desviación estándar
+Y el p-valor de la prueba para la alternativa que I > E(I)
+
+* Caso no correlacionado:
+
 ```{r}
 moran_u <- moran.test(uncorr_x, listw = Sy0_lw_W)
-moran_a <- moran.test(autocorr_x, listw = Sy0_lw_W)
-moran_a1 <- moran.test(autocorr_x, listw = nb2listw(Sy9_nb,
- style = "W"))
+moran_u
 ```
 
+no hay rastro de dependencia espacial con estos pesos.
+
+* Caso con variable espacialmente correlacionada
+
+```{r}
+moran_a <- moran.test(autocorr_x, listw = Sy0_lw_W)
+```
+
+Como era de esperarse se muestra un resultado significativo para estos pesos espaciales.
+
+* Caso usando pesos espaciales que difieren de los usados para generar la autocorrelación espacial.
+
+```{r}
+moran_a1 <- moran.test(autocorr_x, listw = nb2listw(Sy9_nb,
+ style = "W"))
+moran_a1
+```
+
+Podemos ver que el valor de I cae, y aunque es marginalmente significativo, vale la pena recordar que, si el proceso de generación hubiera sido menos fuerte, podríamos haber llegado a una conclusión equivocada basada en la elección de pesos espaciales, no coincidiendo con el proceso de generación real.
+
+* Las 2 siguientes muestran lo que puede suceder cuando nuestra suposición de una media constante es errónea 
+
+Al introducir una tendencia suave que sube de oeste a este en la variable aleatoria no correlacionada, tenemos una situación en la que no hay una autocorrelación espacial subyacente, solo una tendencia lineal simple. Si asumimos una media constante, llegamos a la conclusión incorrecta.
 
 ```{r}
 et <- coords[, 1] - min(coords[, 1])
 trend_x <- uncorr_x + 0.00025 * et
 moran_t <- moran.test(trend_x, listw = Sy0_lw_W)
-moran_t1 <- lm.morantest(lm(trend_x ~ et), listw = Sy0_lw_W)
+moran_t
 ```
 
+Esta ultima muestra cómo volvemos a los residuos no correlacionados al incluir la tendencia en la media, y nuevamente tenemos residuos no correlacionados.
+
+```{r}
+moran_t1 <- lm.morantest(lm(trend_x ~ et), listw = Sy0_lw_W)
+moran_t1
+```
+
+Los resultados anteriores se pueden resumir en la siguiente tabla.
+
+[](table_9.1.png)
+
+Lo anterior muestra cuán importante puede ser comprender que las pruebas de autocorrelación espacial también pueden reaccionar a un modelo mal especificado de la media, y que la omisión de una variable con patrón espacial de la función media "parecerá" una autocorrelación espacial para las pruebas.
 
 <br>
 
