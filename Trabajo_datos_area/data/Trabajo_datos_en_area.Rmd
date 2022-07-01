@@ -1144,4 +1144,6 @@ El enfoque de vectores propios de Moran (Dray et al., 2006; Griffith y Peres Net
 agrega las covariables en la evaluación de qué vectores propios elegir, pero no No los utilice en la construcción de los vectores propios. __SpatialFiltering__ fue implementado y contribuido por Yongwan Chun y Michael Tiefelsdorf, y
 se presenta en Tiefelsdorf y Griffith (2007); se basa en el código de Matlab por Pedro Peres-Neto y se discute en Dray et al. (2006), Dorman et al.(2007) y Griffith y Peres-Neto (2006). El uso de estos métodos se cubre en detalle en Borcard et al. (2011, pp. 243–284) y revisado en más amplio contexto por Dray et al. (2012).
 
+En general observamos que el análisis de datos en áreas tiene mucha utilidad en la practica y que además es muy utilizado en ciencias medicas, econométria  y en muchas ramas científicas, nos queda también que incluir covariables en los modelos que estiman la autocorrelación es de mucha utilidad para dar conclusiones acertadas, por otro lado, se recuerda la importancia de especificar los pesos y los vecinos, ya que si se hace de manera incorrecta se podría llegar a conclusiones erróneas. 
+
 
