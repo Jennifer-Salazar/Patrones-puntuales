@@ -83,9 +83,11 @@ En el paquete spdep, las relaciones vecinas entre n observaciones están represe
 library(spdep)
 library(rgdal)
 library(spatialreg)
-# library(devtools)
+library(devtools)
 # Instalando el paquete McSpatial desde GitHub
-#install_github("cran/McSpatial")
+install_github("cran/McSpatial")
+library(McSpatial)
+library(coda)
 
 # Lectura de mapas espaciales como objetos vectoriales
 NY8 <- readOGR(".", "NY8_utm18")
@@ -835,8 +837,8 @@ nylag <- lagsarlm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
 summary(nylag)
 ```
 
-```{r, eval=FALSE}
-bptest.sarlm(nylag) 
+```{r}
+bptest.Sarlm(nylag) 
 ```
 
 Las funciones de ajuste del modelo de econometría espacial también pueden utilizar matrices dispersas, pero cuando se utiliza la técnica de valor propio, patrón asintótico los errores se calculan para el coeficiente espacial. Aquí hay un problema numérico, que si las variables en el modelo se escalan de tal manera que los otros coeficientes son escalonados de manera diferente al coeficiente de autocorrelación espacial, la inversión de la matriz de coeficientes de varianza-covarianza puede fallar.
@@ -890,8 +892,10 @@ y su matriz de covarianza, para generar distribuciones de los impactos. Los impa
 
 ```{r}
 set.seed(987654)
-imps <- impacts(nymix, tr = trMat, R = 1999)
+imps <- spatialreg::impacts(obj = nymix, tr = trMat, R = 1999)
 imps
+
+class(nymix)
 ```
 
 ```{r, eval=FALSE}
@@ -918,8 +922,8 @@ nyerr <- errorsarlm(Z ~ PEXPOSURE + PCTAGE65P + PCTOWNHOME,
 summary(nyerr)
 ```
 
-```{r, eval = FALSE}
-LR.sarlm(nyerr, nymix)
+```{r}
+LR.Sarlm(nyerr, nymix)
 ```
 
 
