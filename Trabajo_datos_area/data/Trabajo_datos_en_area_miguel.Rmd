@@ -387,7 +387,7 @@ Un conjunto similar de funciones está disponible para intercambiar pesos espaci
 ![](9.3.png)
 </center>
 
-En la figura anterior (Fig. 9.3), se hizo uso de [listw2mat](https://rdrr.io/cran/spdep/man/nb2mat.html) para convertir un objeto de pesos espaciales en una matriz densa para su visualización. La misma función se usa para construir una representación densa de la matriz $(I − ρW)$ para simular la autocorrelación espacial dentro de la función [invIrW](https://www.rdocumentation.org/packages/spdep/versions/0.7-9/topics/invIrM), donde $W$ es una matriz de pesos, $ρ$ es un coeficiente de autocorrelación espacial e $I$ es la matriz identidad. Este enfoque no impone condiciones estrictas sobre la matriz a invertir (solo que no sea singular), y solo se aplica a simulaciones de un proceso autorregresivo simultáneo. 
+En la figura anterior (Fig. 9.3), se hizo uso de [listw2mat] para convertir un objeto de pesos espaciales en una matriz densa para su visualización. La misma función se usa para construir una representación densa de la matriz $(I − ρW)$ para simular la autocorrelación espacial dentro de la función [invIrW](https://www.rdocumentation.org/packages/spdep/versions/0.7-9/topics/invIrM), donde $W$ es una matriz de pesos, $ρ$ es un coeficiente de autocorrelación espacial e $I$ es la matriz identidad. Este enfoque no impone condiciones estrictas sobre la matriz a invertir (solo que no sea singular), y solo se aplica a simulaciones de un proceso autorregresivo simultáneo. 
 
 A continuación se realiza la simulación comenzando con un vector de números aleatorios correspondientes al número de distritos censales en Syracuse, usamos los pesos de contigüidad estandarizados por filas para introducir la autocorrelación:
 
@@ -505,7 +505,7 @@ Lo anterior muestra cuán importante puede ser comprender que las pruebas de aut
 
 <br>
 
-## 9.3.1 Pruebas globales
+### 9.3.1 Pruebas globales
 
 La I de Moran, `moran.test`, es quizás la prueba global más común y, por esta razón, la seguimos usando aquí. Otras pruebas globales implementadas en el paquete spdep incluyen:
 
@@ -538,7 +538,7 @@ moran.test(NY8$Cases, listw = nb2listw(NY_nb))
 El resultado, como vemos, es que el patrón espacial de la variable de interés es significativo, y es muy probable que los tramos vecinos tengan valores similares por cualquier motivo.
 
 
-Cambiando el estilo de los pesos espaciales para que todos los pesos sean iguales y sumando el número de observaciones. 
+Cambiando el estilo de los pesos espaciales para que todos los pesos sean iguales y sumando el número de observaciones.
 
 ```{r}
 lw_B <- nb2listw(NY_nb, style = "B")
@@ -547,36 +547,24 @@ moran.test(NY8$Cases, listw = lw_B)
 
 vemos que el valor de probabilidad resultante se reduce unas 20 veces.
 
-Por defecto, moran.test utiliza la suposición de aleatorización, que difiere de la suposición de normalidad más simple al introducir un término de corrección basado en la curtosis de la variable de interés.
-
 ```{r}
 moran.test(NY8$Cases, listw = lw_B, randomisation = FALSE)
 ```
-
-En este caso, hay poca diferencia y los dos arrojan resultados similares.
-
-Siguiente se muestra que la prueba estándar bajo normalidad es, de hecho, la misma prueba que la prueba de Moran para los residuos de regresión del modelo, incluyendo solo la intersección.
 
 ```{r}
 lm.morantest(lm(Cases ~ 1, NY8), listw = lw_B)
 ```
 
-
-* Usando la aproximación de Saddlepoint
-
-En general, los métodos exactos y de Saddlepoint hacen poca diferencia en los resultados de las pruebas globales cuando el número de entidades espaciales no es pequeño, como aquí.
-
 ```{r}
 lm.morantest.sad(lm(Cases ~ 1, NY8), listw = lw_B)
 ```
 
-* Usando la prueba de Monte Carlo, una prueba de permutación en el que los valores observados se asignan aleatoriamente a los tramos.
 
 ```{r}
 lm.morantest.exact(lm(Cases ~ 1, NY8), listw = lw_B)
 ```
 
-* Boostrap parametrico incluyendo una constante de riesgo Poisson.
+
 
 ```{r}
 set.seed(1234)
@@ -602,10 +590,11 @@ boot2 <- boot(NY8$Cases, statistic = MoranI.pboot,
 pnorm((boot2$t0 - mean(boot2$t))/sd(boot2$t[, 1]), lower.tail = FALSE)
 ```
 
-```{r, warning=FALSE}
+```{r}
 rni <- fitted(glm(Cases ~ 1 + offset(log(POP8)), data = NY8,
  family = "poisson"))
 ```
+
 
 
 ```{r}
@@ -614,18 +603,12 @@ EBImoran.mc(n = NY8$Cases, x = NY8$POP8, listw = nb2listw(NY_nb,
  style = "B"), nsim = 999)
 ```
 
-Histogramas para los valores del I de Moran bajo permutaciones aleatorias y muestras parametricas del valores esperado de una constante de riesgo.
-
-
-Otro enfoque es trazar y tabular valores de una medida de autocorrelación espacial para órdenes superiores de vecinos o bandas de vecinos más distantes donde las entidades espaciales son puntos.
-
 
 ```{r}
 cor8 <- sp.correlogram(neighbours = NY_nb, var = NY8$Cases,
  order = 8, method = "I", style = "C")
 ```
 
-El panel derecho de la figura presenta la salida de la función correlog en el paquete pgirmess de Patrick Giraudoux; la función es un contenedor para dnearneigh y moran.test. La función selecciona automáticamente bandas de distancia de casi 10 km, que abarcan toda el área de estudio. En este caso, las dos primeras bandas de 0 a 10 y de 10 a 20 km tienen valores significativos.
 
 ```{r}
 library(pgirmess)
@@ -634,17 +617,13 @@ corD <- correlog(coordinates(NY8), NY8$Cases, method = "Moran")
 
 
 
-## 9.3.2 Pruebas locales
+### 9.3.2 Pruebas locales
 
-Las pruebas globales de autocorrelación espacial se calculan a partir de las relaciones locales entre los valores observados en una entidad espacial y sus vecinos, para la definición de vecino elegida. Debido a esto, podemos dividir las medidas globales en sus componentes y, por extensión, construir pruebas localizadas destinadas a detectar "grupos" (observaciones con vecinos muy similares) y "puntos calientes" (observaciones con vecinos muy diferentes).
-
-Primero, examinemos un diagrama de dispersión de Moran de la variable de recuento de casos de leucemia; para una discusión de diagramas de dispersión de Moran.
-
-* Diagrama de dispersión de Moran de la incidencia de leucemia
 
 ```{r}
 moran.plot(NY8$Cases, listw = nb2listw(NY_nb, style = "C"))
 ```
+
 
 
 
