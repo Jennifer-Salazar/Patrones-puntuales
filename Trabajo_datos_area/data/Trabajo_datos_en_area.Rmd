@@ -13,6 +13,7 @@ output:
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
+> **Importante:** A continuación se presenta un resumen que contiene códigos y fragmentos que fueron replicados del capítulo 9 del libro Applied Spatial Data Analysis with R de los autores Roger S. Bivand, Edzer Pebesma y Virgilio Gómez-Rubio. Esto se hace con el propósito de aprender y de demostrar la lectura del texto para el curso de estadística espacial.
 
 # Modelación de datos en área
 
@@ -507,7 +508,7 @@ Lo anterior muestra cuán importante puede ser comprender que las pruebas de aut
 
 <br>
 
-## 9.3.1 Pruebas globales
+### 9.3.1 Pruebas globales
 
 La I de Moran, `moran.test`, es quizás la prueba global más común y, por esta razón, la seguimos usando aquí. Otras pruebas globales implementadas en el paquete spdep incluyen:
 
@@ -636,7 +637,7 @@ corD <- correlog(coordinates(NY8), NY8$Cases, method = "Moran")
 
 
 
-## 9.3.2 Pruebas locales
+### 9.3.2 Pruebas locales
 
 Las pruebas globales de autocorrelación espacial se calculan a partir de las relaciones locales entre los valores observados en una entidad espacial y sus vecinos, para la definición de vecino elegida. Debido a esto, podemos dividir las medidas globales en sus componentes y, por extensión, construir pruebas localizadas destinadas a detectar "grupos" (observaciones con vecinos muy similares) y "puntos calientes" (observaciones con vecinos muy diferentes).
 
