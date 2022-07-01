@@ -9,11 +9,11 @@ output:
   rmdformats::robobook
 ---
 
-```{r setup, include=FALSE}
+```{r setup, include=FALSE, message=FALSE, warning=FALSE}
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-> **Importante:** A continuación se presenta un resumen que contiene códigos y fragmentos que fueron replicados del capítulo 9 del libro Applied Spatial Data Analysis with R de los autores Roger S. Bivand, Edzer Pebesma y Virgilio Gómez-Rubio. Esto se hace con el propósito de aprender y de demostrar la lectura del texto para el curso de estadística espacial.
+> **Importante:** A continuación se presenta un resumen que contiene códigos y fragmentos que fueron replicados del capítulo 9 del libro "Applied Spatial Data Analysis with R" de los autores Roger S. Bivand, Edzer Pebesma y Virgilio Gómez-Rubio. Esto se hace con el propósito de aprender a analizar datos en área y de demostrar la lectura del texto para el curso de estadística espacial.
 
 # Modelación de datos en área
 
