@@ -649,6 +649,24 @@ moran.plot(NY8$Cases, listw = nb2listw(NY_nb, style = "C"))
 ```
 
 
+Dado que el I de Moran global es, al igual que los coeficientes de correlación similares, una relación lineal, también podemos aplicar técnicas estándar para detectar observaciones con una influencia inusualmente fuerte en la pendiente.
+
+Esto significa que podemos ver si las relaciones locales particulares pueden influir en la pendiente más que proporcionalmente.
+
+![](mapa1_local.png)
+
+El mapa anterior, muestra las zonas con influencia significativa (usando criterios estándar) codificadas por su cuadrante en el diagrama de dispersión de Moran.
+
+
+* I de Moran local:
+
+Los valores de la I de Moran local se construyen como los n componentes sumados para llegar a la I de Moran global:
+
+![](I_moran_local.png)
+
+Al igual que con la estadística global, las estadísticas locales pueden probarse en busca de divergencia de los valores esperados, bajo suposiciones de normalidad y aleatorización analíticamente, y utilizando aproximaciones de Saddlepoint y métodos exactos. Los dos últimos métodos pueden ser importantes porque el número de vecinos de cada observación es muy pequeño y esto, a su vez, puede dificultar la adopción del supuesto de normalidad.
+
+* Valores locales de $I_i$ de Moran calculados directamente.
 
 ```{r}
 lm1 <- localmoran(NY8$Cases, listw = nb2listw(NY_nb,
@@ -660,6 +678,7 @@ lm3 <- as.data.frame(localmoran.exact(lm(Cases ~ 1, NY8),
 ```
 
 
+* Valores locales de $I_i$ de Moran usando la hipótesis de riesgo constante
 
 ```{r}
 r <- sum(NY8$Cases)/sum(NY8$POP8)
@@ -671,6 +690,14 @@ I_CR <- sdCR * wsdCR
 ```
 
 
+La Figura a continuación muestra los dos conjuntos de valores del $I_i$ local de Moran, calculados de la manera estándar y utilizando el supuesto de Poisson para la hipótesis de riesgo constante.
+
+![](mapa2_local.png)
+
+Se puede ver que hay algunos cambios de signo entre los mapas, con los valores de la hipótesis de riesgo constante algo más alejados de cero.
+
+
+También podemos construir una prueba simple de Monte Carlo de los valores locales de $I_i$ de Moran de la hipótesis de riesgo constante, simulando mucho como en el caso global, pero ahora conservando todos los resultados locales.
 
 ```{r}
 set.seed(1234)
@@ -689,11 +716,20 @@ diff <- ifelse(diff > 0, diff, 0)
 pval <- punif((diff + 1)/(nsim + 1))
 ```
 
+* Valores de probabilidad para todas las secciones censales
+
+Finalmente, se examinan los valores de probabilidad locales de $I_i$ de Moran para varios métodos de cálculo. Moran local: supuestos de normalidad y aleatorización, aproximación de Saddlepoint, valores exactos e hipótesis de riesgo constante.
+
+![](mapa3_local.png)
+
+- Parece que el uso del enfoque de riesgo constante maneja la heterogeneidad en los conteos mejor que las otras alternativas.
+
+- Encontrar la autocorrelación espacial no es un objetivo en sí mismo, ya sea local o global, sino solo un paso en un proceso que conduce a un modelo adecuado.
 
 <br>
 
 
-## Ajuste de modelos de datos en área 
+## 9.4 Ajuste de modelos de datos en área 
 
 Generalmente a la hora de realizar un análisis estadístico se busca que los datos sean independientes entre sí, eso seria lo ideal, pero la realidad es muy distinta y en los datos de área se encuentra autocorrelación espacial que es afirmada por los tests que ya vimos anteriormente, en algunos casos hay información de covariables que nos ayuda a modelar esta dependencia espacial, pero en otros casos no, por lo que el objetivo es mirar como se puede modelar la estructura de autocorrelación espacial.
  
